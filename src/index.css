@@ -1,0 +1,23 @@
+@import 'tailwindcss';
+
+@theme {
+  --color-wine-50: #fdf2f4;
+  --color-wine-100: #fce7ea;
+  --color-wine-200: #f9d0d8;
+  --color-wine-300: #f4a8b7;
+  --color-wine-400: #ec758f;
+  --color-wine-500: #df4568;
+  --color-wine-600: #c52551;
+  --color-wine-700: #a51a42;
+  --color-wine-800: #8a183c;
+  --color-wine-900: #5e0f2a;
+  --color-wine-950: #3d0619;
+}
+
+html {
+  -webkit-tap-highlight-color: transparent;
+}
+
+body {
+  @apply bg-wine-50 text-wine-950 antialiased;
+}
