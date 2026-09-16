@@ -1,7 +1,7 @@
 import type { Catalog, TastingCase } from '@/engine'
 import { da } from '@/i18n/da'
 import type { StructureKey } from '@/schema'
-import { appearanceLabel } from './labels'
+import { appearanceLabel } from '@/lib/labels'
 import { ScaleBar } from './ScaleBar'
 
 interface TastingCardProps {

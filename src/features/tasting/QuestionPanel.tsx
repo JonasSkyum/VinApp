@@ -1,7 +1,7 @@
 import { tierSpec, type Catalog, type Question } from '@/engine'
 import { da } from '@/i18n/da'
 import { Autocomplete } from '@/components/Autocomplete'
-import { answerLabel, answerSearchText } from './labels'
+import { answerLabel, answerSearchText } from '@/lib/labels'
 
 interface QuestionPanelProps {
   question: Question

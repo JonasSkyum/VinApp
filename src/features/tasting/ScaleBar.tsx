@@ -1,7 +1,7 @@
 import { da } from '@/i18n/da'
 import { interpolate } from '@/lib/text'
 import type { Level, StructureKey } from '@/schema'
-import { levelLabel } from './labels'
+import { levelLabel } from '@/lib/labels'
 
 interface ScaleBarProps {
   attribute: StructureKey

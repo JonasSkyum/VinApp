@@ -14,7 +14,7 @@ import {
 } from '@/engine'
 import { da } from '@/i18n/da'
 import { interpolate } from '@/lib/text'
-import { answerLabel, explanationText } from './labels'
+import { answerLabel, explanationText } from '@/lib/labels'
 
 interface RoundResultProps {
   tastingCase: TastingCase
@@ -70,7 +70,9 @@ export function RoundResult({
       >
         <p className="text-wine-900/70 text-sm">{da.result.reveal}</p>
         <h2 id="result-title" className="text-wine-800 text-2xl font-bold">
-          {style.name}
+          <Link to={`/lexicon/styles/${style.id}`} className="hover:underline">
+            {style.name}
+          </Link>
         </h2>
         <p className="mt-1 text-sm">
           {style.grapeIds.map((id) => catalog.grape(id).name).join(', ')} · {da.oak[style.oak]}
