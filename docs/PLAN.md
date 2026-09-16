@@ -19,11 +19,11 @@ Mål: En tom app, der kører lokalt og automatisk bliver deployet til GitHub Pag
 - [x] Sæt `base: '/VinApp/'` i `vite.config.ts` (repoet hedder `VinApp`, ikke `vinspil`)
 - [x] Opret `.github/workflows/deploy.yml`: på push til `main` køres install → lint → test → build → deploy til Pages
 - [x] Opret `.github/workflows/ci.yml`: på pull requests køres lint + test + build
-- [ ] 👤 GitHub → Settings → Pages → Source: **GitHub Actions**
+- [x] 👤 GitHub → Settings → Pages → Source: **GitHub Actions**
 - [x] Opret `src/i18n/da.ts` til UI-tekster
 - [x] Basis-layout: bundnavigation på mobil (Smag, Kort, Daglig, Leksikon, Fremskridt), topbar på desktop
 - [x] Opret `README.md` med kort beskrivelse og kommandoer
-- [ ] ✅ Tjek: live URL `https://jonasskyum.github.io/VinApp/` viser appen, og navigationen virker
+- [x] ✅ Tjek: live URL `https://jonasskyum.github.io/VinApp/` viser appen, og navigationen virker
 
 ---
 
