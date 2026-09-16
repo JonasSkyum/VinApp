@@ -341,6 +341,14 @@ export const da = {
     nextIn: 'Næste udfordring om',
     countdownLabel: 'Nedtælling til næste udfordring',
   },
+  settings: {
+    theme: 'Tema',
+    themeSystem: 'Som systemet',
+    themeLight: 'Lyst',
+    themeDark: 'Mørkt',
+    sound: 'Lydeffekter',
+    soundHelp: 'En kort lyd, når en runde er rigtig, delvist rigtig eller forkert.',
+  },
   install: {
     title: 'Installer Vinspil som app',
     help: 'Få appen på hjemmeskærmen, så den åbner hurtigt og virker offline.',

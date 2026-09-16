@@ -63,7 +63,7 @@ export function DailySummary({ result, streak, catalog, now }: DailySummaryProps
         <p className="text-wine-900/70 mt-4 text-sm">{da.daily.score}</p>
         <p className="text-wine-800 text-5xl font-bold">
           <CountUp value={result.total} durationSeconds={1.2} />
-          <span className="text-wine-900/60 text-xl font-normal"> / {result.max}</span>
+          <span className="text-wine-900/70 text-xl font-normal"> / {result.max}</span>
         </p>
         <p className="mt-2 text-2xl tracking-wider" aria-hidden="true">
           {outcomeRow(result.tiers)}

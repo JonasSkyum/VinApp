@@ -27,7 +27,7 @@ export function SessionSummary({ scores, onPlayAgain, onNewSession }: SessionSum
         <p className="text-wine-900/70 text-sm">{da.summary.total}</p>
         <p className="text-wine-800 text-5xl font-bold">
           <CountUp value={total} durationSeconds={1.2} />
-          <span className="text-wine-900/60 text-xl font-normal"> / {max}</span>
+          <span className="text-wine-900/70 text-xl font-normal"> / {max}</span>
         </p>
       </div>
 

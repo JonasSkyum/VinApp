@@ -67,11 +67,11 @@ export function StylePage({ catalog = defaultCatalog }: { catalog?: Catalog }) {
                     >
                       {other.name}
                     </Link>
-                    <span className="text-wine-900/60 ml-2 text-sm">
+                    <span className="text-wine-900/70 ml-2 text-sm">
                       {catalog.region(other.regionId).name}
                     </span>
                   </span>
-                  <span className="text-wine-900/60 text-sm">{da.lexicon.compare}</span>
+                  <span className="text-wine-900/70 text-sm">{da.lexicon.compare}</span>
                 </summary>
                 <Comparison a={style} b={other} catalog={catalog} />
               </details>

@@ -11,14 +11,14 @@ interface BeforeInstallPromptEvent extends Event {
 /** After "not now", stay quiet for this long. */
 const DISMISS_DAYS = 14
 
-export function isStandalone(): boolean {
+function isStandalone(): boolean {
   return (
     window.matchMedia?.('(display-mode: standalone)').matches ||
     (navigator as { standalone?: boolean }).standalone === true
   )
 }
 
-export function isIos(): boolean {
+function isIos(): boolean {
   return /iPad|iPhone|iPod/.test(navigator.userAgent)
 }
 
@@ -30,6 +30,8 @@ export function InstallPrompt() {
   const { prefs, update } = usePrefs()
   const [deferred, setDeferred] = useState<BeforeInstallPromptEvent | null>(null)
   const [ios] = useState(() => isIos() && !isStandalone())
+  // Read once at mount: the snooze check does not need to tick.
+  const [mountedAt] = useState(() => Date.now())
 
   useEffect(() => {
     const onPrompt = (e: Event) => {
@@ -47,7 +49,7 @@ export function InstallPrompt() {
 
   const snoozed =
     prefs.installDismissedAt !== null &&
-    Date.now() - prefs.installDismissedAt < DISMISS_DAYS * 24 * 60 * 60 * 1000
+    mountedAt - prefs.installDismissedAt < DISMISS_DAYS * 24 * 60 * 60 * 1000
   if (snoozed || (!deferred && !ios)) return null
 
   const dismiss = () => update({ installDismissedAt: Date.now() })

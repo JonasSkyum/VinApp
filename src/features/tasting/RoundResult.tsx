@@ -1,3 +1,4 @@
+import { useEffect } from 'react'
 import { motion, useReducedMotion } from 'framer-motion'
 import { Link } from 'react-router-dom'
 import { CountUp } from '@/components/CountUp'
@@ -12,6 +13,7 @@ import {
   type RoundScore,
   type TastingCase,
 } from '@/engine'
+import { useSound } from '@/features/settings/useSound'
 import { da } from '@/i18n/da'
 import { interpolate } from '@/lib/text'
 import { answerLabel, explanationText } from '@/lib/labels'
@@ -42,6 +44,17 @@ export function RoundResult({
   onNext,
 }: RoundResultProps) {
   const reduced = useReducedMotion()
+  const play = useSound()
+  useEffect(() => {
+    const outcomes = score.tiers.map((t) => t.outcome)
+    play(
+      outcomes.every((o) => o === 'correct')
+        ? 'correct'
+        : outcomes.some((o) => o === 'correct' || o === 'partial')
+          ? 'partial'
+          : 'wrong',
+    )
+  }, [play, score])
   const style = catalog.style(tastingCase.styleId)
   const grape = catalog.grape(style.grapeIds[0]!)
   const region = catalog.region(style.regionId)
@@ -92,7 +105,7 @@ export function RoundResult({
         <span className="text-wine-900/80 text-sm">{da.result.roundScore}</span>
         <span className="text-wine-800 text-3xl font-bold">
           <CountUp value={score.total} />
-          <span className="text-wine-900/60 text-base font-normal"> / {score.max}</span>
+          <span className="text-wine-900/70 text-base font-normal"> / {score.max}</span>
         </span>
       </div>
 

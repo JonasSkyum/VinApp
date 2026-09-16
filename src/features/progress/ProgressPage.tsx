@@ -14,6 +14,7 @@ import {
   type LeitnerState,
   type UnitKind,
 } from '@/engine'
+import { SettingsPanel } from '@/features/settings/SettingsPanel'
 import { da } from '@/i18n/da'
 import { catalog as defaultCatalog } from '@/lib/catalog'
 import { interpolate } from '@/lib/text'
@@ -118,8 +119,9 @@ export function ProgressPage({ catalog = defaultCatalog, now = Date.now }: Progr
         ))}
       </section>
 
-      <section className="space-y-2">
+      <section className="space-y-4">
         <h2 className="text-wine-800 text-lg font-semibold">{da.progress.settings}</h2>
+        <SettingsPanel />
         <label className="flex items-start gap-3 text-sm">
           <input
             type="checkbox"

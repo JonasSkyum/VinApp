@@ -5,6 +5,7 @@ import { LazyWineMap } from '@/components/map/LazyWineMap'
 import type { MapMarker, MapPoint } from '@/components/map/mapTypes'
 import { PageTitle } from '@/components/PageTitle'
 import { boundsOf, mapQuizPool, type Catalog, type MapQuestion, type MapResult } from '@/engine'
+import { useSound } from '@/features/settings/useSound'
 import { da } from '@/i18n/da'
 import { catalog as defaultCatalog } from '@/lib/catalog'
 import { interpolate } from '@/lib/text'
@@ -55,6 +56,11 @@ export function MapQuizPage({ now = Date.now }: { now?: () => number }) {
     () => feedbackMarkers(state.feedback, catalog),
     [state.feedback, catalog],
   )
+  const play = useSound()
+  useEffect(() => {
+    const f = state.feedback
+    if (f) play(f.correct ? 'correct' : f.points > 0 ? 'partial' : 'wrong')
+  }, [state.feedback, play])
 
   if (state.phase === 'setup') {
     return (

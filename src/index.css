@@ -14,10 +14,92 @@
   --color-wine-950: #3d0619;
 }
 
+/*
+ * Dark theme (bordeaux). Components only use the tokens above plus `white` and a
+ * few outcome colours, so the theme is a re-mapping of those tokens: the wine
+ * scale is inverted (light text on dark surfaces), `white` becomes the card
+ * surface, and the green/amber/red chips swap to dark backgrounds with light text.
+ * Applied when the system prefers dark (unless the user forced light) or when the
+ * user forced dark. Keep both blocks identical.
+ */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme='light']) {
+    color-scheme: dark;
+    --color-white: #2b0e1b;
+    --color-wine-50: #1a0711;
+    --color-wine-100: #3b1526;
+    --color-wine-200: #552038;
+    --color-wine-300: #71304d;
+    --color-wine-400: #a54368;
+    --color-wine-500: #df4568;
+    --color-wine-600: #ec758f;
+    --color-wine-700: #f4a8b7;
+    --color-wine-800: #f9d0d8;
+    --color-wine-900: #fce7ea;
+    --color-wine-950: #fdf2f4;
+    --color-green-50: #052e16;
+    --color-green-100: #14532d;
+    --color-green-300: #166534;
+    --color-green-800: #bbf7d0;
+    --color-green-900: #dcfce7;
+    --color-amber-50: #451a03;
+    --color-amber-100: #78350f;
+    --color-amber-200: #92400e;
+    --color-amber-900: #fef3c7;
+    --color-red-50: #450a0a;
+    --color-red-100: #7f1d1d;
+    --color-red-200: #7f1d1d;
+    --color-red-300: #991b1b;
+    --color-red-700: #fca5a5;
+    --color-red-800: #fecaca;
+    --color-red-900: #fee2e2;
+    --color-gray-100: #374151;
+    --color-gray-700: #e5e7eb;
+  }
+}
+:root[data-theme='dark'] {
+  color-scheme: dark;
+  --color-white: #2b0e1b;
+  --color-wine-50: #1a0711;
+  --color-wine-100: #3b1526;
+  --color-wine-200: #552038;
+  --color-wine-300: #71304d;
+  --color-wine-400: #a54368;
+  --color-wine-500: #df4568;
+  --color-wine-600: #ec758f;
+  --color-wine-700: #f4a8b7;
+  --color-wine-800: #f9d0d8;
+  --color-wine-900: #fce7ea;
+  --color-wine-950: #fdf2f4;
+  --color-green-50: #052e16;
+  --color-green-100: #14532d;
+  --color-green-300: #166534;
+  --color-green-800: #bbf7d0;
+  --color-green-900: #dcfce7;
+  --color-amber-50: #451a03;
+  --color-amber-100: #78350f;
+  --color-amber-200: #92400e;
+  --color-amber-900: #fef3c7;
+  --color-red-50: #450a0a;
+  --color-red-100: #7f1d1d;
+  --color-red-200: #7f1d1d;
+  --color-red-300: #991b1b;
+  --color-red-700: #fca5a5;
+  --color-red-800: #fecaca;
+  --color-red-900: #fee2e2;
+  --color-gray-100: #374151;
+  --color-gray-700: #e5e7eb;
+}
+
 html {
   -webkit-tap-highlight-color: transparent;
 }
 
 body {
   @apply bg-wine-50 text-wine-950 antialiased;
+}
+
+/* Keyboard users always get a visible focus ring; pointer users only where the browser would show one. */
+:focus-visible {
+  @apply outline-wine-500 outline-2 outline-offset-2;
 }

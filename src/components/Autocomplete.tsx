@@ -52,7 +52,7 @@ export function Autocomplete({ options, value, onChange, maxResults = 8 }: Autoc
           className="border-wine-200 divide-wine-100 divide-y rounded-lg border bg-white"
         >
           {matches.length === 0 && (
-            <li className="text-wine-900/60 px-3 py-2 text-sm">{da.autocomplete.noMatches}</li>
+            <li className="text-wine-900/70 px-3 py-2 text-sm">{da.autocomplete.noMatches}</li>
           )}
           {matches.map((option) => (
             <li key={option.id} role="option" aria-selected={false}>

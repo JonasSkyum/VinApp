@@ -124,7 +124,7 @@ describe('progress', () => {
     await u.upload(screen.getByLabelText(da.progress.importButton), file)
     expect(await screen.findByRole('status')).toHaveTextContent(da.progress.importSuccess)
     expect(screen.getByRole('heading', { name: /Niveau 2/ })).toBeInTheDocument()
-    expect(screen.getByRole('checkbox')).not.toBeChecked()
+    expect(screen.getByRole('checkbox', { name: /Lås niveauer/ })).not.toBeChecked()
     expect(JSON.parse(storage.getItem(PROGRESS_KEY)!).data.settings.unlockingEnabled).toBe(false)
 
     const bad = new File(['{"nope":true}'], 'bad.json', { type: 'application/json' })
@@ -145,7 +145,7 @@ describe('progress', () => {
     const u = user()
     const storage = memoryStorage()
     renderAt('/progress', storage)
-    await u.click(screen.getByRole('checkbox'))
+    await u.click(screen.getByRole('checkbox', { name: /Lås niveauer/ }))
     expect(JSON.parse(storage.getItem(PROGRESS_KEY)!).data.settings.unlockingEnabled).toBe(false)
   })
 })

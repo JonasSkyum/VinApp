@@ -91,7 +91,7 @@ export function EntryList({ entries }: { entries: LexiconEntry[] }) {
             <span>
               <span className="font-medium">{entry.name}</span>
               {entry.subtitle && (
-                <span className="text-wine-900/60 ml-2 text-sm">{entry.subtitle}</span>
+                <span className="text-wine-900/70 ml-2 text-sm">{entry.subtitle}</span>
               )}
             </span>
             <VerifiedBadge verified={entry.verified} compact />

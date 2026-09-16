@@ -30,7 +30,7 @@ export function MapSummary({ results, seconds, catalog, onPlayAgain, onNewQuiz }
           <p className="text-wine-900/70 text-sm">{t.score}</p>
           <p className="text-wine-800 text-4xl font-bold">
             <CountUp value={total} durationSeconds={1.2} />
-            <span className="text-wine-900/60 text-lg font-normal"> / {max}</span>
+            <span className="text-wine-900/70 text-lg font-normal"> / {max}</span>
           </p>
         </div>
         <div className="border-wine-200 rounded-xl border bg-white p-4 text-center shadow-sm">

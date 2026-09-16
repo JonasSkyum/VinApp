@@ -68,7 +68,7 @@ export function RegionPage({ catalog = defaultCatalog }: { catalog?: Catalog }) 
                   className="hover:bg-wine-50 flex justify-between px-4 py-3"
                 >
                   <span className="font-medium">{c.name}</span>
-                  <span className="text-wine-900/60 text-sm">{da.lexicon.regionType[c.type]}</span>
+                  <span className="text-wine-900/70 text-sm">{da.lexicon.regionType[c.type]}</span>
                 </Link>
               </li>
             ))}

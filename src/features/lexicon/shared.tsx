@@ -73,7 +73,7 @@ export function StyleList({ styles, catalog }: { styles: Style[]; catalog: Catal
           >
             <span>
               <span className="font-medium">{s.name}</span>
-              <span className="text-wine-900/60 ml-2 text-sm">
+              <span className="text-wine-900/70 ml-2 text-sm">
                 {catalog.region(s.regionId).name} · {da.lexicon.styleColor[s.color]}
               </span>
             </span>
