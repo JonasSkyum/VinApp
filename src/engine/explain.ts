@@ -1,5 +1,5 @@
 import { structureKeys, type Style } from '@/schema'
-import { appearanceDistance, rangeDistance } from './distance'
+import { appearanceDistance, rangeDistance, rangeSeparation } from './distance'
 import type { Explanation, TastingCase } from './types'
 
 export const MAX_ATTRIBUTE_EXPLANATIONS = 3
@@ -50,12 +50,4 @@ export function explain(
   if (missing.length > 0) explanations.push({ kind: 'descriptors', descriptorIds: missing })
 
   return explanations
-}
-
-/** Gap between two ranges; 0 when they overlap. */
-export function rangeSeparation(
-  a: readonly [number, number],
-  b: readonly [number, number],
-): number {
-  return Math.max(0, a[0] - b[1], b[0] - a[1])
 }

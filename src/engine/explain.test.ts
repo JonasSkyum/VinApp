@@ -1,6 +1,7 @@
 import { content } from '@/content'
 import { createCatalog } from './catalog'
-import { explain, MAX_ATTRIBUTE_EXPLANATIONS, rangeSeparation } from './explain'
+import { rangeSeparation } from './distance'
+import { explain, MAX_ATTRIBUTE_EXPLANATIONS } from './explain'
 import type { TastingCase } from './types'
 
 const catalog = createCatalog(content)

@@ -7,6 +7,8 @@ import {
   profileDistance,
   rangeDistance,
   rankCandidates,
+  styleDistance,
+  styleNeighbours,
 } from './distance'
 import { generateCase } from './generateCase'
 import { createRng } from './rng'
@@ -101,5 +103,29 @@ describe('rankCandidates', () => {
         expect(prev.style.id.localeCompare(cur.style.id)).toBeLessThan(0)
       }
     }
+  })
+})
+
+describe('styleDistance / styleNeighbours', () => {
+  it('is 0 for a style against itself and symmetric', () => {
+    const barolo = catalog.style('barolo')
+    const chianti = catalog.style('chianti-classico')
+    expect(styleDistance(barolo, barolo)).toBe(0)
+    expect(styleDistance(barolo, chianti)).toBeCloseTo(styleDistance(chianti, barolo), 10)
+  })
+
+  it('puts Sonoma Zinfandel and Primitivo close, Beaujolais far', () => {
+    const zin = catalog.style('sonoma-zinfandel')
+    const primitivo = catalog.style('primitivo-di-manduria')
+    const beaujolais = catalog.style('beaujolais')
+    expect(styleDistance(zin, primitivo)).toBeLessThan(styleDistance(zin, beaujolais))
+  })
+
+  it('lists neighbours of the same colour only, closest first', () => {
+    const neighbours = styleNeighbours(catalog.style('sancerre'), catalog.styles, 3)
+    expect(neighbours).toHaveLength(3)
+    for (const n of neighbours) expect(n.style.color).toBe('white')
+    expect(neighbours.map((n) => n.style.id)).not.toContain('sancerre')
+    expect(neighbours[0]!.distance).toBeLessThanOrEqual(neighbours[1]!.distance)
   })
 })
