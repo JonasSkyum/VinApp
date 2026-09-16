@@ -78,6 +78,19 @@ describe('session reducer', () => {
   })
 })
 
+describe('start with explicit styles', () => {
+  it('uses the given style ids instead of picking', () => {
+    const s = reducer(initialState(), {
+      type: 'start',
+      options,
+      seed: 'x',
+      styleIds: ['barolo', 'chablis'],
+    })
+    expect(s.styleIds).toEqual(['barolo', 'chablis'])
+    expect(s.round!.tastingCase.styleId).toBe('barolo')
+  })
+})
+
 describe('createRound', () => {
   it('derives case and questions from seed and round index', () => {
     const a = createRound(catalog, 'barolo', 'seed', 0, { ...options, difficulty: 'expert' })

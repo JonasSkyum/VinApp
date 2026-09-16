@@ -37,7 +37,7 @@ export interface SessionState {
 }
 
 type Action =
-  | { type: 'start'; options: SessionOptions; seed: string }
+  | { type: 'start'; options: SessionOptions; seed: string; styleIds?: string[] }
   | { type: 'select'; answer: string | null }
   | { type: 'lock' }
   | { type: 'nextRound' }
@@ -82,11 +82,10 @@ export function createReducer(catalog: Catalog) {
   return function reducer(state: SessionState, action: Action): SessionState {
     switch (action.type) {
       case 'start': {
-        const styleIds = pickStyles(
-          catalog,
-          action.options,
-          createRng(`${action.seed}:styles`),
-        ).map((s) => s.id)
+        // A caller may hand in its own selection (e.g. "train weak points").
+        const styleIds =
+          action.styleIds ??
+          pickStyles(catalog, action.options, createRng(`${action.seed}:styles`)).map((s) => s.id)
         return {
           ...initialState(action.options),
           phase: 'question',
@@ -155,9 +154,14 @@ export function useTastingSession(catalog: Catalog, seedFactory: () => string = 
   const reducer = useMemo(() => createReducer(catalog), [catalog])
   const [state, dispatch] = useReducer(reducer, undefined, () => initialState())
 
+  const startSeeded = useCallback(
+    (options: SessionOptions, seed: string, styleIds?: string[]) =>
+      dispatch({ type: 'start', options, seed, styleIds }),
+    [],
+  )
   const start = useCallback(
-    (options: SessionOptions) => dispatch({ type: 'start', options, seed: seedFactory() }),
-    [seedFactory],
+    (options: SessionOptions) => startSeeded(options, seedFactory()),
+    [startSeeded, seedFactory],
   )
   const select = useCallback((answer: string | null) => dispatch({ type: 'select', answer }), [])
   const lock = useCallback(() => dispatch({ type: 'lock' }), [])
@@ -168,5 +172,5 @@ export function useTastingSession(catalog: Catalog, seedFactory: () => string = 
   )
   const reset = useCallback(() => dispatch({ type: 'reset' }), [])
 
-  return { state, start, select, lock, nextRound, restart, reset }
+  return { state, start, startSeeded, select, lock, nextRound, restart, reset }
 }
