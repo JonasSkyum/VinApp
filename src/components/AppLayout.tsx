@@ -51,9 +51,9 @@ export function AppLayout() {
         tabIndex={-1}
         className="mx-auto w-full max-w-4xl flex-1 px-4 pt-4 pb-24 md:pb-8"
       >
-        <InstallPrompt />
         <Outlet />
       </main>
+      <InstallPrompt />
 
       <nav
         aria-label={da.nav.ariaLabel}

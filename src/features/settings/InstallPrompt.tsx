@@ -23,8 +23,8 @@ function isIos(): boolean {
 }
 
 /**
- * "Install app" banner. Uses the native prompt where the browser offers one,
- * and explains the share-sheet route on iOS.
+ * "Install app" toast, anchored above the bottom nav so it never shifts the page.
+ * Uses the native prompt where the browser offers one, and explains the share-sheet route on iOS.
  */
 export function InstallPrompt() {
   const { prefs, update } = usePrefs()
@@ -65,7 +65,7 @@ export function InstallPrompt() {
     <div
       role="region"
       aria-label={da.install.title}
-      className="border-wine-200 bg-wine-100 mx-auto mb-4 flex w-full max-w-4xl flex-wrap items-center gap-3 rounded-xl border p-3 text-sm"
+      className="border-wine-200 bg-wine-100 fixed inset-x-4 bottom-20 z-10 mx-auto flex max-w-4xl flex-wrap items-center gap-3 rounded-xl border p-3 text-sm shadow-lg md:bottom-4"
     >
       <div className="min-w-0 flex-1">
         <p className="text-wine-800 font-semibold">{da.install.title}</p>

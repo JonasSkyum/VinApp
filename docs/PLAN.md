@@ -173,13 +173,13 @@ Mål: Al logik til blindsmagning uden UI.
 ---
 
 ## Fase 9 — PWA og finpudsning
-- [ ] `vite-plugin-pwa`: manifest, ikoner, offline cache af app + indhold + GeoJSON
-- [ ] "Installer app"-prompt på mobil
-- [ ] Mørkt tema (vinrødt/bordeaux-palet), og tjek kontrast
-- [ ] Tilgængelighed: tastaturnavigation, aria-labels på skalaer, farver er ikke den eneste bærer af information
-- [ ] Lydeffekter (valgfrit, slået fra som standard)
-- [ ] Lighthouse: Performance og PWA ≥ 90
-- [ ] Onboarding: 3 skærme, der forklarer skalaerne og deduktionsmetoden
+- [x] `vite-plugin-pwa`: manifest, ikoner, offline cache af app + indhold + GeoJSON
+- [x] "Installer app"-prompt på mobil
+- [x] Mørkt tema (vinrødt/bordeaux-palet), og tjek kontrast
+- [x] Tilgængelighed: tastaturnavigation, aria-labels på skalaer, farver er ikke den eneste bærer af information
+- [x] Lydeffekter (valgfrit, slået fra som standard)
+- [x] Lighthouse: Performance og PWA ≥ 90 (Performance 97, Accessibility 100, Best practices 100; Lighthouse 13 har ikke længere en PWA-kategori, så installérbarhed tjekkes manuelt)
+- [x] Onboarding: 3 skærme, der forklarer skalaerne og deduktionsmetoden
 - [ ] ✅ Tjek: appen kan installeres og spilles offline
 
 ---
