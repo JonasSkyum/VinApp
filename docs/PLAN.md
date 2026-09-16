@@ -150,13 +150,13 @@ Mål: Al logik til blindsmagning uden UI.
 ---
 
 ## Fase 7 — Daglig udfordring (`features/daily/`)
-- [ ] Seed = dato i `Europe/Copenhagen` → `hashString` → vælg style blandt `verified: true` (fallback til alle, hvis der er for få)
-- [ ] Samme case for alle samme dag. Kan spilles én gang, og resultatet gemmes
-- [ ] Faste trin på Øvet-niveau
-- [ ] Delestreng i Wordle-stil, fx `Vinspil #42 🍷 🟩🟩🟩🟨⬛ 9/13`, via Web Share API med fallback til kopiering
-- [ ] Streak for daglige udfordringer
-- [ ] Nedtælling til næste udfordring
-- [ ] Tests: samme dato giver samme case, og forskellige datoer giver tilstrækkelig variation over 60 dage
+- [x] Seed = dato i `Europe/Copenhagen` → `hashString` → vælg style blandt `verified: true` (fallback til alle, hvis der er for få)
+- [x] Samme case for alle samme dag. Kan spilles én gang, og resultatet gemmes
+- [x] Faste trin på Øvet-niveau
+- [x] Delestreng i Wordle-stil, fx `Vinspil #42 🍷 🟩🟩🟩🟨⬛ 9/13`, via Web Share API med fallback til kopiering
+- [x] Streak for daglige udfordringer
+- [x] Nedtælling til næste udfordring
+- [x] Tests: samme dato giver samme case, og forskellige datoer giver tilstrækkelig variation over 60 dage
 - [ ] ✅ Tjek: 👤 del resultatet i en besked og se, at det ser pænt ud
 
 ---

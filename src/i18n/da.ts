@@ -29,7 +29,6 @@ export const da = {
     },
     daily: {
       title: 'Daglig udfordring',
-      placeholder: 'Daglig udfordring kommer i fase 7.',
     },
     lexicon: {
       title: 'Leksikon',
@@ -324,6 +323,23 @@ export const da = {
     resetConfirm: 'Er du sikker? Dette kan ikke fortrydes.',
     resetYes: 'Ja, nulstil',
     resetNo: 'Annuller',
+  },
+  daily: {
+    heading: 'Dagens udfordring #{number}',
+    intro:
+      'Én blindsmagning på Øvet-niveau. Alle får den samme vin i dag, og du kan kun spille én gang.',
+    start: 'Smag dagens vin',
+    done: 'Du har smagt dagens vin',
+    wineWas: 'Vinen var',
+    score: 'Din score',
+    share: 'Del resultat',
+    shared: 'Delt!',
+    copied: 'Kopieret til udklipsholder',
+    shareFailed: 'Kunne ikke dele. Prøv igen.',
+    streak: 'Daglig streak',
+    streakDays: '{days} dage',
+    nextIn: 'Næste udfordring om',
+    countdownLabel: 'Nedtælling til næste udfordring',
   },
   summary: {
     title: 'Session færdig',
