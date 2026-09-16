@@ -1,22 +1,23 @@
 import { z } from 'zod'
-import type { AnswerRecord, LeitnerState } from '@/engine'
+import type { AnswerRecord, DailyResult, LeitnerState } from '@/engine'
 import { createStore, type StorageLike, type Store } from '@/lib/storage'
 
 export const PROGRESS_KEY = 'vinspil:progress'
-export const PROGRESS_VERSION = 1
+export const PROGRESS_VERSION = 2
+
+const tierSchema = z.union([
+  z.literal(1),
+  z.literal(2),
+  z.literal(3),
+  z.literal(4),
+  z.literal(5),
+  z.literal(6),
+])
 
 const answerRecordSchema = z.object({
   kind: z.enum(['grape', 'region', 'style', 'map-location']),
   itemId: z.string(),
-  tier: z.union([
-    z.literal(1),
-    z.literal(2),
-    z.literal(3),
-    z.literal(4),
-    z.literal(5),
-    z.literal(6),
-    z.literal('map'),
-  ]),
+  tier: z.union([tierSchema, z.literal('map')]),
   correct: z.boolean(),
   guessedId: z.string().nullable(),
   points: z.number(),
@@ -29,9 +30,22 @@ const leitnerCardSchema = z.object({
   dueAt: z.number(),
 })
 
+const outcomeSchema = z.enum(['correct', 'partial', 'wrong', 'skipped'])
+
+const dailyResultSchema = z.object({
+  dateKey: z.string().regex(/^\d{4}-\d{2}-\d{2}$/),
+  styleId: z.string(),
+  total: z.number(),
+  max: z.number(),
+  tiers: z.array(z.object({ tier: tierSchema, outcome: outcomeSchema })),
+  playedAt: z.number(),
+})
+
 export const progressDataSchema = z.object({
   log: z.array(answerRecordSchema),
   leitner: z.record(z.string(), leitnerCardSchema),
+  /** Daily challenge results keyed by `YYYY-MM-DD`. */
+  daily: z.record(z.string(), dailyResultSchema),
   settings: z.object({
     unlockingEnabled: z.boolean(),
   }),
@@ -40,11 +54,12 @@ export const progressDataSchema = z.object({
 export interface ProgressData {
   log: AnswerRecord[]
   leitner: LeitnerState
+  daily: Record<string, DailyResult>
   settings: { unlockingEnabled: boolean }
 }
 
 export function initialProgress(): ProgressData {
-  return { log: [], leitner: {}, settings: { unlockingEnabled: true } }
+  return { log: [], leitner: {}, daily: {}, settings: { unlockingEnabled: true } }
 }
 
 /** Parses untrusted data (storage or an imported file) into ProgressData, or throws. */
@@ -53,7 +68,11 @@ export function parseProgress(data: unknown): ProgressData {
 }
 
 /** Migrations from older stored versions land here as the format evolves. */
-export function migrateProgress(_data: unknown, fromVersion: number): ProgressData {
+export function migrateProgress(data: unknown, fromVersion: number): ProgressData {
+  if (fromVersion === 1) {
+    // v2 added the daily challenge results.
+    return parseProgress({ ...(data as object), daily: {} })
+  }
   throw new Error(`No migration from progress version ${fromVersion}`)
 }
 

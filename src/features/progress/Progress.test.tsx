@@ -6,7 +6,7 @@ import { AppProviders } from '@/components/AppProviders'
 import { da } from '@/i18n/da'
 import { memoryStorage, type StorageLike } from '@/lib/storage'
 import { AppRoutes } from '@/routes'
-import { exportProgress, PROGRESS_KEY, type ProgressData } from './progressStore'
+import { exportProgress, PROGRESS_KEY, PROGRESS_VERSION, type ProgressData } from './progressStore'
 
 const NOW = Date.UTC(2026, 8, 16, 12)
 
@@ -45,7 +45,7 @@ describe('progress', () => {
     await playOneRound(u)
 
     const stored = JSON.parse(storage.getItem(PROGRESS_KEY)!)
-    expect(stored.version).toBe(1)
+    expect(stored.version).toBe(PROGRESS_VERSION)
     expect(stored.data.log).toHaveLength(3) // grape, country, style
     expect(Object.keys(stored.data.leitner)).toHaveLength(3)
     first.unmount()
@@ -82,9 +82,10 @@ describe('progress', () => {
         },
       ],
       leitner: {},
+      daily: {},
       settings: { unlockingEnabled: true },
     }
-    storage.setItem(PROGRESS_KEY, JSON.stringify({ version: 1, data }))
+    storage.setItem(PROGRESS_KEY, JSON.stringify({ version: PROGRESS_VERSION, data }))
     const u = user()
     renderAt('/progress', storage)
     const link = screen.getByRole('link', { name: /Du forveksler Pinot Noir med Gamay/ })
@@ -116,6 +117,7 @@ describe('progress', () => {
         },
       ],
       leitner: { 'style:barolo': { box: 2, reviewedAt: NOW, dueAt: NOW + 1 } },
+      daily: {},
       settings: { unlockingEnabled: false },
     }
     const file = new File([exportProgress(data)], 'backup.json', { type: 'application/json' })

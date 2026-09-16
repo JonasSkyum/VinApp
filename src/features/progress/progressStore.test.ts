@@ -22,6 +22,16 @@ const sample: ProgressData = {
     },
   ],
   leitner: { 'grape:syrah': { box: 1, reviewedAt: 1000, dueAt: 2000 } },
+  daily: {
+    '2026-09-16': {
+      dateKey: '2026-09-16',
+      styleId: 'sancerre',
+      total: 7,
+      max: 10,
+      tiers: [{ tier: 3, outcome: 'correct' }],
+      playedAt: 1000,
+    },
+  },
   settings: { unlockingEnabled: true },
 }
 
@@ -62,5 +72,16 @@ describe('export / import', () => {
       importProgress(JSON.stringify({ app: 'vinspil', version: 1, data: { log: [] } })),
     ).toThrow()
     expect(() => importProgress('not json')).toThrow()
+  })
+
+  it('migrates version 1 data by adding an empty daily map', () => {
+    const v1 = { log: sample.log, leitner: sample.leitner, settings: sample.settings }
+    const storage = memoryStorage()
+    storage.setItem(PROGRESS_KEY, JSON.stringify({ version: 1, data: v1 }))
+    expect(createProgressStore(storage).load()).toEqual({ ...v1, daily: {} })
+    expect(importProgress(JSON.stringify({ app: 'vinspil', version: 1, data: v1 }))).toEqual({
+      ...v1,
+      daily: {},
+    })
   })
 })

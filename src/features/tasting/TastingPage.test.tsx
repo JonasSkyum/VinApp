@@ -117,7 +117,7 @@ describe('TastingPage', () => {
       PROGRESS_KEY,
       JSON.stringify({
         version: PROGRESS_VERSION,
-        data: { log: [], leitner: {}, settings: { unlockingEnabled: false } },
+        data: { log: [], leitner: {}, daily: {}, settings: { unlockingEnabled: false } },
       }),
     )
     renderPage(storage)

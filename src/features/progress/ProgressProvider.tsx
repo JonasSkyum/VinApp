@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useMemo, useRef, useState, type ReactNode } from 'react'
-import { applyRecords, type AnswerRecord } from '@/engine'
+import { applyRecords, type AnswerRecord, type DailyResult } from '@/engine'
 import type { StorageLike } from '@/lib/storage'
 import { ProgressContext, type ProgressApi } from './progressContext'
 import { createProgressStore, type ProgressData } from './progressStore'
@@ -34,6 +34,10 @@ export function ProgressProvider({ children, storage }: ProgressProviderProps) {
     }))
   }, [])
 
+  const recordDaily = useCallback((result: DailyResult) => {
+    setData((d) => ({ ...d, daily: { ...d.daily, [result.dateKey]: result } }))
+  }, [])
+
   const setUnlockingEnabled = useCallback((enabled: boolean) => {
     setData((d) => ({ ...d, settings: { ...d.settings, unlockingEnabled: enabled } }))
   }, [])
@@ -46,8 +50,8 @@ export function ProgressProvider({ children, storage }: ProgressProviderProps) {
   }, [store, storage])
 
   const api = useMemo<ProgressApi>(
-    () => ({ data, record, setUnlockingEnabled, replace, reset }),
-    [data, record, setUnlockingEnabled, replace, reset],
+    () => ({ data, record, recordDaily, setUnlockingEnabled, replace, reset }),
+    [data, record, recordDaily, setUnlockingEnabled, replace, reset],
   )
 
   return <ProgressContext.Provider value={api}>{children}</ProgressContext.Provider>
