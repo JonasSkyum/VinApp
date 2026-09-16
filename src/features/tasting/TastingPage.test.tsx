@@ -3,16 +3,18 @@ import userEvent from '@testing-library/user-event'
 import { MotionConfig } from 'framer-motion'
 import { MemoryRouter } from 'react-router-dom'
 import { da } from '@/i18n/da'
+import { AppProviders } from '@/components/AppProviders'
+import { memoryStorage, type StorageLike } from '@/lib/storage'
+import { PROGRESS_KEY, PROGRESS_VERSION } from '@/features/progress/progressStore'
 import { TastingPage } from './TastingPage'
-import { TastingSessionProvider } from './TastingSessionProvider'
 
-function renderPage() {
+function renderPage(storage: StorageLike = memoryStorage()) {
   return render(
     <MotionConfig reducedMotion="always">
       <MemoryRouter>
-        <TastingSessionProvider seedFactory={() => 'component-test'}>
+        <AppProviders seedFactory={() => 'component-test'} storage={storage}>
           <TastingPage />
-        </TastingSessionProvider>
+        </AppProviders>
       </MemoryRouter>
     </MotionConfig>,
   )
@@ -101,9 +103,24 @@ describe('TastingPage', () => {
     expect(screen.getByRole('button', { name: da.common.start })).toBeInTheDocument()
   })
 
+  it('locks advanced and expert until unlocked', () => {
+    renderPage()
+    expect(screen.getByRole('radio', { name: /Øvet/ })).toBeDisabled()
+    expect(screen.getByRole('radio', { name: /Ekspert/ })).toBeDisabled()
+    expect(screen.getByText('Øvet: 0/10 rigtige druegæt på lavere niveau')).toBeInTheDocument()
+  })
+
   it('uses free text with autocomplete on expert', async () => {
     const u = user()
-    renderPage()
+    const storage = memoryStorage()
+    storage.setItem(
+      PROGRESS_KEY,
+      JSON.stringify({
+        version: PROGRESS_VERSION,
+        data: { log: [], leitner: {}, settings: { unlockingEnabled: false } },
+      }),
+    )
+    renderPage(storage)
     await startSession(u, da.level.expert, da.colorFilter.red)
 
     await u.click(screen.getByRole('button', { name: da.common.skip })) // world

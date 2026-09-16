@@ -1,6 +1,6 @@
 interface ChoiceGroupProps<T extends string | number> {
   name: string
-  items: { id: T; label: string }[]
+  items: { id: T; label: string; disabled?: boolean }[]
   value: T
   onChange: (value: T) => void
 }
@@ -24,8 +24,9 @@ export function ChoiceGroup<T extends string | number>({
               type="button"
               role="radio"
               aria-checked={active}
+              disabled={item.disabled}
               onClick={() => onChange(item.id)}
-              className={`flex-1 rounded-lg border px-3 py-3 text-base ${
+              className={`flex-1 rounded-lg border px-3 py-3 text-base disabled:cursor-not-allowed disabled:opacity-40 ${
                 active
                   ? 'border-wine-700 bg-wine-700 text-white'
                   : 'border-wine-300 hover:border-wine-500 bg-white'

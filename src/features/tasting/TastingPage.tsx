@@ -1,5 +1,7 @@
 import { motion, useReducedMotion } from 'framer-motion'
 import { PageTitle } from '@/components/PageTitle'
+import { unlockStatus } from '@/engine'
+import { useProgress } from '@/features/progress/progressContext'
 import { da } from '@/i18n/da'
 import { catalog as defaultCatalog } from '@/lib/catalog'
 import { QuestionPanel } from './QuestionPanel'
@@ -11,14 +13,22 @@ import { useTastingSessionContext } from './tastingSessionContext'
 
 export function TastingPage() {
   const catalog = defaultCatalog
-  const { state, start, select, lock, nextRound, restart, reset } = useTastingSessionContext()
+  const { state, start, startWeak, select, lock, nextRound, restart, reset } =
+    useTastingSessionContext()
+  const { data: progress } = useProgress()
   const reduced = useReducedMotion()
 
   if (state.phase === 'setup') {
     return (
       <>
         <PageTitle>{da.pages.tasting.title}</PageTitle>
-        <SetupScreen initial={state.options} onStart={start} />
+        <SetupScreen
+          initial={state.options}
+          unlocks={unlockStatus(progress.log, progress.settings.unlockingEnabled)}
+          canTrainWeak={progress.log.length > 0}
+          onStart={start}
+          onStartWeak={startWeak}
+        />
       </>
     )
   }
