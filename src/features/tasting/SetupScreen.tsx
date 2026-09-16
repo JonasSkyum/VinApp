@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { ChoiceGroup } from '@/components/ChoiceGroup'
 import type { ColorFilter, Difficulty, SessionOptions } from '@/engine'
 import { da } from '@/i18n/da'
 
@@ -22,19 +23,19 @@ export function SetupScreen({ initial, onStart }: SetupScreenProps) {
         onStart(options)
       }}
     >
-      <Choice
+      <ChoiceGroup
         name={da.level.labelName}
         items={LEVELS.map((d) => ({ id: d, label: da.level[d] }))}
         value={options.difficulty}
         onChange={(difficulty) => setOptions({ ...options, difficulty })}
       />
-      <Choice
+      <ChoiceGroup
         name={da.colorFilter.labelName}
         items={COLORS.map((c) => ({ id: c, label: da.colorFilter[c] }))}
         value={options.colors}
         onChange={(colors) => setOptions({ ...options, colors })}
       />
-      <Choice
+      <ChoiceGroup
         name={da.rounds.labelName}
         items={ROUNDS.map((r) => ({ id: r, label: String(r) }))}
         value={options.rounds}
@@ -47,41 +48,5 @@ export function SetupScreen({ initial, onStart }: SetupScreenProps) {
         {da.common.start}
       </button>
     </form>
-  )
-}
-
-interface ChoiceProps<T extends string | number> {
-  name: string
-  items: { id: T; label: string }[]
-  value: T
-  onChange: (value: T) => void
-}
-
-function Choice<T extends string | number>({ name, items, value, onChange }: ChoiceProps<T>) {
-  return (
-    <fieldset>
-      <legend className="text-wine-800 mb-2 text-sm font-semibold">{name}</legend>
-      <div role="radiogroup" aria-label={name} className="flex gap-2">
-        {items.map((item) => {
-          const active = item.id === value
-          return (
-            <button
-              key={String(item.id)}
-              type="button"
-              role="radio"
-              aria-checked={active}
-              onClick={() => onChange(item.id)}
-              className={`flex-1 rounded-lg border px-3 py-3 text-base ${
-                active
-                  ? 'border-wine-700 bg-wine-700 text-white'
-                  : 'border-wine-300 hover:border-wine-500 bg-white'
-              }`}
-            >
-              {item.label}
-            </button>
-          )
-        })}
-      </div>
-    </fieldset>
   )
 }
