@@ -110,17 +110,17 @@ Mål: Al logik til blindsmagning uden UI.
 ---
 
 ## Fase 4 — Kortquiz (`features/map-quiz/`)
-- [ ] Installér `maplibre-gl`. Brug en style **uden tile-server**: kun baggrundsfarve + egne GeoJSON-lag, så der ikke er labels, der afslører svaret
-- [ ] Hent lande-GeoJSON fra Natural Earth (public domain, 1:50m), forenkl filen (fx med mapshaper) og læg den i `src/content/geo/countries.json`
-- [ ] Regioner v1: vises som **punkter/cirkler** fra `region.center`. Polygoner kommer senere
+- [x] Installér `maplibre-gl`. Brug en style **uden tile-server**: kun baggrundsfarve + egne GeoJSON-lag, så der ikke er labels, der afslører svaret
+- [x] Hent lande-GeoJSON fra Natural Earth (public domain, 1:50m), forenkl filen (fx med mapshaper) og læg den i `src/content/geo/countries.json`
+- [x] Regioner v1: vises som **punkter/cirkler** fra `region.center`. Polygoner kommer senere
 - [ ] Regioner v2: 👤 tegn forenklede polygoner for de vigtigste regioner i geojson.io og læg dem i `src/content/geo/regions.json` med `geoId` → region
-- [ ] Tilstand A "Find": "Klik på Rioja". Point efter afstand til centrum/polygon (fuld point indenfor, aftagende med km)
-- [ ] Tilstand B "Navngiv": en region blinker, og brugeren vælger navnet (multiple choice eller autocomplete efter niveau)
-- [ ] Tilstand C "Drue → sted": "Hvor kommer klassisk Nebbiolo fra?"
-- [ ] Filtre: verden / land / sværhedsgrad. Start med zoom på det valgte land
-- [ ] Seterra-flow: fast sæt af spørgsmål, timer, og forkerte svar markeres rødt og vises til sidst
-- [ ] Genbrug kortkomponenten som mini-kort i blindsmagningens resultatskærm
-- [ ] Performance: lazy-load MapLibre, så appen starter hurtigt
+- [x] Tilstand A "Find": "Klik på Rioja". Point efter afstand til centrum/polygon (fuld point indenfor, aftagende med km)
+- [x] Tilstand B "Navngiv": en region blinker, og brugeren vælger navnet (multiple choice eller autocomplete efter niveau)
+- [x] Tilstand C "Drue → sted": "Hvor kommer klassisk Nebbiolo fra?"
+- [x] Filtre: verden / land / sværhedsgrad. Start med zoom på det valgte land
+- [x] Seterra-flow: fast sæt af spørgsmål, timer, og forkerte svar markeres rødt og vises til sidst
+- [x] Genbrug kortkomponenten som mini-kort i blindsmagningens resultatskærm
+- [x] Performance: lazy-load MapLibre, så appen starter hurtigt
 - [ ] ✅ Tjek: kortet virker med touch (pinch-zoom, tap) på mobil
 
 ---
