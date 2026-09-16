@@ -1,12 +1,48 @@
 import { fileURLToPath, URL } from 'node:url'
 import react from '@vitejs/plugin-react'
 import tailwindcss from '@tailwindcss/vite'
+import { VitePWA } from 'vite-plugin-pwa'
 import { defineConfig } from 'vitest/config'
 
 // Hosted on GitHub Pages under https://<user>.github.io/VinApp/
 export default defineConfig({
   base: '/VinApp/',
-  plugins: [react(), tailwindcss()],
+  plugins: [
+    react(),
+    tailwindcss(),
+    VitePWA({
+      registerType: 'autoUpdate',
+      includeAssets: ['favicon.svg', 'apple-touch-icon.png'],
+      manifest: {
+        name: 'Vinspil',
+        short_name: 'Vinspil',
+        description: 'Lær vin gennem spil: blindsmagning, kortquiz og daglig udfordring.',
+        lang: 'da',
+        start_url: '/VinApp/',
+        scope: '/VinApp/',
+        display: 'standalone',
+        background_color: '#fdf2f4',
+        theme_color: '#8a183c',
+        icons: [
+          { src: 'pwa-192x192.png', sizes: '192x192', type: 'image/png' },
+          { src: 'pwa-512x512.png', sizes: '512x512', type: 'image/png' },
+          {
+            src: 'pwa-maskable-512x512.png',
+            sizes: '512x512',
+            type: 'image/png',
+            purpose: 'maskable',
+          },
+        ],
+      },
+      workbox: {
+        // Precache the whole app: code, content and the GeoJSON are all bundled into these.
+        globPatterns: ['**/*.{js,css,html,svg,png,json,woff2}'],
+        // The MapLibre chunk is a little over 1 MB.
+        maximumFileSizeToCacheInBytes: 3 * 1024 * 1024,
+        navigateFallback: '/VinApp/index.html',
+      },
+    }),
+  ],
   resolve: {
     alias: {
       '@': fileURLToPath(new URL('./src', import.meta.url)),
