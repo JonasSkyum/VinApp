@@ -21,6 +21,11 @@ export const da = {
     home: {
       title: 'Velkommen til Vinspil',
       intro: 'Træn din vinsmag gennem blindsmagning, kortquiz og daglige udfordringer.',
+      tastingHelp: 'Gæt vinen ud fra smagsprofilen, trin for trin.',
+      mapHelp: 'Find regionerne på et kort uden navne.',
+      dailyHelp: 'Én vin om dagen, den samme for alle.',
+      lexiconHelp: 'Slå druer, regioner og stilarter op.',
+      howToPlay: 'Sådan spiller du',
     },
     tasting: {
       title: 'Blindsmagning',
@@ -341,6 +346,39 @@ export const da = {
     streakDays: '{days} dage',
     nextIn: 'Næste udfordring om',
     countdownLabel: 'Nedtælling til næste udfordring',
+  },
+  onboarding: {
+    stepOf: 'Trin {step} af {total}',
+    next: 'Næste',
+    back: 'Tilbage',
+    skip: 'Spring introduktionen over',
+    finish: 'Kom i gang',
+    card: {
+      title: 'Sådan læser du smagekortet',
+      order:
+        'Hver vin vises som en smagsprofil i samme rækkefølge, som en sommelier smager: Udseende → Næse → Gane.',
+      scale:
+        'Sødme, syre, tannin, alkohol, krop og eftersmag står på en skala med fem trin: lav, medium-, medium, medium+ og høj. Bjælken viser trinnet, og ordet står altid ved siden af.',
+      example:
+        'Her har vinen medium+ syre, medium- tannin og medium krop. Det peger allerede i en retning.',
+    },
+    deduction: {
+      title: 'Deduktionsmetoden',
+      idea: 'Du gætter ikke vinen på én gang. Du går fra det brede til det præcise, og hvert trin giver point:',
+      clues:
+        'Høj syre peger mod et køligt klima. Kraftig tannin indsnævrer druen. Aromaerne afgør, når strukturen ikke kan. Efter hver runde forklarer appen, hvilke attributter der adskilte det rigtige svar fra dit gæt.',
+    },
+    improve: {
+      title: 'Bliv skarp',
+      feedback:
+        'Fra hvert resultat kan du hoppe direkte til leksikonet og læse om druen og regionen.',
+      training:
+        'Fremskridt husker, hvad du forveksler, og "Træn svage punkter" serverer netop de vine.',
+      map: 'Kortquizzen træner geografien: klik på Barolo, eller sig, hvilken region der blinker.',
+      daily:
+        'Den daglige udfordring er den samme vin for alle. Del dit resultat som en emoji-streng.',
+      honest: 'Indhold, der ikke er verificeret mod kilder endnu, er markeret i leksikonet.',
+    },
   },
   settings: {
     theme: 'Tema',
