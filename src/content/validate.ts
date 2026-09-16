@@ -137,6 +137,8 @@ export function validateContent(content: ContentBundle): ValidationResult {
       errors.push({ where, message: 'duplicate grapeIds' })
     if (!regionIds.has(style.regionId))
       errors.push({ where, message: `unknown region "${style.regionId}"` })
+    else if (regionById.get(style.regionId)?.type === 'country')
+      errors.push({ where, message: 'style region must be more specific than a country' })
     for (const d of style.descriptorIds) {
       if (!descriptorIds.has(d)) errors.push({ where, message: `unknown descriptor "${d}"` })
     }
