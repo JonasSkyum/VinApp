@@ -96,15 +96,15 @@ Mål: Al logik til blindsmagning uden UI.
 ---
 
 ## Fase 3 — Blindsmagning UI (`features/tasting/`)
-- [ ] Startskærm: vælg niveau (Begynder/Øvet/Ekspert) + filter (rød/hvid/begge) + antal runder (5/10)
-- [ ] "Smagekort"-komponent, der viser casen i WSET-rækkefølge: Udseende → Næse → Gane. Skalaer vises som 5-trins visuelle bjælker med danske labels (lav, medium-, medium, medium+, høj)
-- [ ] Trinvis gætteflow: ét trin ad gangen, og svar låses, når man går videre. Profilen er synlig hele tiden
-- [ ] Resultatskærm pr. runde: rigtigt svar, point pr. trin og forklaringer fra `explain()` ("Syren var høj → det peger på køligt klima. Marlborough er varmere og mere tropisk end Sancerre")
-- [ ] Link fra resultatet til leksikon-siden for druen og regionen (placeholder-links indtil fase 5)
-- [ ] Mini-kort i resultatet, der viser, hvor vinen kommer fra (placeholder indtil fase 4)
-- [ ] Opsummering efter sessionen: total score, bedste/værste trin
-- [ ] Animationer med Framer Motion: flip ved afsløring, point der tæller op
-- [ ] Komponenttests for gætteflowet
+- [x] Startskærm: vælg niveau (Begynder/Øvet/Ekspert) + filter (rød/hvid/begge) + antal runder (5/10)
+- [x] "Smagekort"-komponent, der viser casen i WSET-rækkefølge: Udseende → Næse → Gane. Skalaer vises som 5-trins visuelle bjælker med danske labels (lav, medium-, medium, medium+, høj)
+- [x] Trinvis gætteflow: ét trin ad gangen, og svar låses, når man går videre. Profilen er synlig hele tiden
+- [x] Resultatskærm pr. runde: rigtigt svar, point pr. trin og forklaringer fra `explain()` ("Syren var høj → det peger på køligt klima. Marlborough er varmere og mere tropisk end Sancerre")
+- [x] Link fra resultatet til leksikon-siden for druen og regionen (placeholder-links indtil fase 5)
+- [x] Mini-kort i resultatet, der viser, hvor vinen kommer fra (placeholder indtil fase 4)
+- [x] Opsummering efter sessionen: total score, bedste/værste trin
+- [x] Animationer med Framer Motion: flip ved afsløring, point der tæller op
+- [x] Komponenttests for gætteflowet
 - [ ] ✅ Tjek: 👤 spil 3 sessioner på mobil og notér, hvad der føles forkert
 
 ---
