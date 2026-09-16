@@ -71,15 +71,15 @@ Mål: Typestærke, validerede vindata, som resten af appen bygger på.
 ## Fase 2 — Spilmotor (`src/engine/`, ren TS, testet)
 Mål: Al logik til blindsmagning uden UI.
 
-- [ ] `rng.ts`: seedbar PRNG (fx mulberry32) + `hashString(seed)`. Al tilfældighed skal gå gennem den, så tests og den daglige udfordring er deterministiske
-- [ ] `generateCase(style, difficulty, rng)`: vælger en konkret værdi inden for hvert interval og 3–5 descriptors fra stilens liste. På **Ekspert** kan der med lav sandsynlighed komme ±1 afvigelse på én attribut (flaskevariation)
-- [ ] `profileDistance(caseProfile, style)`: afstand mellem en case og en styles intervaller (0, hvis værdien ligger inden for intervallet), vægtet pr. attribut, plus descriptor-overlap
-- [ ] `rankCandidates(case, styles)`: sorteret liste over de mest sandsynlige styles. Bruges til distraktorer og feedback
-- [ ] `buildQuestion(case, tier, difficulty)`:
+- [x] `rng.ts`: seedbar PRNG (fx mulberry32) + `hashString(seed)`. Al tilfældighed skal gå gennem den, så tests og den daglige udfordring er deterministiske
+- [x] `generateCase(style, difficulty, rng)`: vælger en konkret værdi inden for hvert interval og 3–5 descriptors fra stilens liste. På **Ekspert** kan der med lav sandsynlighed komme ±1 afvigelse på én attribut (flaskevariation)
+- [x] `profileDistance(caseProfile, style)`: afstand mellem en case og en styles intervaller (0, hvis værdien ligger inden for intervallet), vægtet pr. attribut, plus descriptor-overlap
+- [x] `rankCandidates(case, styles)`: sorteret liste over de mest sandsynlige styles. Bruges til distraktorer og feedback
+- [x] `buildQuestion(case, tier, difficulty)`:
   - Begynder: multiple choice med 4 muligheder (korrekt + 3 nærmeste naboer af samme farve)
   - Øvet: 6 muligheder
   - Ekspert: fritekst med autocomplete over alle mulige svar
-- [ ] Trin (tiers) og point:
+- [x] Trin (tiers) og point:
   | Trin | Spørgsmål | Point | Niveau |
   |---|---|---|---|
   | 1 | Gamle / Nye Verden | 1 | alle |
@@ -88,10 +88,10 @@ Mål: Al logik til blindsmagning uden UI.
   | 4 | Land | 2 | alle |
   | 5 | Region | 3 | Øvet+ |
   | 6 | Appellation/stil | 5 | Ekspert |
-- [ ] `scoreRound(case, answers)`: point pr. trin + delvist korrekt (fx rigtigt land men forkert region, eller en region, der er "forælder" til den rigtige appellation)
-- [ ] `explain(case, correctStyle, guessedStyle)`: finder de 1–3 attributter, der mest adskiller den rigtige style fra den gættede, og returnerer strukturerede forklaringer (`{attribute, correct, guessed}`). UI oversætter dem til dansk tekst. Ingen fri tekst genereres fra hukommelsen
-- [ ] Tests: determinisme med samme seed, genererede værdier ligger altid i intervallerne, distraktorer har aldrig samme svar som det rigtige, scoring og explain på kendte par (Sancerre vs. Marlborough SB, Barolo vs. Bourgogne Rouge)
-- [ ] ✅ Tjek: `npm run test` er grøn med >90 % coverage i `engine/`
+- [x] `scoreRound(case, answers)`: point pr. trin + delvist korrekt (fx rigtigt land men forkert region, eller en region, der er "forælder" til den rigtige appellation)
+- [x] `explain(case, correctStyle, guessedStyle)`: finder de 1–3 attributter, der mest adskiller den rigtige style fra den gættede, og returnerer strukturerede forklaringer (`{attribute, correct, guessed}`). UI oversætter dem til dansk tekst. Ingen fri tekst genereres fra hukommelsen
+- [x] Tests: determinisme med samme seed, genererede værdier ligger altid i intervallerne, distraktorer har aldrig samme svar som det rigtige, scoring og explain på kendte par (Sancerre vs. Marlborough SB, Barolo vs. Bourgogne Rouge)
+- [x] ✅ Tjek: `npm run test` er grøn med >90 % coverage i `engine/`
 
 ---
 
