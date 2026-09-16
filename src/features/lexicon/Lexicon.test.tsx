@@ -4,13 +4,14 @@ import { MotionConfig } from 'framer-motion'
 import { MemoryRouter } from 'react-router-dom'
 import { da } from '@/i18n/da'
 import { AppProviders } from '@/components/AppProviders'
+import { memoryStorage } from '@/lib/storage'
 import { AppRoutes } from '@/routes'
 
 function renderAt(path: string) {
   return render(
     <MotionConfig reducedMotion="always">
       <MemoryRouter initialEntries={[path]}>
-        <AppProviders seedFactory={() => 'lexicon-test'}>
+        <AppProviders seedFactory={() => 'lexicon-test'} storage={memoryStorage()}>
           <AppRoutes />
         </AppProviders>
       </MemoryRouter>
