@@ -9,12 +9,13 @@ const r = (input: RegionInput): Region => ({ verified: false, sources: [], ...in
 /**
  * Hierarchy: country > region > subregion > appellation via `parentId`.
  * `center` is [lng, lat]; coordinates are approximate town/area centres and must be reviewed.
- * `climate` is null for countries.
+ * `climate` is null for countries. `geoId` is the ISO A3 code in geo/countries.json.
  */
 export const regions: Region[] = [
   // ---------------------------------------------------------------- Countries
   r({
     id: 'france',
+    geoId: 'FRA',
     name: 'Frankrig',
     type: 'country',
     parentId: null,
@@ -25,6 +26,7 @@ export const regions: Region[] = [
   }),
   r({
     id: 'italy',
+    geoId: 'ITA',
     name: 'Italien',
     type: 'country',
     parentId: null,
@@ -35,6 +37,7 @@ export const regions: Region[] = [
   }),
   r({
     id: 'spain',
+    geoId: 'ESP',
     name: 'Spanien',
     type: 'country',
     parentId: null,
@@ -45,6 +48,7 @@ export const regions: Region[] = [
   }),
   r({
     id: 'portugal',
+    geoId: 'PRT',
     name: 'Portugal',
     type: 'country',
     parentId: null,
@@ -55,6 +59,7 @@ export const regions: Region[] = [
   }),
   r({
     id: 'germany',
+    geoId: 'DEU',
     name: 'Tyskland',
     type: 'country',
     parentId: null,
@@ -65,6 +70,7 @@ export const regions: Region[] = [
   }),
   r({
     id: 'austria',
+    geoId: 'AUT',
     name: 'Østrig',
     type: 'country',
     parentId: null,
@@ -75,6 +81,7 @@ export const regions: Region[] = [
   }),
   r({
     id: 'croatia',
+    geoId: 'HRV',
     name: 'Kroatien',
     type: 'country',
     parentId: null,
@@ -86,6 +93,7 @@ export const regions: Region[] = [
   }),
   r({
     id: 'greece',
+    geoId: 'GRC',
     name: 'Grækenland',
     type: 'country',
     parentId: null,
@@ -97,6 +105,7 @@ export const regions: Region[] = [
   }),
   r({
     id: 'usa',
+    geoId: 'USA',
     name: 'USA',
     type: 'country',
     parentId: null,
@@ -107,6 +116,7 @@ export const regions: Region[] = [
   }),
   r({
     id: 'australia',
+    geoId: 'AUS',
     name: 'Australien',
     type: 'country',
     parentId: null,
@@ -117,6 +127,7 @@ export const regions: Region[] = [
   }),
   r({
     id: 'new-zealand',
+    geoId: 'NZL',
     name: 'New Zealand',
     type: 'country',
     parentId: null,
@@ -127,6 +138,7 @@ export const regions: Region[] = [
   }),
   r({
     id: 'argentina',
+    geoId: 'ARG',
     name: 'Argentina',
     type: 'country',
     parentId: null,
@@ -137,6 +149,7 @@ export const regions: Region[] = [
   }),
   r({
     id: 'chile',
+    geoId: 'CHL',
     name: 'Chile',
     type: 'country',
     parentId: null,
@@ -147,6 +160,7 @@ export const regions: Region[] = [
   }),
   r({
     id: 'south-africa',
+    geoId: 'ZAF',
     name: 'Sydafrika',
     type: 'country',
     parentId: null,
