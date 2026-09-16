@@ -126,13 +126,13 @@ Mål: Al logik til blindsmagning uden UI.
 ---
 
 ## Fase 5 — Leksikon (`features/lexicon/`)
-- [ ] `/lexicon/grapes/:id`: navn, aliaser, farve, typisk profil (samme bjælker som i spillet), nøglearomaer og liste over styles → links
-- [ ] `/lexicon/regions/:id`: breadcrumb (land > region > appellation), klima, Gamle/Nye Verden, mini-kort, druer og styles
-- [ ] `/lexicon/styles/:id`: fuld profil + "Forveksles ofte med" (de nærmeste naboer fra `rankCandidates`) med sammenligning side om side
-- [ ] Søgning på tværs af druer, regioner og styles
-- [ ] Badge for uverificeret indhold (`verified: false`), så man ved, hvad der endnu ikke er tjekket
-- [ ] Forbind alle links fra fase 3 og 4
-- [ ] ✅ Tjek: man kan navigere fra hvilket som helst spilresultat til relevant leksikon og tilbage
+- [x] `/lexicon/grapes/:id`: navn, aliaser, farve, typisk profil (samme bjælker som i spillet), nøglearomaer og liste over styles → links
+- [x] `/lexicon/regions/:id`: breadcrumb (land > region > appellation), klima, Gamle/Nye Verden, mini-kort, druer og styles
+- [x] `/lexicon/styles/:id`: fuld profil + "Forveksles ofte med" (de nærmeste naboer fra `rankCandidates`) med sammenligning side om side
+- [x] Søgning på tværs af druer, regioner og styles
+- [x] Badge for uverificeret indhold (`verified: false`), så man ved, hvad der endnu ikke er tjekket
+- [x] Forbind alle links fra fase 3 og 4
+- [x] ✅ Tjek: man kan navigere fra hvilket som helst spilresultat til relevant leksikon og tilbage
 
 ---
 
