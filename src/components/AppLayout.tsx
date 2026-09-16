@@ -1,4 +1,5 @@
 import { NavLink, Outlet } from 'react-router-dom'
+import { InstallPrompt } from '@/features/settings/InstallPrompt'
 import { da } from '@/i18n/da'
 
 const navItems = [
@@ -34,7 +35,8 @@ export function AppLayout() {
         </div>
       </header>
 
-      <main className="mx-auto w-full max-w-4xl flex-1 px-4 pt-4 pb-24 md:pb-8">
+      <main id="main" className="mx-auto w-full max-w-4xl flex-1 px-4 pt-4 pb-24 md:pb-8">
+        <InstallPrompt />
         <Outlet />
       </main>
 

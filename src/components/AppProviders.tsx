@@ -1,6 +1,7 @@
 import type { ReactNode } from 'react'
 import { MapQuizProvider } from '@/features/map-quiz/MapQuizProvider'
 import { ProgressProvider } from '@/features/progress/ProgressProvider'
+import { PrefsProvider } from '@/features/settings/PrefsProvider'
 import { TastingSessionProvider } from '@/features/tasting/TastingSessionProvider'
 import type { StorageLike } from '@/lib/storage'
 
@@ -11,15 +12,17 @@ interface AppProvidersProps {
   storage?: StorageLike
 }
 
-/** Progress (persistent) and game sessions live here so routes never reset them. */
+/** Preferences, progress (both persistent) and game sessions live here so routes never reset them. */
 export function AppProviders({ children, seedFactory, now, storage }: AppProvidersProps) {
   return (
-    <ProgressProvider storage={storage}>
-      <TastingSessionProvider seedFactory={seedFactory} now={now}>
-        <MapQuizProvider seedFactory={seedFactory} now={now}>
-          {children}
-        </MapQuizProvider>
-      </TastingSessionProvider>
-    </ProgressProvider>
+    <PrefsProvider storage={storage}>
+      <ProgressProvider storage={storage}>
+        <TastingSessionProvider seedFactory={seedFactory} now={now}>
+          <MapQuizProvider seedFactory={seedFactory} now={now}>
+            {children}
+          </MapQuizProvider>
+        </TastingSessionProvider>
+      </ProgressProvider>
+    </PrefsProvider>
   )
 }

@@ -341,6 +341,13 @@ export const da = {
     nextIn: 'Næste udfordring om',
     countdownLabel: 'Nedtælling til næste udfordring',
   },
+  install: {
+    title: 'Installer Vinspil som app',
+    help: 'Få appen på hjemmeskærmen, så den åbner hurtigt og virker offline.',
+    iosHelp: 'Tryk på Del-knappen i Safari og vælg "Føj til hjemmeskærm".',
+    button: 'Installer',
+    later: 'Ikke nu',
+  },
   summary: {
     title: 'Session færdig',
     total: 'Samlet score',
