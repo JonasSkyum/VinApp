@@ -26,7 +26,6 @@ export const da = {
     },
     map: {
       title: 'Kortquiz',
-      placeholder: 'Kortquiz kommer i fase 4.',
     },
     daily: {
       title: 'Daglig udfordring',
@@ -169,7 +168,7 @@ export const da = {
       '{correct} og {guessed} ligner hinanden meget i strukturen. Her må aromaerne afgøre det.',
     lexiconGrape: 'Læs om {name}',
     lexiconRegion: 'Læs om {name}',
-    mapPlaceholder: 'Kort over {name} kommer i fase 4.',
+    miniMap: 'Kort: {name}',
     explanation: {
       attribute:
         '{attribute} var {value}. {correct} ligger typisk på {correctRange}, mens {guessed} ligger på {guessedRange}.',
@@ -177,6 +176,54 @@ export const da = {
       descriptors: 'Aromaer som {list} passer ikke til {guessed}.',
       rangeTo: '{min} til {max}',
       listAnd: 'og',
+    },
+  },
+  mapQuiz: {
+    mode: {
+      labelName: 'Tilstand',
+      find: 'Find',
+      name: 'Navngiv',
+      grape: 'Drue → sted',
+      findHelp: 'Klik på den region, der bliver nævnt.',
+      nameHelp: 'En region blinker. Vælg dens navn.',
+      grapeHelp: 'Klik der, hvor druen klassisk kommer fra.',
+    },
+    world: {
+      labelName: 'Verden',
+      all: 'Hele verden',
+      old: 'Gamle Verden',
+      new: 'Nye Verden',
+    },
+    country: {
+      labelName: 'Land',
+      all: 'Alle lande',
+    },
+    count: {
+      labelName: 'Antal spørgsmål',
+    },
+    prompt: {
+      find: 'Klik på {name}',
+      name: 'Hvilken region blinker?',
+      grape: 'Hvor kommer klassisk {name} fra?',
+    },
+    mapLabel: 'Vinkort',
+    question: 'Spørgsmål',
+    time: 'Tid',
+    feedback: {
+      hit: 'Rigtigt! {points} point.',
+      near: 'Tæt på: {distance} km fra {name}. {points} point.',
+      miss: 'Forkert. Det var {name}, {distance} km væk.',
+      nameCorrect: 'Rigtigt! Det var {name}.',
+      nameWrong: 'Forkert. Det var {name}.',
+      skipped: 'Sprunget over. Det var {name}.',
+    },
+    summary: {
+      title: 'Quiz færdig',
+      score: 'Score',
+      time: 'Tid',
+      wrongTitle: 'Forkerte svar',
+      noneWrong: 'Alt rigtigt – flot!',
+      wrongItem: '{name}: {points}/{max} point',
     },
   },
   summary: {
