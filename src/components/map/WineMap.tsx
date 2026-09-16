@@ -2,14 +2,21 @@ import type { FeatureCollection } from 'geojson'
 import {
   GeoJSONSource,
   Map as MapLibreMap,
+  setWorkerUrl,
   type MapMouseEvent,
   type StyleSpecification,
 } from 'maplibre-gl'
+import workerUrl from 'maplibre-gl/dist/maplibre-gl-worker.mjs?worker&url'
 import 'maplibre-gl/dist/maplibre-gl.css'
 import { useEffect, useRef, useState } from 'react'
 import countriesUrl from '@/content/geo/countries.json?url'
 import type { Bounds } from '@/engine'
 import type { MapMarker, MapPoint, WineMapProps } from './mapTypes'
+
+// MapLibre resolves its worker with a dynamic URL that bundlers cannot follow, so
+// without this the built site requests a file that does not exist and nothing but
+// the background renders. Vite copies the worker as an asset and gives us its URL.
+setWorkerUrl(workerUrl)
 
 /**
  * Label-free map: a plain background plus our own country polygons and region dots,
