@@ -13,7 +13,7 @@ Spiltilstande:
 Den fulde plan ligger i `docs/PLAN.md`. **Læs den før du starter på en opgave.**
 
 ## Stack
-- React 18 + Vite + **TypeScript (strict)**
+- React 19 + Vite + **TypeScript (strict)**
 - Tailwind CSS v4 (`@tailwindcss/vite`)
 - React Router med `HashRouter` (fordi appen hostes på GitHub Pages)
 - MapLibre GL JS til kortet, med egne GeoJSON-lag og uden ekstern tile-server
@@ -21,7 +21,7 @@ Den fulde plan ligger i `docs/PLAN.md`. **Læs den før du starter på en opgave
 - Framer Motion til animationer
 - Vitest + React Testing Library til tests
 - vite-plugin-pwa
-- Hosting: GitHub Pages via GitHub Actions
+- Hosting: GitHub Pages via GitHub Actions (repo `JonasSkyum/VinApp`, så `base: '/VinApp/'`)
 - Supabase (auth + synk af fremskridt) kommer først i fase 8. Indtil da er alt local-first med localStorage.
 
 ## Arkitektur

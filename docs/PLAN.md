@@ -8,22 +8,22 @@ Opgaver markeret **👤** skal udvikleren (Jonas) selv udføre, fordi de kræver
 ## Fase 0 — Opsætning og deploy-pipeline
 Mål: En tom app, der kører lokalt og automatisk bliver deployet til GitHub Pages.
 
-- [ ] 👤 Opret repo `vinspil` på GitHub (public, uden README) og clone det lokalt
-- [ ] Scaffold Vite + React + TypeScript i repo-roden (`npm create vite@latest . -- --template react-ts`)
-- [ ] Slå `strict: true` til i tsconfig, og tilføj path-alias `@/` → `src/`
-- [ ] Installér og konfigurér Tailwind v4 via `@tailwindcss/vite`
-- [ ] Installér React Router, og opsæt `HashRouter` med tomme sider: `/`, `/tasting`, `/map`, `/daily`, `/lexicon`, `/progress`
-- [ ] Opsæt ESLint + Prettier
-- [ ] Opsæt Vitest + React Testing Library + én dummy-test
-- [ ] Tilføj npm scripts: `dev`, `build`, `test`, `lint`, `validate:content` (tomt script indtil videre)
-- [ ] Sæt `base: '/vinspil/'` i `vite.config.ts`
-- [ ] Opret `.github/workflows/deploy.yml`: på push til `main` køres install → lint → test → build → deploy til Pages
-- [ ] Opret `.github/workflows/ci.yml`: på pull requests køres lint + test + build
+- [x] 👤 Opret repo `vinspil` på GitHub (public, uden README) og clone det lokalt (oprettet som `JonasSkyum/VinApp`)
+- [x] Scaffold Vite + React + TypeScript i repo-roden (`npm create vite@latest . -- --template react-ts`)
+- [x] Slå `strict: true` til i tsconfig, og tilføj path-alias `@/` → `src/`
+- [x] Installér og konfigurér Tailwind v4 via `@tailwindcss/vite`
+- [x] Installér React Router, og opsæt `HashRouter` med tomme sider: `/`, `/tasting`, `/map`, `/daily`, `/lexicon`, `/progress`
+- [x] Opsæt ESLint + Prettier
+- [x] Opsæt Vitest + React Testing Library + én dummy-test
+- [x] Tilføj npm scripts: `dev`, `build`, `test`, `lint`, `validate:content` (tomt script indtil videre)
+- [x] Sæt `base: '/VinApp/'` i `vite.config.ts` (repoet hedder `VinApp`, ikke `vinspil`)
+- [x] Opret `.github/workflows/deploy.yml`: på push til `main` køres install → lint → test → build → deploy til Pages
+- [x] Opret `.github/workflows/ci.yml`: på pull requests køres lint + test + build
 - [ ] 👤 GitHub → Settings → Pages → Source: **GitHub Actions**
-- [ ] Opret `src/i18n/da.ts` til UI-tekster
-- [ ] Basis-layout: bundnavigation på mobil (Smag, Kort, Daglig, Leksikon, Fremskridt), topbar på desktop
-- [ ] Opret `README.md` med kort beskrivelse og kommandoer
-- [ ] ✅ Tjek: live URL `https://<bruger>.github.io/vinspil/` viser appen, og navigationen virker
+- [x] Opret `src/i18n/da.ts` til UI-tekster
+- [x] Basis-layout: bundnavigation på mobil (Smag, Kort, Daglig, Leksikon, Fremskridt), topbar på desktop
+- [x] Opret `README.md` med kort beskrivelse og kommandoer
+- [ ] ✅ Tjek: live URL `https://jonasskyum.github.io/VinApp/` viser appen, og navigationen virker
 
 ---
 
