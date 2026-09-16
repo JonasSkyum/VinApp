@@ -5,6 +5,7 @@ import { MemoryRouter } from 'react-router-dom'
 import { da } from '@/i18n/da'
 import { catalog } from '@/lib/catalog'
 import { formatSeconds } from './format'
+import { MapQuizProvider } from './MapQuizProvider'
 import { MapQuizPage } from './MapQuizPage'
 
 let clock = 0
@@ -13,7 +14,9 @@ function renderPage() {
   return render(
     <MotionConfig reducedMotion="always">
       <MemoryRouter>
-        <MapQuizPage seedFactory={() => 'map-component-test'} now={() => clock} />
+        <MapQuizProvider seedFactory={() => 'map-component-test'} now={() => clock}>
+          <MapQuizPage now={() => clock} />
+        </MapQuizProvider>
       </MemoryRouter>
     </MotionConfig>,
   )

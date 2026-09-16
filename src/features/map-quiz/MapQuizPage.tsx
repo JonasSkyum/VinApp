@@ -1,4 +1,5 @@
 import { useEffect, useMemo, useState } from 'react'
+import { Link } from 'react-router-dom'
 import { Autocomplete } from '@/components/Autocomplete'
 import { LazyWineMap } from '@/components/map/LazyWineMap'
 import type { MapMarker, MapPoint } from '@/components/map/mapTypes'
@@ -11,20 +12,11 @@ import type { LngLat } from '@/schema'
 import { formatSeconds } from './format'
 import { MapSetupScreen } from './MapSetupScreen'
 import { MapSummary } from './MapSummary'
-import { newSeed, useMapQuiz } from './useMapQuiz'
+import { useMapQuizContext } from './mapQuizContext'
 
-interface MapQuizPageProps {
-  catalog?: Catalog
-  seedFactory?: () => string
-  now?: () => number
-}
-
-export function MapQuizPage({
-  catalog = defaultCatalog,
-  seedFactory = newSeed,
-  now = Date.now,
-}: MapQuizPageProps) {
-  const { state, start, answer, next, restart, reset } = useMapQuiz(catalog, seedFactory, now)
+export function MapQuizPage({ now = Date.now }: { now?: () => number }) {
+  const catalog = defaultCatalog
+  const { state, start, answer, next, restart, reset } = useMapQuizContext()
   const [pendingName, setPendingName] = useState<string | null>(null)
   const elapsed = useElapsedSeconds(
     state.startedAt,
@@ -142,7 +134,17 @@ export function MapQuizPage({
               : 'border-red-300 bg-red-50 text-red-900'
           }`}
         >
-          <p className="font-medium">{feedbackText(state.feedback, catalog)}</p>
+          <p className="font-medium">
+            {feedbackText(state.feedback, catalog)}{' '}
+            <Link
+              to={`/lexicon/regions/${state.feedback.targetRegionId}`}
+              className="font-normal underline"
+            >
+              {interpolate(da.result.lexiconRegion, {
+                name: catalog.region(state.feedback.targetRegionId).name,
+              })}
+            </Link>
+          </p>
           <button
             type="button"
             onClick={next}

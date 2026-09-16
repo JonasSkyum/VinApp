@@ -1,6 +1,5 @@
 import { motion, useReducedMotion } from 'framer-motion'
 import { PageTitle } from '@/components/PageTitle'
-import type { Catalog } from '@/engine'
 import { da } from '@/i18n/da'
 import { catalog as defaultCatalog } from '@/lib/catalog'
 import { QuestionPanel } from './QuestionPanel'
@@ -8,19 +7,11 @@ import { RoundResult } from './RoundResult'
 import { SessionSummary } from './SessionSummary'
 import { SetupScreen } from './SetupScreen'
 import { TastingCard } from './TastingCard'
-import { newSeed, useTastingSession } from './useTastingSession'
+import { useTastingSessionContext } from './tastingSessionContext'
 
-interface TastingPageProps {
-  catalog?: Catalog
-  /** Injectable for deterministic tests. */
-  seedFactory?: () => string
-}
-
-export function TastingPage({ catalog = defaultCatalog, seedFactory = newSeed }: TastingPageProps) {
-  const { state, start, select, lock, nextRound, restart, reset } = useTastingSession(
-    catalog,
-    seedFactory,
-  )
+export function TastingPage() {
+  const catalog = defaultCatalog
+  const { state, start, select, lock, nextRound, restart, reset } = useTastingSessionContext()
   const reduced = useReducedMotion()
 
   if (state.phase === 'setup') {

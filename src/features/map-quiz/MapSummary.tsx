@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom'
 import { CountUp } from '@/components/CountUp'
 import type { Catalog, MapResult } from '@/engine'
 import { da } from '@/i18n/da'
@@ -45,15 +46,17 @@ export function MapSummary({ results, seconds, catalog, onPlayAgain, onNewQuiz }
         ) : (
           <ul className="space-y-1">
             {wrong.map((r, i) => (
-              <li
-                key={i}
-                className="rounded-lg border border-red-200 bg-red-50 px-3 py-2 text-sm text-red-900"
-              >
-                {interpolate(t.wrongItem, {
-                  name: catalog.region(r.targetRegionId).name,
-                  points: r.points,
-                  max: r.maxPoints,
-                })}
+              <li key={i}>
+                <Link
+                  to={`/lexicon/regions/${r.targetRegionId}`}
+                  className="block rounded-lg border border-red-200 bg-red-50 px-3 py-2 text-sm text-red-900 underline"
+                >
+                  {interpolate(t.wrongItem, {
+                    name: catalog.region(r.targetRegionId).name,
+                    points: r.points,
+                    max: r.maxPoints,
+                  })}
+                </Link>
               </li>
             ))}
           </ul>

@@ -4,12 +4,15 @@ import { MotionConfig } from 'framer-motion'
 import { MemoryRouter } from 'react-router-dom'
 import { da } from '@/i18n/da'
 import { TastingPage } from './TastingPage'
+import { TastingSessionProvider } from './TastingSessionProvider'
 
 function renderPage() {
   return render(
     <MotionConfig reducedMotion="always">
       <MemoryRouter>
-        <TastingPage seedFactory={() => 'component-test'} />
+        <TastingSessionProvider seedFactory={() => 'component-test'}>
+          <TastingPage />
+        </TastingSessionProvider>
       </MemoryRouter>
     </MotionConfig>,
   )
