@@ -31,29 +31,29 @@ Mål: En tom app, der kører lokalt og automatisk bliver deployet til GitHub Pag
 Mål: Typestærke, validerede vindata, som resten af appen bygger på.
 
 ### 1.1 Skemaer (`src/schema/`)
-- [ ] `Level`-type: tal 1–5 og `Range = [min, max]` med refine `min <= max`
-- [ ] `Grape`: `id, name, aliases[], color ('red'|'white'), origin (countryId), typicalProfile (profil-intervaller), keyDescriptors[], notes, verified, sources[]`
-- [ ] `Region`: `id, name, type ('country'|'region'|'subregion'|'appellation'), parentId|null, world ('old'|'new'), climate ('cool'|'moderate'|'warm'), center [lng, lat], geoId?, difficulty (1–3), verified, sources[]`
-- [ ] `Style`: `id, name (fx "Sancerre"), color ('red'|'white'|'rosé'|'sparkling'|'sweet'|'fortified'), grapeIds[], regionId, profile, descriptorIds[], oak ('none'|'light'|'pronounced'), difficulty (1–3), verified, sources[], note?`
-- [ ] `Profile`: `appearance (white: 'lemon-green'|'lemon'|'gold'|'amber'; red: 'purple'|'ruby'|'garnet'|'tawny'), intensity: Range, sweetness: Range, acidity: Range, tannin: Range (null for hvid), alcohol: Range, body: Range, finish: Range`
-- [ ] `Descriptor`: `id, name (dansk), cluster ('citrus'|'green-fruit'|'stone-fruit'|'tropical'|'red-fruit'|'black-fruit'|'floral'|'herbal'|'spice'|'oak'|'earth'|'mineral'|'other'), primary|secondary|tertiary`
-- [ ] Eksportér afledte TS-typer via `z.infer`
+- [x] `Level`-type: tal 1–5 og `Range = [min, max]` med refine `min <= max`
+- [x] `Grape`: `id, name, aliases[], color ('red'|'white'), origin (countryId), typicalProfile (profil-intervaller), keyDescriptors[], notes, verified, sources[]`
+- [x] `Region`: `id, name, type ('country'|'region'|'subregion'|'appellation'), parentId|null, world ('old'|'new'), climate ('cool'|'moderate'|'warm'), center [lng, lat], geoId?, difficulty (1–3), verified, sources[]`
+- [x] `Style`: `id, name (fx "Sancerre"), color ('red'|'white'|'rosé'|'sparkling'|'sweet'|'fortified'), grapeIds[], regionId, profile, descriptorIds[], oak ('none'|'light'|'pronounced'), difficulty (1–3), verified, sources[], note?`
+- [x] `Profile`: `appearance (white: 'lemon-green'|'lemon'|'gold'|'amber'; red: 'purple'|'ruby'|'garnet'|'tawny'), intensity: Range, sweetness: Range, acidity: Range, tannin: Range (null for hvid), alcohol: Range, body: Range, finish: Range`
+- [x] `Descriptor`: `id, name (dansk), cluster ('citrus'|'green-fruit'|'stone-fruit'|'tropical'|'red-fruit'|'black-fruit'|'floral'|'herbal'|'spice'|'oak'|'earth'|'mineral'|'other'), primary|secondary|tertiary`
+- [x] Eksportér afledte TS-typer via `z.infer`
 
 ### 1.2 Valideringsscript
-- [ ] `scripts/validate-content.ts` (kør med `tsx`): parser alt indhold mod skemaerne
-- [ ] Krydsreferencer: alle `grapeIds`, `regionId`, `parentId` og `descriptorIds` findes
-- [ ] Unikke id'er, kebab-case
-- [ ] Røde styles skal have tannin, hvide må ikke
-- [ ] Advarsel (ikke fejl): to styles med næsten identisk profil og samme farve. De bliver umulige at skelne i spillet
-- [ ] Udskriv statistik: antal verificerede/uverificerede pr. type
-- [ ] Kør scriptet i CI før build
+- [x] `scripts/validate-content.ts` (kør med `tsx`): parser alt indhold mod skemaerne
+- [x] Krydsreferencer: alle `grapeIds`, `regionId`, `parentId` og `descriptorIds` findes
+- [x] Unikke id'er, kebab-case
+- [x] Røde styles skal have tannin, hvide må ikke
+- [x] Advarsel (ikke fejl): to styles med næsten identisk profil og samme farve. De bliver umulige at skelne i spillet
+- [x] Udskriv statistik: antal verificerede/uverificerede pr. type
+- [x] Kør scriptet i CI før build
 
 ### 1.3 Startindhold (alt `verified: false`)
-- [ ] `descriptors.ts`: ca. 60 aromaer fordelt på clusters
-- [ ] `grapes.ts`, 25 druer:
+- [x] `descriptors.ts`: ca. 60 aromaer fordelt på clusters
+- [x] `grapes.ts`, 25 druer:
   - Rød: Cabernet Sauvignon, Merlot, Pinot Noir, Syrah/Shiraz, Grenache/Garnacha, Tempranillo, Sangiovese, Nebbiolo, Malbec, Zinfandel/Primitivo, Gamay, Cabernet Franc, Barbera
   - Hvid: Chardonnay, Sauvignon Blanc, Riesling, Chenin Blanc, Pinot Grigio/Gris, Gewürztraminer, Viognier, Albariño, Grüner Veltliner, Sémillon, Muscat, Garganega
-- [ ] `regions.ts`: lande + ca. 40 regioner/appellationer:
+- [x] `regions.ts`: lande + ca. 40 regioner/appellationer:
   - Frankrig: Bordeaux (Pauillac, Saint-Émilion, Sauternes), Bourgogne (Chablis, Côte de Nuits, Côte de Beaune), Beaujolais, Nordlige Rhône, Sydlige Rhône (Châteauneuf-du-Pape), Loire (Sancerre, Vouvray), Alsace, Champagne
   - Italien: Piemonte (Barolo), Toscana (Chianti Classico, Brunello di Montalcino), Veneto (Soave), Puglia
   - Spanien: Rioja, Ribera del Duero, Rías Baixas, Priorat
@@ -61,10 +61,10 @@ Mål: Typestærke, validerede vindata, som resten af appen bygger på.
   - USA: Napa Valley, Sonoma, Willamette Valley
   - Australien: Barossa Valley, Clare Valley, Margaret River, Yarra Valley
   - New Zealand: Marlborough, Central Otago · Argentina: Mendoza · Chile: Maipo Valley · Sydafrika: Stellenbosch
-- [ ] `styles.ts`: ca. 50 klassiske stilarter (fx Sancerre, Chablis, Napa Cabernet, Barossa Shiraz, Mosel Riesling Kabinett, Marlborough Sauvignon Blanc, Barolo, Rioja Reserva, Beaujolais, Mendoza Malbec …). Hver drue skal indgå i mindst én style, og hvor det er muligt i både en Gamle Verden- og en Nye Verden-version, så eleven lærer klimaforskellen
-- [ ] Opret `docs/CONTENT-GUIDE.md`: skalaens betydning, hvordan man tilføjer en style, og hvordan man verificerer den
+- [x] `styles.ts`: ca. 50 klassiske stilarter (fx Sancerre, Chablis, Napa Cabernet, Barossa Shiraz, Mosel Riesling Kabinett, Marlborough Sauvignon Blanc, Barolo, Rioja Reserva, Beaujolais, Mendoza Malbec …). Hver drue skal indgå i mindst én style, og hvor det er muligt i både en Gamle Verden- og en Nye Verden-version, så eleven lærer klimaforskellen
+- [x] Opret `docs/CONTENT-GUIDE.md`: skalaens betydning, hvordan man tilføjer en style, og hvordan man verificerer den
 - [ ] 👤 Gennemgå de første 10 styles, ret værdier, sæt `verified: true` og tilføj kilder (WSET-materiale, Wine Folly, The World Atlas of Wine osv.)
-- [ ] ✅ Tjek: `npm run validate:content` er grøn
+- [x] ✅ Tjek: `npm run validate:content` er grøn
 
 ---
 
