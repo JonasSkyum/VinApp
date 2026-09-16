@@ -24,6 +24,18 @@ npm run format           # prettier --write
 npm run validate:content # validerer vinindhold mod zod-skemaer (fase 1)
 ```
 
+## Login og synkronisering (valgfrit)
+
+Appen er local-first og virker fuldt ud uden konto. Med Supabase kan fremskridt følge med på tværs af enheder:
+
+```
+# .env.local (ignoreres af git) – samme to værdier ligger som GitHub Actions secrets
+VITE_SUPABASE_URL=https://<project-ref>.supabase.co
+VITE_SUPABASE_ANON_KEY=sb_publishable_...
+```
+
+Uden variablerne er kontoafsnittet på Fremskridt-siden skjult. Databaseskemaet ligger i `supabase/migrations/`, og `.github/workflows/keep-alive.yml` holder gratisprojektet vågent.
+
 ## Struktur
 
 ```

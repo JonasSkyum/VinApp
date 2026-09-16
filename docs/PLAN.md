@@ -162,12 +162,12 @@ Mål: Al logik til blindsmagning uden UI.
 ---
 
 ## Fase 8 — Supabase: login og synk (valgfri)
-- [ ] 👤 Opret Supabase-projekt (EU / Frankfurt), og læg `VITE_SUPABASE_URL` + `VITE_SUPABASE_ANON_KEY` i `.env.local` og som GitHub Actions secrets
-- [ ] Tabeller med RLS (bruger ser kun egne rækker): `profiles`, `answer_log`, `leitner_state`, `daily_results`
-- [ ] Login med email + magic link (eller password)
-- [ ] Synk-strategi: localStorage er primær. Ved login merges der (union af log, højeste boks vinder), hvorefter der pushes løbende med debounce
-- [ ] Appen skal virke 100 % uden login
-- [ ] Keep-alive, så gratisprojektet ikke pauses (fx planlagt GitHub Action, der pinger en simpel tabel)
+- [x] 👤 Opret Supabase-projekt (EU / Frankfurt), og læg `VITE_SUPABASE_URL` + `VITE_SUPABASE_ANON_KEY` i `.env.local` og som GitHub Actions secrets
+- [x] Tabeller med RLS (bruger ser kun egne rækker): `profiles`, `answer_log`, `leitner_state`, `daily_results`
+- [x] Login med email + magic link (eller password)
+- [x] Synk-strategi: localStorage er primær. Ved login merges der (union af log, højeste boks vinder), hvorefter der pushes løbende med debounce
+- [x] Appen skal virke 100 % uden login
+- [x] Keep-alive, så gratisprojektet ikke pauses (fx planlagt GitHub Action, der pinger en simpel tabel)
 - [ ] ✅ Tjek: fremskridt følger med fra telefon til computer
 
 ---

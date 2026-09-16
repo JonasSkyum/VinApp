@@ -6,3 +6,6 @@ vi.mock('@/components/map/LazyWineMap', async () => {
   const { MockWineMap } = await import('./MockWineMap')
   return { LazyWineMap: MockWineMap }
 })
+
+// Never talk to Supabase from tests: sync is off unless a test injects a backend.
+vi.mock('@/lib/supabase', () => ({ supabase: null, createSupabase: () => null }))

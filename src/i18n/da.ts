@@ -380,6 +380,21 @@ export const da = {
       honest: 'Indhold, der ikke er verificeret mod kilder endnu, er markeret i leksikonet.',
     },
   },
+  account: {
+    title: 'Konto og synkronisering',
+    intro:
+      'Log ind for at få dine fremskridt med på tværs af telefon og computer. Appen virker fuldt ud uden.',
+    email: 'E-mail',
+    sendLink: 'Send login-link',
+    linkSent: 'Tjek din mail og tryk på linket for at logge ind.',
+    signedInAs: 'Logget ind som {email}',
+    syncHelp: 'Dine fremskridt gemmes stadig på enheden og sendes automatisk til skyen.',
+    syncNow: 'Synkronisér nu',
+    signOut: 'Log ud',
+    syncing: 'Synkroniserer …',
+    synced: 'Synkroniseret.',
+    error: 'Synkronisering fejlede: {message}',
+  },
   settings: {
     theme: 'Tema',
     themeSystem: 'Som systemet',

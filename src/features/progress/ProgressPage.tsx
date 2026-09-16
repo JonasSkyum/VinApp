@@ -15,6 +15,7 @@ import {
   type UnitKind,
 } from '@/engine'
 import { SettingsPanel } from '@/features/settings/SettingsPanel'
+import { AccountPanel } from '@/features/sync/AccountPanel'
 import { da } from '@/i18n/da'
 import { catalog as defaultCatalog } from '@/lib/catalog'
 import { interpolate } from '@/lib/text'
@@ -136,6 +137,8 @@ export function ProgressPage({ catalog = defaultCatalog, now = Date.now }: Progr
           </span>
         </label>
       </section>
+
+      <AccountPanel />
 
       <BackupPanel />
     </div>

@@ -1,0 +1,27 @@
+name: Keep Supabase awake
+
+# Free Supabase projects pause after a week without API traffic.
+# One authenticated read of the public heartbeat row every three days keeps it active.
+on:
+  schedule:
+    - cron: '17 6 */3 * *'
+  workflow_dispatch:
+
+permissions: {}
+
+jobs:
+  ping:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Read heartbeat row
+        env:
+          SUPABASE_URL: ${{ secrets.VITE_SUPABASE_URL }}
+          SUPABASE_KEY: ${{ secrets.VITE_SUPABASE_ANON_KEY }}
+        run: |
+          set -euo pipefail
+          status=$(curl -sS -o /tmp/body -w '%{http_code}' \
+            -H "apikey: $SUPABASE_KEY" \
+            -H "Authorization: Bearer $SUPABASE_KEY" \
+            "$SUPABASE_URL/rest/v1/heartbeat?select=id")
+          echo "HTTP $status: $(cat /tmp/body)"
+          test "$status" = "200"

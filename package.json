@@ -15,6 +15,7 @@
     "validate:content": "tsx --tsconfig tsconfig.scripts.json scripts/validate-content.ts"
   },
   "dependencies": {
+    "@supabase/supabase-js": "^2.116.0",
     "@tailwindcss/vite": "^4.3.3",
     "framer-motion": "^13.3.0",
     "maplibre-gl": "^6.10.0",
