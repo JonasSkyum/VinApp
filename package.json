@@ -12,14 +12,15 @@
     "test:coverage": "vitest run --coverage",
     "lint": "eslint . && prettier --check .",
     "format": "prettier --write .",
-    "validate:content": "tsx scripts/validate-content.ts"
+    "validate:content": "tsx --tsconfig tsconfig.scripts.json scripts/validate-content.ts"
   },
   "dependencies": {
     "@tailwindcss/vite": "^4.3.3",
     "react": "^19.2.8",
     "react-dom": "^19.2.8",
     "react-router-dom": "^7.18.4",
-    "tailwindcss": "^4.3.3"
+    "tailwindcss": "^4.3.3",
+    "zod": "^4.6.5"
   },
   "devDependencies": {
     "@eslint/js": "^10.0.1",
