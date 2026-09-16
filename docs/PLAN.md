@@ -137,15 +137,15 @@ Mål: Al logik til blindsmagning uden UI.
 ---
 
 ## Fase 6 — Fremskridt og træning (local-first)
-- [ ] `lib/storage.ts`: typed wrapper om localStorage med versionering og migrationer
-- [ ] `engine/leitner.ts`: 5 bokse pr. læringsenhed (grape, region, style, map-location). Rigtigt svar → op én boks, forkert → boks 1. Hver boks har et gentagelsesinterval
-- [ ] Log hvert svar: `{itemId, tier, correct, guessedId, timestamp}`
-- [ ] **Forvekslingsmatrix:** tæl (rigtig → gættet) par. Fremskridtssiden viser top 5 forvekslinger med link til sammenligning i leksikon
-- [ ] Tilstand "Træn svage punkter": en blindsmagningssession, hvor styles vælges ud fra lave Leitner-bokse og hyppige forvekslinger
-- [ ] Fremskridtsside: mestring pr. drue/region (procent), streak, XP-kurve og niveau
-- [ ] Oplåsning: Øvet låses op efter X korrekte druegæt på Begynder, Ekspert efter Y regioner. Kan slås fra i indstillinger
-- [ ] Eksport/import af fremskridt som JSON (backup, før der kommer synk)
-- [ ] ✅ Tjek: fremskridt overlever reload og deploy
+- [x] `lib/storage.ts`: typed wrapper om localStorage med versionering og migrationer
+- [x] `engine/leitner.ts`: 5 bokse pr. læringsenhed (grape, region, style, map-location). Rigtigt svar → op én boks, forkert → boks 1. Hver boks har et gentagelsesinterval
+- [x] Log hvert svar: `{itemId, tier, correct, guessedId, timestamp}`
+- [x] **Forvekslingsmatrix:** tæl (rigtig → gættet) par. Fremskridtssiden viser top 5 forvekslinger med link til sammenligning i leksikon
+- [x] Tilstand "Træn svage punkter": en blindsmagningssession, hvor styles vælges ud fra lave Leitner-bokse og hyppige forvekslinger
+- [x] Fremskridtsside: mestring pr. drue/region (procent), streak, XP-kurve og niveau
+- [x] Oplåsning: Øvet låses op efter X korrekte druegæt på Begynder, Ekspert efter Y regioner. Kan slås fra i indstillinger
+- [x] Eksport/import af fremskridt som JSON (backup, før der kommer synk)
+- [x] ✅ Tjek: fremskridt overlever reload og deploy
 
 ---
 
