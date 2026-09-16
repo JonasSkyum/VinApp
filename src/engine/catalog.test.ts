@@ -33,6 +33,35 @@ describe('createCatalog', () => {
     expect(catalog.regionLevelOf('france').id).toBe('france')
   })
 
+  it('lists children, descendants and styles below a region', () => {
+    expect(catalog.childrenOf('bourgogne').map((r) => r.id)).toEqual([
+      'chablis',
+      'cote-de-nuits',
+      'cote-de-beaune',
+    ])
+    expect(catalog.childrenOf('chablis')).toEqual([])
+    expect(catalog.descendantsOf('france').map((r) => r.id)).toContain('chateauneuf-du-pape')
+    expect(catalog.descendantsOf('france').map((r) => r.id)).not.toContain('france')
+    expect(catalog.stylesIn('bourgogne').map((s) => s.id)).toEqual([
+      'chablis',
+      'cote-de-beaune-blanc',
+      'cote-de-nuits-rouge',
+    ])
+    expect(catalog.stylesIn('napa-valley').map((s) => s.id)).toEqual([
+      'napa-chardonnay',
+      'napa-cabernet-sauvignon',
+      'napa-merlot',
+    ])
+    expect(() => catalog.childrenOf('nope')).toThrow('Unknown region')
+  })
+
+  it('lists styles using a grape as any principal grape', () => {
+    const ids = catalog.stylesWithGrape('merlot').map((s) => s.id)
+    expect(ids).toContain('pauillac')
+    expect(ids).toContain('saint-emilion')
+    expect(ids).toContain('napa-merlot')
+  })
+
   it('builds and caches the answer key', () => {
     const key = catalog.answerKey('sancerre')
     expect(key).toEqual({

@@ -20,6 +20,14 @@ export interface Catalog {
   countryOf(regionId: string): Region
   /** Nearest ancestor (or self) of type `region`; falls back to the country. */
   regionLevelOf(regionId: string): Region
+  /** Direct children in the hierarchy, in content order. */
+  childrenOf(regionId: string): Region[]
+  /** Every region below this one (children, grandchildren, ...), excluding itself. */
+  descendantsOf(regionId: string): Region[]
+  /** Styles whose home is this region or any region below it. */
+  stylesIn(regionId: string): Style[]
+  /** Styles that use the grape (as any of their principal grapes). */
+  stylesWithGrape(grapeId: string): Style[]
   /** Correct answers for every tier of a style. */
   answerKey(styleId: string): AnswerKey
 }
@@ -59,6 +67,39 @@ export function createCatalog(content: ContentBundle): Catalog {
     return chain.find((r) => r.type === 'region') ?? chain[chain.length - 1]!
   }
 
+  const childrenByParent = new Map<string, Region[]>()
+  for (const r of content.regions) {
+    if (r.parentId === null) continue
+    const list = childrenByParent.get(r.parentId) ?? []
+    list.push(r)
+    childrenByParent.set(r.parentId, list)
+  }
+
+  function childrenOf(regionId: string): Region[] {
+    region(regionId)
+    return childrenByParent.get(regionId) ?? []
+  }
+
+  function descendantsOf(regionId: string): Region[] {
+    const out: Region[] = []
+    const stack = [...childrenOf(regionId)]
+    while (stack.length > 0) {
+      const next = stack.shift()!
+      out.push(next)
+      stack.push(...childrenOf(next.id))
+    }
+    return out
+  }
+
+  function stylesIn(regionId: string): Style[] {
+    const ids = new Set([regionId, ...descendantsOf(regionId).map((r) => r.id)])
+    return content.styles.filter((s) => ids.has(s.regionId))
+  }
+
+  function stylesWithGrape(grapeId: string): Style[] {
+    return content.styles.filter((s) => s.grapeIds.includes(grapeId))
+  }
+
   function answerKey(styleId: string): AnswerKey {
     const cached = answerKeys.get(styleId)
     if (cached) return cached
@@ -88,6 +129,10 @@ export function createCatalog(content: ContentBundle): Catalog {
     ancestors,
     countryOf,
     regionLevelOf,
+    childrenOf,
+    descendantsOf,
+    stylesIn,
+    stylesWithGrape,
     answerKey,
   }
 }
