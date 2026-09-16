@@ -1,7 +1,9 @@
 import { motion, useReducedMotion } from 'framer-motion'
 import { Link } from 'react-router-dom'
 import { CountUp } from '@/components/CountUp'
+import { LazyWineMap } from '@/components/map/LazyWineMap'
 import {
+  boundsOf,
   explain,
   guessedStyle,
   nearestNeighbour,
@@ -21,6 +23,9 @@ interface RoundResultProps {
   isLastRound: boolean
   onNext: () => void
 }
+
+/** Degrees of longitude/latitude shown around the region on the mini-map. */
+const MINI_MAP_PADDING_DEG = 4
 
 const OUTCOME_CLASS = {
   correct: 'bg-green-100 text-green-900',
@@ -45,6 +50,10 @@ export function RoundResult({
     .reverse()
     .map((r) => r.name)
     .join(' › ')
+
+  // WineMap compares props by value, so fresh arrays each render are fine.
+  const miniMapPoints = [{ id: region.id, lngLat: region.center }]
+  const miniMapBounds = boundsOf([region.center], MINI_MAP_PADDING_DEG)
 
   const guessed = guessedStyle(tastingCase, score, catalog)
   const explanations = guessed ? explain(tastingCase, style, guessed) : []
@@ -138,12 +147,14 @@ export function RoundResult({
         )}
       </div>
 
-      <div
-        aria-label={region.name}
-        className="border-wine-200 text-wine-900/70 flex h-32 items-center justify-center rounded-xl border border-dashed text-sm"
-      >
-        {interpolate(da.result.mapPlaceholder, { name: region.name })}
-      </div>
+      <LazyWineMap
+        label={interpolate(da.result.miniMap, { name: region.name })}
+        points={miniMapPoints}
+        highlightId={region.id}
+        bounds={miniMapBounds}
+        interactive={false}
+        className="border-wine-200 h-40 border"
+      />
 
       <button
         type="button"

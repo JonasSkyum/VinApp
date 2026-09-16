@@ -72,7 +72,7 @@ describe('TastingPage', () => {
     expect(within(table).getByText(da.outcome.skipped)).toBeInTheDocument()
     expect(screen.getByText(da.result.whyTitle)).toBeInTheDocument()
     expect(screen.getAllByRole('link', { name: /Læs om/ })).toHaveLength(2)
-    expect(screen.getByText(/kommer i fase 4/)).toBeInTheDocument()
+    expect(screen.getByRole('region', { name: /^Kort: / })).toBeInTheDocument()
     expect(screen.getByRole('button', { name: da.common.next })).toBeInTheDocument()
   })
 
