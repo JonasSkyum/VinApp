@@ -20,6 +20,17 @@ function linkClass(isActive: boolean) {
 export function AppLayout() {
   return (
     <div className="flex min-h-dvh flex-col">
+      {/* A plain #main href would be read as a route by HashRouter, so focus the element instead. */}
+      <a
+        href="#main"
+        onClick={(e) => {
+          e.preventDefault()
+          document.getElementById('main')?.focus()
+        }}
+        className="bg-wine-700 sr-only z-20 rounded-lg px-4 py-2 font-semibold text-white focus:not-sr-only focus:fixed focus:top-2 focus:left-2"
+      >
+        {da.nav.skipToContent}
+      </a>
       <header className="border-wine-200 bg-wine-50/95 sticky top-0 z-10 border-b backdrop-blur">
         <div className="mx-auto flex h-14 w-full max-w-4xl items-center justify-between px-4">
           <NavLink to="/" className="text-wine-800 text-lg font-bold">
@@ -35,7 +46,11 @@ export function AppLayout() {
         </div>
       </header>
 
-      <main id="main" className="mx-auto w-full max-w-4xl flex-1 px-4 pt-4 pb-24 md:pb-8">
+      <main
+        id="main"
+        tabIndex={-1}
+        className="mx-auto w-full max-w-4xl flex-1 px-4 pt-4 pb-24 md:pb-8"
+      >
         <InstallPrompt />
         <Outlet />
       </main>

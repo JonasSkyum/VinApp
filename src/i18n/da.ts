@@ -15,6 +15,7 @@ export const da = {
     lexicon: 'Leksikon',
     progress: 'Fremskridt',
     ariaLabel: 'Hovedmenu',
+    skipToContent: 'Spring til indhold',
   },
   pages: {
     home: {
