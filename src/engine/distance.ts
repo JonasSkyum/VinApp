@@ -134,3 +134,38 @@ export function styleNeighbours(
     .sort((x, y) => x.distance - y.distance || x.style.id.localeCompare(y.style.id))
     .slice(0, count)
 }
+
+/** Structural gap (sum of endpoint differences) at or below which two styles count as near-identical. */
+export const NEAR_IDENTICAL_GAP = 2
+/** Shared descriptors needed before a near-identical structural gap counts as a twin. */
+export const NEAR_IDENTICAL_SHARED = 2
+
+/**
+ * Sum of endpoint differences across structure attributes, plus a penalty when
+ * appearance differs. Small values mean the two styles are hard to tell apart.
+ */
+export function profileGap(a: Style, b: Style): number {
+  let gap = 0
+  for (const key of structureKeys) {
+    const ra = a.profile[key]
+    const rb = b.profile[key]
+    if (ra === null && rb === null) continue
+    if (ra === null || rb === null) return Number.POSITIVE_INFINITY
+    gap += Math.abs(ra[0] - rb[0]) + Math.abs(ra[1] - rb[1])
+  }
+  if (a.profile.appearance !== b.profile.appearance) gap += 2
+  return gap
+}
+
+/**
+ * Two styles of the same colour whose profiles are so close on paper that telling
+ * them apart is a coin flip: identical structure, or a tiny gap with overlapping aromas.
+ * The validator warns about such pairs and scoring gives partial credit for them.
+ */
+export function areTwins(a: Style, b: Style): boolean {
+  if (a.id === b.id || a.color !== b.color) return false
+  const gap = profileGap(a, b)
+  if (gap > NEAR_IDENTICAL_GAP) return false
+  const shared = a.descriptorIds.filter((d) => b.descriptorIds.includes(d)).length
+  return gap === 0 || shared >= NEAR_IDENTICAL_SHARED
+}

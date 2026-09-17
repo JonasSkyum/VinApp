@@ -1,11 +1,11 @@
 import { z } from 'zod'
+import { areTwins, profileGap } from '@/engine/distance'
 import {
   descriptorSchema,
   grapeSchema,
   redAppearanceSchema,
   regionSchema,
   roseAppearanceSchema,
-  structureKeys,
   styleSchema,
   whiteAppearanceSchema,
   type Descriptor,
@@ -43,11 +43,6 @@ export interface ValidationResult {
     styles: VerifiedCount
   }
 }
-
-/** Structural gap (sum of endpoint differences) at or below which two styles count as near-identical. */
-export const NEAR_IDENTICAL_GAP = 2
-/** Shared descriptors needed before a near-identical structural gap becomes a warning. */
-export const NEAR_IDENTICAL_SHARED = 2
 
 const hierarchyRank: Record<RegionType, number> = {
   country: 0,
@@ -245,34 +240,14 @@ function checkGrapeColors(style: Style, grapeById: Map<string, Grape>, errors: I
   }
 }
 
-/**
- * Sum of endpoint differences across structure attributes, plus a penalty when
- * appearance differs. Small values mean the two styles are hard to tell apart.
- */
-export function profileGap(a: Style, b: Style): number {
-  let gap = 0
-  for (const key of structureKeys) {
-    const ra = a.profile[key]
-    const rb = b.profile[key]
-    if (ra === null && rb === null) continue
-    if (ra === null || rb === null) return Number.POSITIVE_INFINITY
-    gap += Math.abs(ra[0] - rb[0]) + Math.abs(ra[1] - rb[1])
-  }
-  if (a.profile.appearance !== b.profile.appearance) gap += 2
-  return gap
-}
-
 function checkNearIdentical(styles: Style[], warnings: Issue[]) {
   for (let i = 0; i < styles.length; i++) {
     for (let j = i + 1; j < styles.length; j++) {
       const a = styles[i]!
       const b = styles[j]!
-      if (a.color !== b.color) continue
+      if (!areTwins(a, b)) continue
       const gap = profileGap(a, b)
-      if (gap > NEAR_IDENTICAL_GAP) continue
       const shared = a.descriptorIds.filter((d) => b.descriptorIds.includes(d)).length
-      // Identical structure is always worth a look; otherwise aromas must overlap too.
-      if (gap > 0 && shared < NEAR_IDENTICAL_SHARED) continue
       warnings.push({
         where: `style:${a.id}`,
         message: `near-identical profile to "${b.id}" (gap ${gap}, ${shared} shared descriptors)`,

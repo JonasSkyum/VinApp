@@ -2,6 +2,7 @@ import { content } from '@/content'
 import { createCatalog } from './catalog'
 import {
   appearanceDistance,
+  areTwins,
   DESCRIPTOR_WEIGHT,
   MISMATCH_PENALTY,
   profileDistance,
@@ -127,5 +128,18 @@ describe('styleDistance / styleNeighbours', () => {
     for (const n of neighbours) expect(n.style.color).toBe('white')
     expect(neighbours.map((n) => n.style.id)).not.toContain('sancerre')
     expect(neighbours[0]!.distance).toBeLessThanOrEqual(neighbours[1]!.distance)
+  })
+})
+
+describe('areTwins', () => {
+  it('pairs styles the validator flags as near-identical, and nothing across colours', () => {
+    const style = (id: string) => catalog.style(id)
+    expect(areTwins(style('sonoma-zinfandel'), style('primitivo-di-manduria'))).toBe(true)
+    expect(
+      areTwins(style('maipo-cabernet-sauvignon'), style('stellenbosch-cabernet-sauvignon')),
+    ).toBe(true)
+    expect(areTwins(style('barolo'), style('beaujolais'))).toBe(false)
+    expect(areTwins(style('barolo'), style('barolo'))).toBe(false)
+    expect(areTwins(style('barolo'), style('chablis'))).toBe(false)
   })
 })

@@ -11,6 +11,7 @@ import { OutcomePill } from '@/components/ui/Outcome'
 import { ScaleRow, Segments } from '@/components/ui/SegmentScale'
 import { ColorDot, WineGlass } from '@/components/ui/WineGlass'
 import {
+  areTwins,
   boundsOf,
   explain,
   guessedStyle,
@@ -228,6 +229,11 @@ export function RoundResult({
             {interpolate(da.result.yourGuessNamed, { name: guessed.name })}
           </span>
         </div>
+      )}
+      {guessed && areTwins(style, guessed) && (
+        <p className="text-ink-2 text-sm leading-relaxed">
+          {interpolate(da.result.twinNote, { correct: style.name, guessed: guessed.name })}
+        </p>
       )}
       {guessed && explanations.length > 0 ? (
         explanations.map((e, i) => (

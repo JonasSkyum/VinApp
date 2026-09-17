@@ -214,6 +214,8 @@ export const da = {
     whyTitle: 'Hvorfor?',
     confusedWith: 'Forveksles ofte med {name}.',
     perfect: 'Alt rigtigt! Flot deduktion.',
+    twinNote:
+      '{correct} og {guessed} forveksles ofte, selv af erfarne smagere, så gættet gav delvise point.',
     indistinguishable:
       '{correct} og {guessed} ligner hinanden meget i strukturen. Her må aromaerne afgøre det.',
     lexiconGrape: 'Læs om {name}',

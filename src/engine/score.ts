@@ -1,4 +1,5 @@
 import type { Catalog } from './catalog'
+import { areTwins } from './distance'
 import { tiersFor } from './tiers'
 import type { Difficulty, Outcome, RoundScore, TastingCase, Tier, TierResult } from './types'
 
@@ -8,7 +9,8 @@ export type Answers = Partial<Record<Tier, string | null | undefined>>
  * Scores a finished round. Partial credit:
  * - grape: another principal grape of the style (e.g. Merlot for Pauillac)
  * - region: a region in the correct country
- * - style: a style from the correct region (more) or correct country (less)
+ * - style: a style from the correct region, or a "twin" whose profile is near-identical
+ *   (more), or a style from the correct country (less)
  */
 export function scoreRound(
   tastingCase: TastingCase,
@@ -66,7 +68,7 @@ function partialPoints(
     case 'styleId': {
       if (!exists(() => catalog.style(answer))) return 0
       const guessed = catalog.answerKey(answer)
-      if (guessed.regionId === key.regionId) return half
+      if (guessed.regionId === key.regionId || areTwins(style, catalog.style(answer))) return half
       if (guessed.countryId === key.countryId) return Math.floor(half / 2)
       return 0
     }

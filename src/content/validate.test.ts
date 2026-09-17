@@ -1,6 +1,7 @@
 import type { Style } from '@/schema'
 import { content } from './index'
-import { profileGap, validateContent, type ContentBundle } from './validate'
+import { profileGap } from '@/engine/distance'
+import { validateContent, type ContentBundle } from './validate'
 
 function bundle(patch: Partial<ContentBundle>): ContentBundle {
   return { ...content, ...patch }

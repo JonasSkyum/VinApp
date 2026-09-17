@@ -76,4 +76,10 @@ describe('scoreRound', () => {
     const junk = scoreRound(pauillac, { 6: 'not-a-style' }, 'expert', catalog)
     expect(junk.tiers.find((t) => t.tier === 6)).toMatchObject({ outcome: 'wrong', points: 0 })
   })
+
+  it('gives half credit for a twin style from another country', () => {
+    const zin = generateCase(catalog.style('sonoma-zinfandel'), 'expert', createRng('z'))
+    const twin = scoreRound(zin, { 6: 'primitivo-di-manduria' }, 'expert', catalog)
+    expect(twin.tiers.find((t) => t.tier === 6)).toMatchObject({ outcome: 'partial', points: 2 })
+  })
 })
