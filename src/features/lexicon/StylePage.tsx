@@ -12,7 +12,7 @@ import { da } from '@/i18n/da'
 import { catalog as defaultCatalog } from '@/lib/catalog'
 import { appearanceLabel, rangeLabel } from '@/lib/labels'
 import { APPEARANCE_HEX, STYLE_COLOR_HEX } from '@/lib/palette'
-import { interpolate, joinList } from '@/lib/text'
+import { capitalize, interpolate, joinList } from '@/lib/text'
 import { structureKeys, type Style, type StructureKey } from '@/schema'
 import { entryPath } from './search'
 import { Breadcrumb, Chip, EntryHeader, NotFound, StoryCard } from './shared'
@@ -20,10 +20,6 @@ import { Breadcrumb, Chip, EntryHeader, NotFound, StoryCard } from './shared'
 const NEIGHBOUR_COUNT = 3
 const PROFILE_KEYS: StructureKey[] = ['sweetness', 'acidity', 'tannin', 'alcohol', 'body', 'finish']
 const TRAIN_OPTIONS = { difficulty: 'advanced', colors: 'all', rounds: 5 } as const
-
-function capitalize(s: string): string {
-  return s.charAt(0).toUpperCase() + s.slice(1)
-}
 
 export function StylePage({ catalog = defaultCatalog }: { catalog?: Catalog }) {
   const { id = '' } = useParams()

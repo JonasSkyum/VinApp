@@ -8,7 +8,7 @@ import type { Catalog, TastingCase } from '@/engine'
 import { da } from '@/i18n/da'
 import { appearanceLabel, levelLabel } from '@/lib/labels'
 import { APPEARANCE_HEX } from '@/lib/palette'
-import { interpolate } from '@/lib/text'
+import { capitalize, interpolate } from '@/lib/text'
 import type { StructureKey } from '@/schema'
 
 interface TastingCardProps {
@@ -19,10 +19,6 @@ interface TastingCardProps {
 }
 
 const PALATE: StructureKey[] = ['sweetness', 'acidity', 'tannin', 'alcohol', 'body', 'finish']
-
-function capitalize(s: string): string {
-  return s.charAt(0).toUpperCase() + s.slice(1)
-}
 
 /** The case in WSET order: appearance, nose, palate, oak. Collapsible on phones. */
 export function TastingCard({ tastingCase, catalog, fixed = false }: TastingCardProps) {

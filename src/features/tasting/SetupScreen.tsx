@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { Link } from 'react-router-dom'
 import { ChoiceGroup } from '@/components/ChoiceGroup'
 import { Button } from '@/components/ui/Button'
 import { Card } from '@/components/ui/Card'
@@ -95,6 +96,14 @@ export function SetupScreen({
         {da.common.start}
         <Icon name="arrowRight" size={18} strokeWidth={2.6} />
       </Button>
+
+      <Link
+        to="/bottle"
+        className="text-primary-ink flex items-center justify-center gap-1 text-center text-sm font-bold underline underline-offset-2"
+      >
+        {da.bottle.entryLink}
+        <Icon name="arrowRight" size={16} strokeWidth={2.6} />
+      </Link>
 
       {canTrainWeak && (
         <div className="flex flex-col gap-1">

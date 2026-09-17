@@ -54,6 +54,9 @@ export const da = {
     tasting: {
       title: 'Blindsmagning',
     },
+    bottle: {
+      title: 'Rigtig flaske',
+    },
     map: {
       title: 'Kortquiz',
     },
@@ -389,6 +392,30 @@ export const da = {
       sweet: 'Sød',
       fortified: 'Hedvin',
     },
+  },
+  bottle: {
+    intro:
+      'Smager du en rigtig vin? Udfyld smagekortet, så rangerer appen de stilarter, der passer bedst. Bagefter afslører den, der kender flasken, svaret.',
+    entryLink: 'Smager du en rigtig flaske? Lad appen gætte med',
+    stepAppearance: '1 · Udseende',
+    stepNose: '2 · Næse',
+    stepPalate: '3 · Gane',
+    tanninNone: 'Ingen',
+    aromaHelp: 'Vælg op til {max} aromaer, du kan genkende.',
+    aromaCount: '{count} valgt',
+    rank: 'Rangér kandidater',
+    rankTitle: 'Appens bud',
+    bestGuess: 'Bedste bud',
+    revealTitle: 'Hvad var det?',
+    revealHelp: 'Den, der kender flasken, vælger den rigtige stilart.',
+    revealButton: 'Afslør',
+    positionHit: 'Appen havde den som nr. {position}.',
+    positionMiss: 'Appen havde den ikke blandt sine {count} bud.',
+    whyTitle: 'Det, der adskilte dem',
+    startOver: 'Ny flaske',
+    editNotes: 'Ret smagekortet',
+    readAbout: 'Læs om {name}',
+    yourNotes: 'Dine noter',
   },
   training: {
     weakButton: 'Træn svage punkter',
