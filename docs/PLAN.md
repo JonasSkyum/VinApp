@@ -187,11 +187,11 @@ Mål: Al logik til blindsmagning uden UI.
 
 ## Fase 10 — Kvalitet og indhold
 Besluttet 2026-09-17 efter en gennemgang af appen. Rækkefølgen er valgt efter, hvad der giver mest for spillet.
-- [ ] Tests: hæv `testTimeout` for UI-tests / del jsdom-miljøet, så suiten ikke fejler tilfældigt under belastning
-- [ ] `notes` → `note` på druer, så alle tre indholdstyper bruger samme feltnavn
-- [ ] Større begynderpulje: flyt 6–8 klassiske, tydeligt forskellige stilarter ned til `difficulty: 1` (fx Chablis, Mosel Kabinett, Barolo, Côte-Rôtie, Châteauneuf-du-Pape, Rías Baixas, Alsace Riesling, Brunello)
-- [ ] Delvise point på trin 6 for næsten-identiske stilarter (profil-gap ≤ 1): gættet på "tvillingen" giver halve point, og forklaringen siger, at de to forveksles ofte
-- [ ] Fjern `world` helt: kortquizzens drue-spørgsmål vælger klassiske hjem ud fra druens `origin`-land i stedet for Gamle Verden; feltet slettes fra skema og indhold
+- [x] Tests: hæv `testTimeout` for UI-tests / del jsdom-miljøet, så suiten ikke fejler tilfældigt under belastning
+- [x] `notes` → `note` på druer, så alle tre indholdstyper bruger samme feltnavn
+- [x] Større begynderpulje: flyt 6–8 klassiske, tydeligt forskellige stilarter ned til `difficulty: 1` (fx Chablis, Mosel Kabinett, Barolo, Côte-Rôtie, Châteauneuf-du-Pape, Rías Baixas, Alsace Riesling, Brunello)
+- [x] Delvise point på trin 6 for næsten-identiske stilarter (profil-gap ≤ 1): gættet på "tvillingen" giver halve point, og forklaringen siger, at de to forveksles ofte
+- [x] Fjern `world` helt: kortquizzens drue-spørgsmål vælger klassiske hjem ud fra druens `origin`-land i stedet for Gamle Verden; feltet slettes fra skema og indhold
 - [ ] Verificér de 11 begynder-stilarter og deres druer og regioner mod kilder (WSET, Wine Folly, Oxford Companion, producentforeninger); ret intervaller og aromaer, tilføj `sources`, sæt `verified: true`
 - [ ] Gennemgå historierne for de samme poster mod kilder; beslut, om producentnavne må stå i historierne
 - [ ] ✅ Tjek: 👤 spil 3 sessioner på mobil, touch på kortet, del et dagligt resultat i en besked, installér og spil offline (de åbne tjek fra fase 3, 4, 7 og 9)
