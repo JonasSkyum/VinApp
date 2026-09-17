@@ -31,6 +31,10 @@ export const styles: Style[] = [
     descriptorIds: ['gooseberry', 'grapefruit', 'grass', 'flint', 'elderflower'],
     oak: 'none',
     difficulty: 1,
+    story: [
+      'Sancerre er den klassiske Sauvignon Blanc fra det østlige Loire. Vinen laves næsten altid på ståltank uden eg, så druens aromaer af stikkelsbær, græs og citrus står rent, og kalk- og flintjorden giver en tør, mineralsk finish.',
+      'Sammenlignet med Marlborough er Sancerre mere afdæmpet og strammere, med mindre tropisk frugt. Den er referencen for den europæiske, kølige Sauvignon-stil.',
+    ],
   }),
   s({
     id: 'marlborough-sauvignon-blanc',
@@ -51,6 +55,10 @@ export const styles: Style[] = [
     descriptorIds: ['passion-fruit', 'gooseberry', 'grapefruit', 'grass', 'tomato-leaf'],
     oak: 'none',
     difficulty: 1,
+    story: [
+      "Marlborough Sauvignon Blanc er New Zealands signaturvin og en af de mest genkendelige hvidvine i verden. Stilen opstod i 1980'erne, da Cloudy Bay og andre viste, hvor eksplosivt aromatisk druen kunne blive i det solrige, kølige klima.",
+      'Passionsfrugt, stikkelsbær og en grøn, urteagtig note er kendetegnene, sammen med høj syre og fuld aromaintensitet. Vinen laves på ståltank og drikkes ung.',
+    ],
   }),
   s({
     id: 'bordeaux-blanc',
@@ -71,6 +79,10 @@ export const styles: Style[] = [
     descriptorIds: ['lemon', 'grapefruit', 'wax', 'toast', 'grass'],
     oak: 'light',
     difficulty: 3,
+    story: [
+      'Tør hvid Bordeaux er en blanding af Sauvignon Blanc og Sémillon, hvor Sauvignon giver friskhed og aroma, og Sémillon giver fylde og lagringsevne. De bedste kommer fra Pessac-Léognan i Graves og gæres og lagres på egefade.',
+      'Stilen er rundere og mere cremet end en ren Sauvignon Blanc, med noter af citrus, voks og let ristet eg.',
+    ],
     note: 'Represents dry white Bordeaux (e.g. Pessac-Léognan), often barrel-fermented.',
   }),
   s({
@@ -92,6 +104,10 @@ export const styles: Style[] = [
     descriptorIds: ['green-apple', 'lemon', 'wet-stone', 'flint', 'chalk'],
     oak: 'none',
     difficulty: 2,
+    story: [
+      'Chablis er Chardonnay i sin strammeste form: kølig, tør og mineralsk med høj syre og grønt æble, citrus og en flintet, saltagtig karakter. Kimmeridge-kalken med fossile østers er en del af forklaringen.',
+      'Klassisk Chablis laves uden ny eg, hvilket adskiller den tydeligt fra de fyldigere, nøddeagtige hvidvine fra Côte de Beaune. Premier og grand cru-vine kan dog lagres på ældre fade og udvikle mere fylde.',
+    ],
   }),
   s({
     id: 'cote-de-beaune-blanc',
@@ -112,6 +128,10 @@ export const styles: Style[] = [
     descriptorIds: ['lemon', 'peach', 'nuts', 'butter', 'toast', 'flint'],
     oak: 'light',
     difficulty: 2,
+    story: [
+      'Hvid Bourgogne fra Côte de Beaune, med Meursault, Puligny-Montrachet og Chassagne-Montrachet i spidsen, er forbilledet for fadlagret Chardonnay. Vinen gæres og lagres på egefade med bærmekontakt (bâtonnage), hvilket giver fylde og noter af nødder, smør og ristet brød.',
+      'Trods egen bevarer vinene en høj syre og en stenet mineralitet, som adskiller dem fra varmere landes Chardonnay.',
+    ],
     note: 'Represents Meursault / Puligny-Montrachet / Chassagne-Montrachet.',
   }),
   s({
@@ -133,6 +153,10 @@ export const styles: Style[] = [
     descriptorIds: ['pineapple', 'peach', 'vanilla', 'butter', 'toast'],
     oak: 'pronounced',
     difficulty: 1,
+    story: [
+      "Napa Valley Chardonnay er den klassiske New World-stil: moden frugt, fuld krop og tydelig ny eg. Den fyldige, smørrede stil blev populær i 1980'erne og 1990'erne og gav anledning til modreaktionen 'Anything But Chardonnay'.",
+      'I dag er stilen ofte mere afbalanceret, men kendetegnene er stadig moden gul frugt, vanille og lavere syre end i Bourgogne.',
+    ],
   }),
   s({
     id: 'margaret-river-chardonnay',
@@ -153,6 +177,10 @@ export const styles: Style[] = [
     descriptorIds: ['grapefruit', 'nectarine', 'peach', 'toast', 'flint'],
     oak: 'light',
     difficulty: 3,
+    story: [
+      "Margaret River Chardonnay er Australiens mest ansete Chardonnay-stil. Leeuwin Estates Art Series fra 1980'erne viste, at det maritime klima kunne give vine i Bourgogne-klassen.",
+      'Stilen kombinerer moden frugt med høj syre og en præcis, integreret egekarakter, ofte med noter af grapefrugt, fersken og en flintet undertone.',
+    ],
   }),
   s({
     id: 'mosel-riesling-kabinett',
@@ -173,6 +201,10 @@ export const styles: Style[] = [
     descriptorIds: ['green-apple', 'lime', 'peach', 'wet-stone', 'honeysuckle'],
     oak: 'none',
     difficulty: 2,
+    story: [
+      'Kabinett er det letteste niveau i det tyske Prädikat-system, lavet på druer høstet ved normal modenhed. Fra Mosel giver det vine med kun 7–9 % alkohol, høj syre og let restsødme, der balancerer syren.',
+      'Aromaerne er grønt æble, lime og hvide blomster med den skiferprægede mineralitet, som Mosel er kendt for. Det er en af de få klassiske stilarter med både lav alkohol og let sødme.',
+    ],
   }),
   s({
     id: 'rheingau-riesling-trocken',
@@ -193,6 +225,10 @@ export const styles: Style[] = [
     descriptorIds: ['green-apple', 'lemon', 'peach', 'wet-stone', 'petrol'],
     oak: 'none',
     difficulty: 3,
+    story: [
+      'Tør Riesling fra Rheingau er den fyldigere modpol til Mosel. Rheingau har historisk været førende i den tørre tyske stil, og VDP-producenternes Grosses Gewächs fra de bedste marker er tørre vine med stor koncentration.',
+      'Vinene har mere alkohol og krop end Mosel Kabinett, med moden frugt som fersken og æble, høj syre og en stram, stenet finish.',
+    ],
   }),
   s({
     id: 'alsace-riesling',
@@ -213,6 +249,10 @@ export const styles: Style[] = [
     descriptorIds: ['lemon', 'green-apple', 'peach', 'wet-stone', 'petrol'],
     oak: 'none',
     difficulty: 3,
+    story: [
+      'Alsace Riesling er traditionelt tør og kraftigere end den tyske, med højere alkohol og fuld krop på grund af det tørre, solrige klima i Vogesernes regnskygge.',
+      'Stilen er stram og mineralsk med citrus, moden pære og med alderen den klassiske petroleumsnote. Grand cru-marker som Schlossberg og Rangen er blandt de kendte.',
+    ],
   }),
   s({
     id: 'clare-valley-riesling',
@@ -233,6 +273,10 @@ export const styles: Style[] = [
     descriptorIds: ['lime', 'lemon', 'green-apple', 'honeysuckle', 'petrol'],
     oak: 'none',
     difficulty: 2,
+    story: [
+      'Clare Valley Riesling er Australiens klassiske tørre Riesling, ofte med skruelåg, som Clare-producenterne var pionerer for i 2000. Vinene er tørre, lette og skarpt syrlige.',
+      'Lime og citronskal er kendetegnene, og med alderen udvikler vinene noter af ristet brød og honning. Stilen er tørrere og mere limepræget end de tyske.',
+    ],
   }),
   s({
     id: 'alsace-gewurztraminer',
@@ -253,6 +297,10 @@ export const styles: Style[] = [
     descriptorIds: ['lychee', 'rose', 'ginger', 'honey', 'orange-peel'],
     oak: 'none',
     difficulty: 1,
+    story: [
+      'Gewürztraminer fra Alsace er en af verdens mest genkendelige hvidvine: dybt gylden, meget aromatisk med litchi, rose og krydderier, og med lav syre og høj alkohol. Ofte har den lidt restsødme.',
+      'Alsace er druens klassiske hjem, og vinen serveres traditionelt til krydret mad, foie gras og Munster-ost.',
+    ],
   }),
   s({
     id: 'alsace-pinot-gris',
@@ -273,6 +321,10 @@ export const styles: Style[] = [
     descriptorIds: ['pear', 'apricot', 'honey', 'ginger', 'smoke'],
     oak: 'none',
     difficulty: 3,
+    story: [
+      "Pinot Gris fra Alsace er en fyldig, ofte let sød hvidvin, langt fra den lette italienske Pinot Grigio. Indtil 2007 blev den solgt som Tokay d'Alsace.",
+      'Stilen er rig med moden pære, honning og røg, moderat syre og høj alkohol. Den er ofte svær at skelne fra Gewürztraminer, men er mindre parfumeret.',
+    ],
   }),
   s({
     id: 'muscat-d-alsace',
@@ -293,6 +345,10 @@ export const styles: Style[] = [
     descriptorIds: ['grape', 'orange-blossom', 'rose', 'elderflower'],
     oak: 'none',
     difficulty: 2,
+    story: [
+      "Muscat d'Alsace er en tør Muscat, hvilket er usædvanligt, da druen de fleste andre steder laves sød. Den laves på Muscat Blanc à Petits Grains og Muscat Ottonel.",
+      'Vinen dufter intenst af friske druer og blomster, men er tør og let på ganen, og den serveres ofte til asparges.',
+    ],
   }),
   s({
     id: 'pinot-grigio-veneto',
@@ -313,6 +369,10 @@ export const styles: Style[] = [
     descriptorIds: ['pear', 'lemon', 'green-apple', 'acacia'],
     oak: 'none',
     difficulty: 1,
+    story: [
+      "Pinot Grigio fra Veneto er den lette, friske og neutrale stil, som gjorde druen til en verdenssucces i 1990'erne og 2000'erne. Druerne høstes tidligt for at bevare syren og laves på ståltank.",
+      'Stilen har lav aromaintensitet med citron, grøn pære og en let bitter mandelnote i finishen. Den er så anderledes end Alsace Pinot Gris, at man kan tro, det er to forskellige druer.',
+    ],
     note: 'Represents the light delle Venezie style.',
   }),
   s({
@@ -334,6 +394,10 @@ export const styles: Style[] = [
     descriptorIds: ['pear', 'lemon', 'melon', 'nuts', 'chalk'],
     oak: 'none',
     difficulty: 3,
+    story: [
+      'Soave Classico er hvidvinen fra de vulkanske bakker øst for Verona, lavet på Garganega. Stilen er tør og medium i krop med noter af mandel, hvide blomster og citrus og en let saltagtig mineralitet.',
+      'Efter årtier som simpel supermarkedsvin har producenter som Pieropan og Inama vist, at Classico-bakkerne kan give komplekse vine med lagringspotentiale.',
+    ],
   }),
   s({
     id: 'vouvray-sec',
@@ -354,6 +418,10 @@ export const styles: Style[] = [
     descriptorIds: ['green-apple', 'quince', 'honey', 'wax', 'chalk'],
     oak: 'none',
     difficulty: 3,
+    story: [
+      'Tør Vouvray er Chenin Blanc fra tuffeau-kalken øst for Tours. Vinen har høj syre og en karakteristisk aroma af kvæde, æble, honning og lanolin, selv når den er helt tør.',
+      'Stilen kan minde om Riesling i syre, men adskiller sig ved sin honning- og uldagtige note og en fyldigere tekstur.',
+    ],
   }),
   s({
     id: 'stellenbosch-chenin-blanc',
@@ -374,6 +442,10 @@ export const styles: Style[] = [
     descriptorIds: ['green-apple', 'pineapple', 'peach', 'honey'],
     oak: 'none',
     difficulty: 3,
+    story: [
+      "Sydafrikansk Chenin Blanc fra gamle buskvinstokke er blevet landets mest ansete hvidvin. Producenter som Ken Forrester og Alheit satte fra 2000'erne stilen med koncentrerede, ofte fadlagrede vine.",
+      'Sammenlignet med Loire er vinene fyldigere og mere frugtige, med moden gul frugt, honning og ofte en let egekarakter, men stadig med høj syre.',
+    ],
   }),
   s({
     id: 'condrieu',
@@ -394,6 +466,10 @@ export const styles: Style[] = [
     descriptorIds: ['apricot', 'peach', 'honeysuckle', 'orange-blossom'],
     oak: 'light',
     difficulty: 2,
+    story: [
+      "Condrieu er Viogniers hjem, en lille appellation på stejle granitterrasser i det nordlige Rhône. I 1960'erne var der kun få hektar tilbage, men vinen er siden blevet en af Frankrigs mest eftertragtede hvidvine.",
+      'Stilen er fyldig og parfumeret med abrikos, fersken og hvide blomster, lav syre og høj alkohol. Den drikkes typisk ung.',
+    ],
     note: 'Condrieu is an appellation within the Northern Rhône; not listed separately in regions.ts.',
   }),
   s({
@@ -415,6 +491,10 @@ export const styles: Style[] = [
     descriptorIds: ['grapefruit', 'lemon', 'peach', 'saline'],
     oak: 'none',
     difficulty: 2,
+    story: [
+      'Albariño fra Rías Baixas er den friske, aromatiske hvidvin fra Galiciens atlanterhavskyst. Vinen laves på ståltank og har høj syre, moderat alkohol og noter af citrus, fersken og en saltagtig karakter.',
+      'Den tykke druehud giver en let bitterhed og tekstur, som adskiller den fra Sauvignon Blanc, selvom aromaintensiteten kan ligne.',
+    ],
   }),
   s({
     id: 'wachau-gruner-veltliner',
@@ -435,6 +515,10 @@ export const styles: Style[] = [
     descriptorIds: ['green-apple', 'grapefruit', 'white-pepper', 'wet-stone'],
     oak: 'none',
     difficulty: 2,
+    story: [
+      'Grüner Veltliner fra Wachau er Østrigs signaturvin. Federspiel-niveauet giver lette, tørre vine, mens Smaragd fra de bedste terrasser giver fyldige, kraftige vine med lagringspotentiale.',
+      'Kendetegnet er hvid peber sammen med grønt æble, citrus og en stenet mineralitet. Vinene har høj syre og laves typisk uden ny eg.',
+    ],
   }),
 
   // ================================================================ SWEET
@@ -457,6 +541,10 @@ export const styles: Style[] = [
     descriptorIds: ['apricot', 'honey', 'orange-peel', 'dried-fruit', 'vanilla'],
     oak: 'light',
     difficulty: 2,
+    story: [
+      'Sauternes er verdens mest berømte søde vin, lavet på Sémillon og Sauvignon Blanc angrebet af ædelråd (botrytis). Svampen tørrer druerne ind og koncentrerer sukker, syre og aroma.',
+      'Vinen er dybt gylden, fuld i krop og sød, men den høje syre holder den frisk. Honning, abrikos, marmelade og en safranagtig botrytis-note er kendetegnene, og de bedste kan lagres i mange årtier.',
+    ],
     note: 'Botrytised sweet wine. Included so Sémillon has a classic style; sweet wines are otherwise phase 10.',
   }),
 
@@ -480,6 +568,10 @@ export const styles: Style[] = [
     descriptorIds: ['blackcurrant', 'cedar', 'tobacco', 'green-bell-pepper', 'toast'],
     oak: 'pronounced',
     difficulty: 2,
+    story: [
+      'Pauillac er den mest strukturerede stil i Bordeaux, domineret af Cabernet Sauvignon fra Médocs dybe grusbanker. Tre af 1855-klassifikationens fem premiers crus ligger her.',
+      'Kendetegnene er solbær, cedertræ, blyant og tobak, høj tannin og syre og en lang finish. Vinene lagres på ny fransk eg og kræver typisk 10–20 år for at vise sig fra deres bedste side.',
+    ],
   }),
   s({
     id: 'napa-cabernet-sauvignon',
@@ -500,6 +592,10 @@ export const styles: Style[] = [
     descriptorIds: ['blackcurrant', 'black-cherry', 'vanilla', 'chocolate', 'mint'],
     oak: 'pronounced',
     difficulty: 1,
+    story: [
+      'Napa Valley Cabernet Sauvignon er den New World-stil, som slog Bordeaux i Paris i 1976. Det varme, solrige klima giver fuldt modne druer og vine med mere frugt, mere alkohol og blødere tannin end Bordeaux.',
+      'Sort solbær og brombær, vanille fra ny eg og ofte en note af mynte eller chokolade er kendetegnene. Stilen er fuld i krop og drikkes gerne yngre end Pauillac.',
+    ],
   }),
   s({
     id: 'margaret-river-cabernet-sauvignon',
@@ -520,6 +616,10 @@ export const styles: Style[] = [
     descriptorIds: ['blackcurrant', 'cedar', 'mint', 'tobacco', 'black-plum'],
     oak: 'light',
     difficulty: 3,
+    story: [
+      'Margaret River Cabernet er Australiens mest Bordeaux-lignende rødvin, ofte blandet med Merlot. Det maritime klima giver vine med både modenhed og friskhed.',
+      'Stilen ligger mellem Bordeaux og Napa: solbær, cedertræ og en urteagtig, ofte let grøn note, med markant, men fin tannin. Cullen, Moss Wood og Vasse Felix er blandt de klassiske producenter.',
+    ],
   }),
   s({
     id: 'maipo-cabernet-sauvignon',
@@ -540,6 +640,10 @@ export const styles: Style[] = [
     descriptorIds: ['blackcurrant', 'mint', 'eucalyptus', 'black-plum', 'vanilla'],
     oak: 'light',
     difficulty: 3,
+    story: [
+      "Maipo Cabernet Sauvignon er Chiles klassiske rødvin, med rødder i de franske druer, som blev indført i 1800-tallet. De bedste vine kommer fra Alto Maipo ved Andes' fod.",
+      'En mentol- eller eukalyptus-note er stilens kendemærke, sammen med solbær, en urteagtig karakter og fastere tannin end i Napa. Vinene er typisk lidt lettere og mere friske end de californiske.',
+    ],
   }),
   s({
     id: 'stellenbosch-cabernet-sauvignon',
@@ -560,6 +664,10 @@ export const styles: Style[] = [
     descriptorIds: ['blackcurrant', 'black-plum', 'cedar', 'smoke', 'dried-herbs'],
     oak: 'pronounced',
     difficulty: 3,
+    story: [
+      'Stellenbosch Cabernet er Sydafrikas førende rødvinsstil, dyrket på granit- og sandstensjorden ved Simonsberg og Helderberg. Vinen ligger stilmæssigt mellem Bordeaux og New World.',
+      'Solbær, cedertræ og en karakteristisk røget eller urteagtig note er typisk, med markant tannin og moderat alkohol.',
+    ],
   }),
   s({
     id: 'saint-emilion',
@@ -580,6 +688,10 @@ export const styles: Style[] = [
     descriptorIds: ['red-plum', 'black-plum', 'cedar', 'tobacco', 'chocolate'],
     oak: 'pronounced',
     difficulty: 3,
+    story: [
+      "Saint-Émilion er Bordeaux' højre bred i et glas: Merlot-domineret med Cabernet Franc, blødere og rundere end Pauillac og tilgængelig tidligere. De bedste vine kommer fra kalkplateauet ved byen.",
+      'Rød blomme, kirsebær, chokolade og en urteagtig, floral note fra Cabernet Franc er kendetegnene, sammen med medium-plus tannin og lavere syre end på venstre bred.',
+    ],
   }),
   s({
     id: 'napa-merlot',
@@ -600,6 +712,10 @@ export const styles: Style[] = [
     descriptorIds: ['black-plum', 'black-cherry', 'chocolate', 'vanilla', 'coffee'],
     oak: 'pronounced',
     difficulty: 3,
+    story: [
+      "Napa Valley Merlot er en fyldig, moden og blød rødvin, som blev meget populær i USA i 1990'erne. Filmen Sideways fra 2004 gav druen et imageproblem, men stilen har bevaret sin plads.",
+      'Sort blomme, kirsebær, chokolade og vanille fra eg er typisk, med bløde tanniner, høj alkohol og fuld krop.',
+    ],
   }),
   s({
     id: 'cote-de-nuits-rouge',
@@ -620,6 +736,10 @@ export const styles: Style[] = [
     descriptorIds: ['red-cherry', 'raspberry', 'forest-floor', 'violet', 'mushroom'],
     oak: 'light',
     difficulty: 2,
+    story: [
+      'Rød Bourgogne fra Côte de Nuits er Pinot Noirs klassiske udtryk: lys i farven, men intens i duft og smag. Landsbyer som Gevrey-Chambertin, Chambolle-Musigny og Vosne-Romanée har hver deres karakter.',
+      'Rødt kirsebær, hindbær og med alderen skovbund og svampe er kendetegnene, sammen med høj syre og silkeagtig, moderat tannin. Vinene lagres på egefade, men egen skal være diskret.',
+    ],
     note: 'Represents Gevrey-Chambertin / Nuits-Saint-Georges / Vosne-Romanée village and premier cru wines.',
   }),
   s({
@@ -641,6 +761,10 @@ export const styles: Style[] = [
     descriptorIds: ['red-cherry', 'cranberry', 'raspberry', 'forest-floor', 'vanilla'],
     oak: 'light',
     difficulty: 3,
+    story: [
+      'Willamette Valley Pinot Noir er den amerikanske stil, der ligger tættest på Bourgogne. Oregons kølige, regnfulde klima giver vine med friskhed og elegance snarere end kraft.',
+      'Rødt kirsebær, tranebær og en jordet, krydret note er typisk, med høj syre og let tannin. Vinene er ofte lidt mere frugtige end Bourgogne, men tydeligt mere afdæmpede end Central Otago.',
+    ],
   }),
   s({
     id: 'central-otago-pinot-noir',
@@ -661,6 +785,10 @@ export const styles: Style[] = [
     descriptorIds: ['black-cherry', 'raspberry', 'thyme', 'vanilla', 'red-plum'],
     oak: 'light',
     difficulty: 2,
+    story: [
+      'Central Otago Pinot Noir er den mørkeste og frugtigste af de klassiske Pinot Noir-stilarter. Det kontinentale klima med varme dage og kolde nætter giver fuld modenhed og høj syre på samme tid.',
+      'Mørkt kirsebær, blomme og en krydret, urteagtig note er kendetegnene, med mere farve og alkohol end Bourgogne og en tydelig frugtsødme.',
+    ],
   }),
   s({
     id: 'yarra-valley-pinot-noir',
@@ -681,6 +809,10 @@ export const styles: Style[] = [
     descriptorIds: ['red-cherry', 'strawberry', 'dried-herbs', 'vanilla'],
     oak: 'light',
     difficulty: 3,
+    story: [
+      "Yarra Valley Pinot Noir er Australiens klassiske kølige Pinot Noir, lavet i bakkerne øst for Melbourne. Området blev genoplivet fra 1960'erne netop med Pinot Noir og Chardonnay for øje.",
+      'Stilen er lys, frisk og elegant med rødt kirsebær, jordbær og en let krydret note, moderat alkohol og fin tannin.',
+    ],
   }),
   s({
     id: 'cote-rotie',
@@ -701,6 +833,10 @@ export const styles: Style[] = [
     descriptorIds: ['blackberry', 'black-pepper', 'violet', 'smoke', 'liquorice'],
     oak: 'light',
     difficulty: 2,
+    story: [
+      "Côte-Rôtie, 'den ristede skråning', er den nordligste appellation i Rhône og laver Syrah på stejle terrasser, traditionelt gæret sammen med lidt Viognier, som giver duft og farvestabilitet.",
+      'Stilen er den elegante Syrah: sort peber, violer, bacon og mørke bær, med fast tannin og høj syre. Sammenlignet med Barossa Shiraz er den lettere, mere krydret og mindre sød i frugten.',
+    ],
     note: 'Represents Northern Rhône Syrah in general (Hermitage, Saint-Joseph, Crozes-Hermitage).',
   }),
   s({
@@ -722,6 +858,10 @@ export const styles: Style[] = [
     descriptorIds: ['blackberry', 'black-plum', 'chocolate', 'vanilla', 'liquorice', 'eucalyptus'],
     oak: 'pronounced',
     difficulty: 1,
+    story: [
+      "Barossa Shiraz er Australiens ikoniske rødvin, ofte fra gamle stokke i det varme, tørre Barossa Valley. Penfolds Grange satte standarden i 1950'erne, og vinen har været kendt for kraft og frugtsødme lige siden.",
+      'Brombær, sort blomme, chokolade og eukalyptus, ofte med vanille og kokos fra amerikansk eg, er kendetegnene, sammen med høj alkohol, fuld krop og bløde tanniner.',
+    ],
   }),
   s({
     id: 'chateauneuf-du-pape',
@@ -749,6 +889,10 @@ export const styles: Style[] = [
     ],
     oak: 'light',
     difficulty: 2,
+    story: [
+      'Châteauneuf-du-Pape er det sydlige Rhônes store rødvin, en Grenache-baseret blanding med Syrah, Mourvèdre og op til flere andre druer. De store, runde sten i vinmarkerne oplagrer varme og giver kraftige vine.',
+      'Stilen er varm og fyldig med rød og mørk frugt, tørrede urter (garrigue), lakrids og læder, høj alkohol, moderat syre og blød tannin. Ny eg bruges sjældent.',
+    ],
     note: 'Mourvèdre is also a principal grape but is not in the starter grape list.',
   }),
   s({
@@ -770,6 +914,10 @@ export const styles: Style[] = [
     descriptorIds: ['black-cherry', 'blackberry', 'liquorice', 'wet-stone', 'toast'],
     oak: 'pronounced',
     difficulty: 3,
+    story: [
+      "Priorat er en koncentreret, mineralsk rødvin fra Cataloniens skiferbjerge, lavet på gamle Garnacha- og Cariñena-stokke. Stilen blev skabt i slutningen af 1980'erne af en gruppe pionerer, som genoplivede det næsten forladte område.",
+      'Mørke bær, lakrids og en tydelig stenet, skiferpræget karakter er kendetegnene, sammen med høj alkohol, fast tannin og ofte ny fransk eg.',
+    ],
     note: 'Cariñena (Carignan) is the other principal grape but is not in the starter grape list.',
   }),
   s({
@@ -791,6 +939,10 @@ export const styles: Style[] = [
     descriptorIds: ['red-cherry', 'vanilla', 'coconut', 'leather', 'tobacco', 'dried-fruit'],
     oak: 'pronounced',
     difficulty: 1,
+    story: [
+      'Rioja Reserva er den klassiske spanske fadlagrede rødvin: mindst tre års lagring, heraf mindst ét år på egefad, før den sælges. Traditionen med amerikansk eg stammer fra 1800-tallets Bordeaux-inspirerede handelshuse.',
+      'Rødt kirsebær og blomme sammen med vanille, kokos, dild og tobak fra egen er kendetegnene. Tempranillo, ofte med Garnacha, giver medium krop og syre og bløde, modne tanniner.',
+    ],
   }),
   s({
     id: 'ribera-del-duero',
@@ -811,6 +963,10 @@ export const styles: Style[] = [
     descriptorIds: ['black-plum', 'blackberry', 'vanilla', 'toast', 'liquorice'],
     oak: 'pronounced',
     difficulty: 2,
+    story: [
+      'Ribera del Duero er Tempranillo i mørkere og kraftigere form end Rioja, fra det høje, kontinentale plateau ved Duero. Vega Sicilia og Pesquera skabte områdets ry.',
+      'Stilen er dybfarvet med sort frugt, chokolade og røg, fuld krop, høj alkohol og markant tannin. Fransk eg er mere almindelig end amerikansk, så vanillen er mindre fremtrædende end i Rioja.',
+    ],
   }),
   s({
     id: 'chianti-classico',
@@ -831,6 +987,10 @@ export const styles: Style[] = [
     descriptorIds: ['red-cherry', 'red-plum', 'dried-herbs', 'tomato-leaf', 'leather'],
     oak: 'light',
     difficulty: 1,
+    story: [
+      'Chianti Classico er Sangiovese fra det historiske område mellem Firenze og Siena, mindst 80 % Sangiovese og genkendelig på den sorte hane på flaskehalsen. Den strå-omvundne flaske hører fortiden til.',
+      'Surkirsebær, tørrede urter, tomatblad og læder er kendetegnene, sammen med høj syre og fast tannin. Stilen er lettere i farve og krop end Brunello og udpræget madvenlig.',
+    ],
   }),
   s({
     id: 'brunello-di-montalcino',
@@ -851,6 +1011,10 @@ export const styles: Style[] = [
     descriptorIds: ['red-cherry', 'black-cherry', 'leather', 'tobacco', 'dried-herbs'],
     oak: 'light',
     difficulty: 3,
+    story: [
+      'Brunello di Montalcino er 100 % Sangiovese fra det varme, tørre Montalcino, lagret mindst fem år før salg. Vinen er Toscanas mest kraftfulde og langtidsholdbare udtryk for druen.',
+      'Stilen er fyldigere og mere tanninrig end Chianti Classico, med mørkere kirsebær, tørrede blomster, læder og balsamiske noter fra den lange fadlagring.',
+    ],
   }),
   s({
     id: 'barolo',
@@ -871,6 +1035,10 @@ export const styles: Style[] = [
     descriptorIds: ['rose', 'tar', 'red-cherry', 'liquorice', 'dried-herbs'],
     oak: 'light',
     difficulty: 2,
+    story: [
+      "Barolo er Nebbiolo fra bakkerne sydvest for Alba, lagret mindst 38 måneder før salg. Vinens tilnavn, 'kongernes vin', stammer fra dens popularitet ved Savoyen-hoffet i 1800-tallet.",
+      'Den lyse, granatrøde farve narrer: vinen har meget høj tannin og syre. Roser, tjære, tørrede kirsebær og lakrids er de klassiske aromaer. Sammen med Barbaresco er det en af de få stilarter, hvor lys farve og kraftig struktur følges ad.',
+    ],
   }),
   s({
     id: 'barbera-d-asti',
@@ -891,6 +1059,10 @@ export const styles: Style[] = [
     descriptorIds: ['red-cherry', 'red-plum', 'blackberry', 'black-pepper'],
     oak: 'none',
     difficulty: 3,
+    story: [
+      "Barbera d'Asti er Piemontes hverdagsrødvin i sin bedste form: dyb farve, høj syre og lav tannin, en usædvanlig kombination, som gør den saftig og madvenlig.",
+      'Rødt og sort kirsebær med en krydret note er kendetegnene. Nogle producenter lagrer på ny eg, som tilføjer vanille og struktur, men de fleste holder stilen frisk og frugtig.',
+    ],
     note: 'Asti is not a separate entry in regions.ts; mapped to Piemonte.',
   }),
   s({
@@ -912,6 +1084,10 @@ export const styles: Style[] = [
     descriptorIds: ['blackberry', 'black-plum', 'violet', 'vanilla', 'chocolate'],
     oak: 'pronounced',
     difficulty: 1,
+    story: [
+      'Mendoza Malbec er Argentinas nationalvin. Druen kom fra Frankrig i 1853 og blomstrede i Andesbjergenes tørre, solrige højde, hvor den giver mørkere og blødere vine end i Cahors.',
+      'Dyb violet farve, sort blomme, brombær og violer er kendetegnene, sammen med fuld krop, høj alkohol og runde tanniner, ofte med vanille fra eg. Vine fra Uco-dalen er friskere og mere blomstrede end dem fra lavere områder.',
+    ],
   }),
   s({
     id: 'sonoma-zinfandel',
@@ -932,6 +1108,10 @@ export const styles: Style[] = [
     descriptorIds: ['blackberry', 'raspberry', 'black-pepper', 'dried-fruit', 'vanilla'],
     oak: 'light',
     difficulty: 2,
+    story: [
+      'Sonoma Zinfandel er Californiens egen rødvin, ofte fra gamle stokke i Dry Creek Valley og Russian River, nogle plantet før 1900. Stilen er kraftig, frugtig og alkoholstærk.',
+      'Brombær, hindbærsyltetøj, sort peber og en varm, krydret note er kendetegnene, sammen med høj alkohol, fuld krop og moderat tannin. Den er tæt beslægtet med Primitivo fra Puglia.',
+    ],
     note: 'Represents Dry Creek Valley Zinfandel.',
   }),
   s({
@@ -953,6 +1133,10 @@ export const styles: Style[] = [
     descriptorIds: ['black-plum', 'dried-fruit', 'blackberry', 'liquorice', 'chocolate'],
     oak: 'light',
     difficulty: 3,
+    story: [
+      'Primitivo di Manduria er Puglias kraftige rødvin fra den samme drue som Zinfandel. Navnet Primitivo hentyder til, at druen modner tidligt. Vinen laves i det varme, flade Salento nær Taranto.',
+      'Moden mørk frugt, tørrede figner, krydderier og en tydelig frugtsødme er kendetegnene, sammen med høj alkohol og bløde tanniner. Ofte er den lidt sødere og mere syltetøjsagtig end Sonoma Zinfandel.',
+    ],
     note: 'Same grape as Zinfandel; deliberately close to Sonoma Zinfandel and hard to separate.',
   }),
   s({
@@ -974,6 +1158,10 @@ export const styles: Style[] = [
     descriptorIds: ['raspberry', 'red-cherry', 'banana', 'violet', 'cranberry'],
     oak: 'none',
     difficulty: 1,
+    story: [
+      'Beaujolais er Gamay fra granitbakkerne syd for Bourgogne, typisk lavet med kulsyremaceration, som giver frisk frugt og bløde tanniner. Beaujolais Nouveau, frigivet i november, gjorde stilen verdenskendt.',
+      'Rødt kirsebær, hindbær og en karakteristisk banan- eller tyggegummiagtig note fra macerationen er kendetegnene, sammen med høj syre, lav tannin og let krop. Cru-vinene er alvorligere og mere jordede.',
+    ],
     note: 'Represents Beaujolais / Beaujolais-Villages made with carbonic maceration.',
   }),
   s({
@@ -995,6 +1183,10 @@ export const styles: Style[] = [
     descriptorIds: ['raspberry', 'redcurrant', 'green-bell-pepper', 'violet', 'wet-stone'],
     oak: 'none',
     difficulty: 3,
+    story: [
+      "Chinon er Loires klassiske Cabernet Franc, en let til medium rødvin fra det kølige klima omkring Rabelais' fødeby. Sand- og grusjord ved floden giver lette vine, mens kalkskrænterne giver mere struktur.",
+      'Hindbær, grøn peberfrugt, blyant og violer er kendetegnene, sammen med høj syre og moderat tannin. Vinen serveres ofte let kølig.',
+    ],
     note: 'Chinon is not a separate entry in regions.ts; mapped to Loire.',
   }),
 ]

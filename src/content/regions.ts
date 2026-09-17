@@ -23,6 +23,10 @@ export const regions: Region[] = [
     climate: null,
     center: [2.5, 46.6],
     difficulty: 1,
+    story: [
+      'Frankrig er vinverdenens referencepunkt. Romerne bragte vinstokken nordpå langs Rhône, og klostrene forfinede dyrkningen gennem middelalderen. De fleste af verdens klassiske stilarter – Bordeaux, Bourgogne, Champagne, Rhône, Loire og Alsace – har fransk oprindelse.',
+      "Frankrig opfandt også appellationssystemet. AOC-reglerne fra 1930'erne fastlægger, hvor en vin må komme fra, hvilke druer der må bruges, og hvordan den må laves. Idéen om terroir – at stedet kan smages i vinen – er grundlæggende fransk.",
+    ],
   }),
   r({
     id: 'italy',
@@ -34,6 +38,10 @@ export const regions: Region[] = [
     climate: null,
     center: [12.5, 42.5],
     difficulty: 1,
+    story: [
+      "Italien har dyrket vin i over 3.000 år, og grækerne kaldte den sydlige del af halvøen Oinotria, 'vinlandet'. Der laves vin i alle 20 regioner, og landet har verdens største samling af indfødte druesorter.",
+      "Italien er blandt verdens største vinproducenter, ofte på førstepladsen. Kvalitetssystemet med DOC og DOCG blev indført i 1960'erne. De vigtigste klassiske vine er Barolo og Barbaresco fra Piemonte, Chianti og Brunello fra Toscana og Amarone fra Veneto.",
+    ],
   }),
   r({
     id: 'spain',
@@ -45,6 +53,10 @@ export const regions: Region[] = [
     climate: null,
     center: [-3.7, 40.2],
     difficulty: 1,
+    story: [
+      'Spanien har verdens største vinareal, selvom udbyttet pr. hektar er lavt på grund af tørke og gamle buskvinstokke. Fønikere og romere dyrkede vin her, og den maurisk-styrede middelalder bremsede kun produktionen delvist.',
+      'Rioja, Ribera del Duero og Priorat er de store røde regioner, Rías Baixas den vigtigste hvide, og Jerez giver sherry. Spanien er kendt for lang fadlagring, hvor betegnelserne crianza, reserva og gran reserva angiver, hvor længe vinen har ligget, før den sælges.',
+    ],
   }),
   r({
     id: 'portugal',
@@ -56,6 +68,10 @@ export const regions: Region[] = [
     climate: null,
     center: [-8.0, 39.6],
     difficulty: 1,
+    story: [
+      'Portugal er mest kendt for portvin fra Douro og for madeira, men laver også en voksende mængde tørre vine på en rigdom af indfødte druer. Handelsaftalen med England i 1703 (Methuen-traktaten) gjorde portugisisk vin til englændernes foretrukne.',
+      'Douro blev afgrænset i 1756 og er dermed en af verdens ældste beskyttede vinregioner. Vinho Verde i nordvest giver lette, friske hvidvine, blandt andet på Alvarinho.',
+    ],
   }),
   r({
     id: 'germany',
@@ -67,6 +83,10 @@ export const regions: Region[] = [
     climate: null,
     center: [10.4, 51.1],
     difficulty: 1,
+    story: [
+      'Tyskland er Rieslingens hjemland og et af verdens nordligste vinlande. Vinmarkerne ligger på stejle, sydvendte skråninger langs floderne Mosel, Rhinen, Nahe og Main, hvor solen og vandet holder druerne varme.',
+      "Vinloven fra 1971 inddeler vinene efter druernes modenhed ved høst: Kabinett, Spätlese, Auslese, Beerenauslese og Trockenbeerenauslese. Traditionelt har de bedste vine haft restsødme, men siden 1990'erne er tørre vine blevet stadig vigtigere, ikke mindst producentsammenslutningen VDP's Grosses Gewächs.",
+    ],
   }),
   r({
     id: 'austria',
@@ -78,6 +98,10 @@ export const regions: Region[] = [
     climate: null,
     center: [14.5, 47.6],
     difficulty: 1,
+    story: [
+      'Østrig laver primært hvidvin, og Grüner Veltliner er den mest plantede drue. Vinmarkerne ligger i landets østlige del: langs Donau (Wachau, Kremstal, Kamptal), i Weinviertel, omkring Wien og ved Neusiedlersee i Burgenland.',
+      'En skandale i 1985, hvor vin var tilsat diethylenglycol, ødelagde landets ry, men førte til nogle af Europas strengeste vinlove og et konsekvent kvalitetsfokus. Østrig er i dag kendt for præcise, tørre hvidvine og for søde vine fra Burgenland.',
+    ],
   }),
   r({
     id: 'croatia',
@@ -89,6 +113,10 @@ export const regions: Region[] = [
     climate: null,
     center: [16.0, 45.3],
     difficulty: 3,
+    story: [
+      'Kroatien har dyrket vin siden grækernes og romernes tid, især langs den dalmatiske kyst og på øerne. Landet blev vinhistorisk berømt i 2001, da DNA-analyser viste, at den lokale drue Tribidrag (Crljenak Kaštelanski) er identisk med Zinfandel og Primitivo.',
+      'Den mest plantede røde drue i Dalmatien, Plavac Mali, er et barn af Tribidrag. Nordpå laver Istrien friske hvidvine på Malvazija Istarska.',
+    ],
     note: 'Included only as the origin of Zinfandel/Primitivo.',
   }),
   r({
@@ -101,6 +129,10 @@ export const regions: Region[] = [
     climate: null,
     center: [22.0, 39.0],
     difficulty: 3,
+    story: [
+      'Grækenland har en af verdens ældste vinkulturer. Vinen var central i antikkens religion og selskabsliv, og grækerne bragte vinstokken til store dele af Middelhavet, herunder Syditalien og Sydfrankrig.',
+      "Efter århundreder i skyggen fik græsk vin en renæssance fra 1980'erne. Assyrtiko fra Santorinis vulkanske jord, Xinomavro fra Naoussa og Agiorgitiko fra Nemea er de moderne flagskibe, og øen Samos er berømt for søde Muscat-vine.",
+    ],
     note: 'Included only as the (uncertain) origin of Muscat.',
   }),
   r({
@@ -113,6 +145,10 @@ export const regions: Region[] = [
     climate: null,
     center: [-98.5, 39.8],
     difficulty: 1,
+    story: [
+      'USA er verdens fjerdestørste vinproducent, og Californien står for langt størstedelen. Spanske missionærer plantede de første vinstokke i 1700-tallet, og guldfeberen i 1849 satte gang i vinindustrien. Forbudstiden (1920–33) lukkede næsten alt ned.',
+      "Vendepunktet kom ved 'Judgment of Paris' i 1976, hvor californiske vine slog franske topvine i en blindsmagning. AVA-systemet (American Viticultural Areas) fra 1980 afgrænser regionerne, men regulerer ikke druer eller metoder. Oregon, Washington og New York er de vigtigste stater uden for Californien.",
+    ],
   }),
   r({
     id: 'australia',
@@ -124,6 +160,10 @@ export const regions: Region[] = [
     climate: null,
     center: [134.0, -25.5],
     difficulty: 1,
+    story: [
+      "Vinstokke kom til Australien med de første europæiske skibe i 1788, og James Busby indførte i 1830'erne en stor samling af europæiske druer, som blev grundlaget for landets vinindustri. Sydaustralien blev aldrig ramt af phylloxera, så Barossa har nogle af verdens ældste vinstokke.",
+      "Frem til 1960'erne var det meste australsk vin forstærket. Siden har landet udviklet en stærk, teknisk vinkultur med Shiraz som flagskib, kølige regioner som Yarra Valley og Margaret River og en tidlig omfavnelse af skruelåg.",
+    ],
   }),
   r({
     id: 'new-zealand',
@@ -135,6 +175,10 @@ export const regions: Region[] = [
     climate: null,
     center: [172.5, -41.5],
     difficulty: 1,
+    story: [
+      "New Zealand er et af verdens yngste vinlande. Selvom vinstokke blev plantet allerede i 1800-tallet, begyndte den moderne industri først i 1970'erne, da Sauvignon Blanc blev plantet i Marlborough.",
+      'Det kølige, solrige klima og de lange dage giver vine med intens aroma og høj syre. Sauvignon Blanc udgør størstedelen af produktionen, men Pinot Noir fra Central Otago og Martinborough har også vundet international anerkendelse. Landet gik samlet over til skruelåg i 2001.',
+    ],
   }),
   r({
     id: 'argentina',
@@ -146,6 +190,10 @@ export const regions: Region[] = [
     climate: null,
     center: [-64.0, -34.0],
     difficulty: 1,
+    story: [
+      'Vin har været dyrket i Argentina siden 1500-tallet, da spanske missionærer plantede stokke ved Andesbjergene. I 1853 ankom Malbec fra Frankrig, og druen fandt sit nye hjem her.',
+      "I mange år blev der lavet store mængder simpel vin til hjemmemarkedet. Fra 1990'erne satsede producenterne på kvalitet og eksport, og Mendozas højtliggende Malbec blev landets varemærke. Hvid Torrontés er en aromatisk, indfødt specialitet.",
+    ],
   }),
   r({
     id: 'chile',
@@ -157,6 +205,10 @@ export const regions: Region[] = [
     climate: null,
     center: [-71.0, -35.0],
     difficulty: 1,
+    story: [
+      'Chile har dyrket vin siden 1500-tallet, og i 1800-tallet importerede velhavende familier franske druer og ekspertise. Landet er beskyttet af Andesbjergene, Stillehavet og Atacamaørkenen og er derfor stort set fri for phylloxera.',
+      'I 1994 opdagede man, at meget af det, der blev solgt som Merlot, i virkeligheden var Carménère, en gammel Bordeaux-drue, som næsten var forsvundet i Frankrig. Maipo, Colchagua og Casablanca er de vigtigste dale.',
+    ],
   }),
   r({
     id: 'south-africa',
@@ -168,6 +220,10 @@ export const regions: Region[] = [
     climate: null,
     center: [24.0, -29.0],
     difficulty: 1,
+    story: [
+      'Den første sydafrikanske vin blev presset i 1659, få år efter at hollænderne anlagde Kapkolonien. Den søde Constantia var i 1700- og 1800-tallet en af verdens mest eftertragtede vine.',
+      'Isolationen under apartheid holdt vinene ude af verdensmarkedet indtil 1994. Siden har Sydafrika kombineret gamle druer som Chenin Blanc med moderne vinmageri. Pinotage, en krydsning af Pinot Noir og Cinsault, blev skabt i Stellenbosch i 1925.',
+    ],
   }),
 
   // ---------------------------------------------------------------- France
@@ -180,6 +236,10 @@ export const regions: Region[] = [
     climate: 'moderate',
     center: [-0.58, 44.84],
     difficulty: 1,
+    story: [
+      "Bordeaux ligger ved Gironde-mundingen, hvor floderne Garonne og Dordogne mødes, og har været en havn for vineksport siden middelalderen. Da Eleonora af Aquitanien giftede sig med den engelske konge i 1152, kom området under engelsk styre i 300 år, og englænderne har drukket 'claret' lige siden.",
+      "Venstre bred (Médoc, Graves) har grusjord og Cabernet Sauvignon-dominerede vine, mens højre bred (Saint-Émilion, Pomerol) har ler og kalk, hvor Merlot trives. Klassifikationen fra 1855 inddelte Médocs og Sauternes' bedste slotte i fem klasser og gælder stort set uændret i dag.",
+    ],
   }),
   r({
     id: 'pauillac',
@@ -190,6 +250,10 @@ export const regions: Region[] = [
     climate: 'moderate',
     center: [-0.75, 45.2],
     difficulty: 2,
+    story: [
+      'Pauillac er Médocs mest berømte kommune og hjemsted for tre af de fem premiers crus fra 1855: Château Lafite, Château Latour og Château Mouton Rothschild, som blev forfremmet i 1973.',
+      "Dybe grusbanker dræner godt og oplagrer varme, hvilket passer perfekt til den sent modnende Cabernet Sauvignon. Vinene er Bordeaux' mest strukturerede, med solbær, cedertræ og tobak og en evne til at holde i årtier.",
+    ],
   }),
   r({
     id: 'saint-emilion',
@@ -200,6 +264,10 @@ export const regions: Region[] = [
     climate: 'moderate',
     center: [-0.16, 44.89],
     difficulty: 2,
+    story: [
+      "Saint-Émilion er en middelalderby på Bordeaux' højre bred, opkaldt efter en eremit fra 700-tallet. Byen og vinmarkerne kom på UNESCO's verdensarvsliste i 1999.",
+      'Merlot og Cabernet Franc dominerer, og jordbunden veksler mellem kalkplateauet ved byen og lerjorden ned mod Pomerol. Saint-Émilion har sin egen klassifikation, som revideres cirka hvert tiende år, med Château Ausone og Château Cheval Blanc som de historisk ledende ejendomme.',
+    ],
   }),
   r({
     id: 'sauternes',
@@ -210,6 +278,10 @@ export const regions: Region[] = [
     climate: 'moderate',
     center: [-0.33, 44.53],
     difficulty: 2,
+    story: [
+      'Sauternes ligger syd for Bordeaux, hvor den kolde lille flod Ciron løber ud i den varmere Garonne. Om efteråret giver mødet morgentåge, som fremmer ædelråd (Botrytis cinerea) på druerne, og eftermiddagssolen tørrer dem ind.',
+      "Sémillon er hoveddruen, suppleret af Sauvignon Blanc. Druerne plukkes i flere omgange, efterhånden som de angribes, og udbyttet er meget lavt. Château d'Yquem var det eneste slot, der fik den øverste rang, Premier Cru Supérieur, i klassifikationen fra 1855.",
+    ],
   }),
   r({
     id: 'bourgogne',
@@ -220,6 +292,10 @@ export const regions: Region[] = [
     climate: 'cool',
     center: [4.85, 47.05],
     difficulty: 1,
+    story: [
+      "Bourgogne er terroir-tankens hjemland. Cistercienser- og benediktinermunkene kortlagde gennem middelalderen, hvilke marker der gav de bedste vine, og den inddeling ligger til grund for dagens klassifikation i grand cru, premier cru, landsby- og regionalvine. Vinmarkerne (climats) kom på UNESCO's liste i 2015.",
+      'Napoleons arvelov delte ejendommene mellem alle børn, så Bourgogne i dag består af tusindvis af små parceller med mange ejere. Pinot Noir og Chardonnay er de to druer, og med få undtagelser laves vinene på én drue.',
+    ],
   }),
   r({
     id: 'chablis',
@@ -230,6 +306,10 @@ export const regions: Region[] = [
     climate: 'cool',
     center: [3.8, 47.81],
     difficulty: 2,
+    story: [
+      'Chablis ligger isoleret nord for resten af Bourgogne, tættere på Champagne. Jorden er kimmeridge-kalk fra juratiden, fuld af fossile østersskaller, og det kølige klima og frostrisikoen om foråret giver stramme, mineralske Chardonnay-vine.',
+      'Områdets syv grand cru-marker ligger samlet på én sydvestvendt skråning over byen. Klassisk Chablis laves uden eller med meget lidt ny eg, hvilket adskiller den fra resten af Bourgognes hvidvine.',
+    ],
   }),
   r({
     id: 'cote-de-nuits',
@@ -240,6 +320,10 @@ export const regions: Region[] = [
     climate: 'cool',
     center: [4.95, 47.18],
     difficulty: 2,
+    story: [
+      "Côte de Nuits er den nordlige halvdel af Côte d'Or og er næsten udelukkende rødvinsland. Her ligger landsbyerne Gevrey-Chambertin, Chambolle-Musigny, Vougeot, Vosne-Romanée og Nuits-Saint-Georges.",
+      'Området har næsten alle Bourgognes røde grand crus, herunder Romanée-Conti, La Tâche, Chambertin og Musigny. Vinene regnes for Pinot Noirs mest komplekse og langtidsholdbare udtryk.',
+    ],
   }),
   r({
     id: 'cote-de-beaune',
@@ -250,6 +334,10 @@ export const regions: Region[] = [
     climate: 'cool',
     center: [4.75, 46.98],
     difficulty: 2,
+    story: [
+      "Côte de Beaune er den sydlige halvdel af Côte d'Or og laver både rød- og hvidvin. Hvidvinene fra Meursault, Puligny-Montrachet og Chassagne-Montrachet, med grand cru'en Montrachet i spidsen, regnes for verdens bedste Chardonnay.",
+      'Blandt de røde er Pommard, Volnay og Corton de mest kendte. Hospices de Beaune, et hospital grundlagt i 1443, har siden 1859 holdt sin berømte vinauktion i november, som sætter tonen for årgangens priser.',
+    ],
   }),
   r({
     id: 'beaujolais',
@@ -260,6 +348,10 @@ export const regions: Region[] = [
     climate: 'moderate',
     center: [4.65, 46.15],
     difficulty: 2,
+    story: [
+      'Beaujolais ligger syd for Bourgogne og dyrker næsten udelukkende Gamay. Nordens granitbakker giver de ti cruer (blandt andet Morgon, Fleurie og Moulin-à-Vent), mens den sydlige del med lerjord giver lettere vine.',
+      "Kulsyremaceration, hvor hele klaser gærer i en tank fyldt med kuldioxid, giver den karakteristiske friske, frugtige stil. Beaujolais Nouveau, som frigives den tredje torsdag i november, gjorde regionen verdensberømt i 1970'erne og 1980'erne.",
+    ],
   }),
   r({
     id: 'northern-rhone',
@@ -270,6 +362,10 @@ export const regions: Region[] = [
     climate: 'moderate',
     center: [4.83, 45.05],
     difficulty: 2,
+    story: [
+      'Det nordlige Rhône er en smal, stejl strimmel af vinmarker langs floden fra Vienne til Valence. Terrasserne på granitskråningerne er blandt de mest arbejdskrævende i Frankrig. Syrah er den eneste tilladte røde drue.',
+      'Hermitage-bakken har været berømt siden 1600-tallet, og Côte-Rôtie, Cornas og Saint-Joseph er de andre store røde appellationer. Hvidvinene laves på Viognier (Condrieu) og på Marsanne og Roussanne.',
+    ],
   }),
   r({
     id: 'southern-rhone',
@@ -280,6 +376,10 @@ export const regions: Region[] = [
     climate: 'warm',
     center: [4.85, 44.15],
     difficulty: 2,
+    story: [
+      'Det sydlige Rhône åbner sig i en bred, varm slette med middelhavsklima. Mistralen, den kolde nordenvind, tørrer vinmarkerne og holder druerne sunde. Grenache er hoveddruen, typisk blandet med Syrah og Mourvèdre.',
+      'Det meste af vinen sælges som Côtes du Rhône og Côtes du Rhône-Villages, mens Châteauneuf-du-Pape, Gigondas og Vacqueyras er de kendte cruer. Tavel laver udelukkende rosé.',
+    ],
   }),
   r({
     id: 'chateauneuf-du-pape',
@@ -290,6 +390,10 @@ export const regions: Region[] = [
     climate: 'warm',
     center: [4.83, 44.06],
     difficulty: 2,
+    story: [
+      "Navnet betyder 'pavens nye slot' og stammer fra 1300-tallet, da paverne residerede i Avignon og byggede et sommerslot her. I 1923 skrev baron Le Roy, som ejede Château Fortia, regler for områdets vin, som blev en forløber for hele det franske appellationssystem.",
+      'Appellationen tillader 13 druer (18, hvis farvevarianter tælles med), men Grenache dominerer. De store, runde sten (galets roulés) oplagrer dagens varme og afgiver den om natten, hvilket bidrager til de kraftige, alkoholstærke vine.',
+    ],
   }),
   r({
     id: 'loire',
@@ -300,6 +404,10 @@ export const regions: Region[] = [
     climate: 'cool',
     center: [0.5, 47.3],
     difficulty: 1,
+    story: [
+      'Loire er Frankrigs længste flod, og vinmarkerne strækker sig over 1.000 km fra Atlanterhavet til Massif Central. Slottene langs floden vidner om, at området var kongernes og adelens foretrukne opholdssted.',
+      'Regionen falder i flere dele: Muscadet ved kysten, Anjou og Touraine med Chenin Blanc og Cabernet Franc i midten, og Sancerre og Pouilly-Fumé med Sauvignon Blanc i øst. Det kølige klima giver vine med høj syre og lav alkohol.',
+    ],
   }),
   r({
     id: 'sancerre',
@@ -310,6 +418,10 @@ export const regions: Region[] = [
     climate: 'cool',
     center: [2.83, 47.33],
     difficulty: 2,
+    story: [
+      'Sancerre er en bakkeby i den østlige del af Loire. Indtil phylloxera hærgede i slutningen af 1800-tallet var området mest kendt for rødvin af Pinot Noir, men efter genplantningen tog Sauvignon Blanc over.',
+      'Jorden veksler mellem kalk (terres blanches), stenet kalk (caillottes) og flint (silex), som giver forskellige udtryk. Pouilly-Fumé ligger på den modsatte flodbred, og den lokale gedeost Crottin de Chavignol er det klassiske følgeskab.',
+    ],
   }),
   r({
     id: 'vouvray',
@@ -320,6 +432,10 @@ export const regions: Region[] = [
     climate: 'cool',
     center: [0.8, 47.41],
     difficulty: 3,
+    story: [
+      'Vouvray ligger lige øst for Tours i Touraine og dyrker udelukkende Chenin Blanc. Undergrunden er tuffeau, en blød kalksten, som slottene er bygget af, og som giver kølige kældre gravet direkte ind i skrænterne.',
+      'Chenins høje syre og modtagelighed for ædelråd gør, at Vouvray laves i alle stilarter afhængigt af årgangen: tør (sec), halvtør (demi-sec), sød (moelleux) og mousserende.',
+    ],
   }),
   r({
     id: 'alsace',
@@ -330,6 +446,10 @@ export const regions: Region[] = [
     climate: 'cool',
     center: [7.35, 48.3],
     difficulty: 2,
+    story: [
+      'Alsace ligger mellem Vogeserne og Rhinen og har skiftet mellem fransk og tysk styre flere gange, senest under de to verdenskrige. Det ses i landsbynavnene, den slanke flaske og i, at druen står på etiketten, hvilket er usædvanligt i Frankrig.',
+      'Bjergene skærmer for regn, så Alsace er et af Frankrigs tørreste og solrigeste områder. Riesling, Gewürztraminer, Pinot Gris og Muscat regnes for de fire ædle druer, og de bedste marker er klassificeret som grand cru.',
+    ],
     note: 'Often described as cool-to-moderate continental; dry and sunny.',
   }),
   r({
@@ -341,6 +461,10 @@ export const regions: Region[] = [
     climate: 'cool',
     center: [4.0, 49.05],
     difficulty: 1,
+    story: [
+      'Champagne er Frankrigs nordligste store vinregion, og det kølige klima gav oprindeligt tynde, syrlige vine, som havde en tendens til at gære igen om foråret. Det, der først var et problem, blev perfektioneret til den mousserende vin, verden kender i dag.',
+      'Munken Dom Pérignon (1638–1715) opfandt ikke boblerne, som myten siger, men bidrog til kunsten at blande druer fra forskellige marker. Kridtundergrunden giver både vinmarkerne og de kilometerlange kældre under Reims og Épernay. Chardonnay, Pinot Noir og Meunier er de tre druer.',
+    ],
   }),
 
   // ---------------------------------------------------------------- Italy
@@ -353,6 +477,10 @@ export const regions: Region[] = [
     climate: 'moderate',
     center: [8.0, 44.7],
     difficulty: 1,
+    story: [
+      "Piemonte betyder 'ved bjergenes fod' og ligger i det nordvestlige Italien, omgivet af Alperne. Efterårets tåge over Langhe-bakkerne har givet navn til Nebbiolo, og området er også kendt for hvide trøfler fra Alba.",
+      "Barolo og Barbaresco er de store Nebbiolo-vine, mens Barbera og Dolcetto er hverdagens druer. Asti laver sød mousserende vin på Moscato. Vinlandskabet i Langhe, Roero og Monferrato kom på UNESCO's verdensarvsliste i 2014.",
+    ],
   }),
   r({
     id: 'barolo',
@@ -363,6 +491,10 @@ export const regions: Region[] = [
     climate: 'moderate',
     center: [7.94, 44.61],
     difficulty: 2,
+    story: [
+      "Barolo laves på Nebbiolo i 11 kommuner sydvest for Alba. I 1800-tallet blev vinen forvandlet fra sød til tør, angiveligt med hjælp fra den franske ønolog Louis Oudart, og den blev hurtigt populær ved hoffet i Torino, deraf tilnavnet 'kongernes vin, vinenes konge'.",
+      "Området deles af to jordtyper: de yngre, blødere mergeljorder omkring La Morra og Barolo giver mere elegante vine, mens de ældre sandstensjorder i Serralunga og Monforte giver kraftigere og mere tanninrige. I 1980'erne og 1990'erne stod de såkaldte Barolo-krige mellem traditionalister med store gamle fade og modernister med små franske barriques.",
+    ],
   }),
   r({
     id: 'toscana',
@@ -373,6 +505,10 @@ export const regions: Region[] = [
     climate: 'warm',
     center: [11.2, 43.4],
     difficulty: 1,
+    story: [
+      'Toscana er Sangioveses hjemland og et af verdens mest ikoniske vinlandskaber med cypresser, bakker og middelalderbyer. Etruskerne dyrkede vin her længe før romerne. I 1716 afgrænsede storhertug Cosimo III Chianti-området, en af verdens tidligste appellationer.',
+      "Chianti Classico, Brunello di Montalcino og Vino Nobile di Montepulciano er de klassiske vine. I 1970'erne skabte producenter som Sassicaia og Tignanello de såkaldte supertoscanere med Cabernet og Merlot uden for reglerne, hvilket revolutionerede italiensk vin.",
+    ],
   }),
   r({
     id: 'chianti-classico',
@@ -383,6 +519,10 @@ export const regions: Region[] = [
     climate: 'moderate',
     center: [11.3, 43.55],
     difficulty: 2,
+    story: [
+      'Chianti Classico er det historiske kerneområde mellem Firenze og Siena. Den sorte hane (Gallo Nero) på flaskehalsen stammer fra en middelalderlegende om grænsestriden mellem de to byer. Baron Bettino Ricasoli fastlagde i 1872 den klassiske opskrift med Sangiovese som grunddrue.',
+      'Området fik sin egen DOCG adskilt fra det øvrige Chianti i 1996. Vinen skal indeholde mindst 80 % Sangiovese, og siden 2014 er Gran Selezione det øverste niveau over Riserva.',
+    ],
     note: 'Hilly and cooler than the Tuscan coast; some sources say warm.',
   }),
   r({
@@ -394,6 +534,10 @@ export const regions: Region[] = [
     climate: 'warm',
     center: [11.49, 43.06],
     difficulty: 2,
+    story: [
+      'Brunello er det lokale navn for Sangiovese i bakkebyen Montalcino syd for Siena. I slutningen af 1800-tallet lavede Ferruccio Biondi-Santi en ren, langtidslagret Sangiovese, som blev forbilledet for dagens Brunello.',
+      'Området er varmere og tørrere end Chianti, hvilket giver fyldigere vine. Brunello di Montalcino fik som en af de første italienske vine DOCG-status i 1980 og må først sælges efter fem års lagring, heraf mindst to på fad.',
+    ],
   }),
   r({
     id: 'veneto',
@@ -404,6 +548,10 @@ export const regions: Region[] = [
     climate: 'moderate',
     center: [11.5, 45.5],
     difficulty: 1,
+    story: [
+      'Veneto i det nordøstlige Italien er landets største vinregion målt i mængde. Fra Verona kommer Soave, Valpolicella og den tørrede Amarone, mens Prosecco laves på Glera i bakkerne mod nord. Pinot Grigio fra sletten er en af verdens mest solgte hvidvine.',
+      'Verona huser Vinitaly, Italiens største vinmesse, og Gardasøen giver et mildt klima til Bardolino og Lugana.',
+    ],
   }),
   r({
     id: 'soave',
@@ -414,6 +562,10 @@ export const regions: Region[] = [
     climate: 'moderate',
     center: [11.25, 45.42],
     difficulty: 3,
+    story: [
+      "Soave ligger øst for Verona og laver hvidvin på Garganega. Classico-bakkerne omkring Soave og Monteforte d'Alpone er vulkanske, mens sletten nedenfor giver lettere vine. Området blev afgrænset allerede i 1931.",
+      "I 1970'erne var Soave enormt populær i USA, ofte som simpel hverdagsvin, men de bedste producenter har siden vist, at bakkerne kan give komplekse, lagringsegnede vine. Af tørrede druer laves den søde Recioto di Soave.",
+    ],
   }),
   r({
     id: 'puglia',
@@ -424,6 +576,10 @@ export const regions: Region[] = [
     climate: 'warm',
     center: [16.5, 41.0],
     difficulty: 2,
+    story: [
+      "Puglia, Italiens hæl, er varm, flad og frugtbar og var i årtier en leverandør af kraftig blandingsvin til nordligere regioner. Siden 1990'erne har producenterne satset på egne aftapninger af lokale druer.",
+      'Primitivo (identisk med Zinfandel) i Manduria og Negroamaro i Salento er de kendte røde. Mange gamle stokke er trænet som lave buske (alberello), som tåler hede og vind.',
+    ],
   }),
 
   // ---------------------------------------------------------------- Spain & Portugal
@@ -436,6 +592,10 @@ export const regions: Region[] = [
     climate: 'moderate',
     center: [-2.45, 42.45],
     difficulty: 1,
+    story: [
+      'Rioja ligger langs Ebro-floden i det nordlige Spanien og består af tre zoner: den køligere Rioja Alta og Rioja Alavesa i vest og den varmere Rioja Oriental i øst. Da phylloxera ramte Bordeaux i 1800-tallet, flyttede franske vinhandlere sydpå og indførte fadlagring på egetræ.',
+      'Tempranillo er hoveddruen, suppleret af Garnacha, Graciano og Mazuelo. Lagring på amerikansk eg gav den klassiske vanille- og kokosprægede stil. Rioja blev i 1991 Spaniens første DOCa, den højeste kvalitetsbetegnelse.',
+    ],
   }),
   r({
     id: 'ribera-del-duero',
@@ -446,6 +606,10 @@ export const regions: Region[] = [
     climate: 'moderate',
     center: [-3.7, 41.65],
     difficulty: 2,
+    story: [
+      'Ribera del Duero ligger på et højt plateau ved Duero-floden i Kastilien, 750–1.000 meter over havet, med varme dage og kolde nætter. Vega Sicilia har lavet vin her siden 1864, men området fik først sin DO i 1982.',
+      "Det var Alejandro Fernández' Pesquera, som i 1980'erne gjorde regionen berømt. Tempranillo, lokalt kaldet Tinto Fino, giver mørkere og mere koncentrerede vine end i Rioja.",
+    ],
     note: 'Continental at ~800 m: hot days, cold nights. Some sources classify as warm.',
   }),
   r({
@@ -457,6 +621,10 @@ export const regions: Region[] = [
     climate: 'cool',
     center: [-8.7, 42.5],
     difficulty: 2,
+    story: [
+      'Rías Baixas er de fjordlignende havbugter i Galicien i det grønne, regnfulde nordvestlige Spanien. Området laver næsten udelukkende hvidvin på Albariño og fik sin DO i 1988.',
+      'For at undgå råd i det fugtige klima dyrkes druerne traditionelt på høje granitpergolaer. Vinene er friske og aromatiske og er det klassiske følgeskab til egnens skaldyr.',
+    ],
     note: 'WSET describes it as moderate maritime; wines show cool-climate acidity. Review.',
   }),
   r({
@@ -468,6 +636,10 @@ export const regions: Region[] = [
     climate: 'warm',
     center: [0.82, 41.2],
     difficulty: 3,
+    story: [
+      'Priorat er et vildt bjergområde i Catalonien, opkaldt efter kartuserklostret Scala Dei, hvis munke indførte vindyrkning i 1100-tallet. Jorden er llicorella, en sort skifer, som tvinger rødderne dybt ned.',
+      "Området var næsten affolket, da en gruppe pionerer med René Barbier og Álvaro Palacios i spidsen i slutningen af 1980'erne begyndte at lave koncentrerede vine på gamle Garnacha- og Cariñena-stokke. Priorat blev Spaniens anden DOCa efter Rioja.",
+    ],
   }),
   r({
     id: 'douro',
@@ -478,6 +650,10 @@ export const regions: Region[] = [
     climate: 'warm',
     center: [-7.6, 41.17],
     difficulty: 1,
+    story: [
+      "Douro-dalen i det nordlige Portugal er portvinens hjemland og blev afgrænset i 1756 som en af verdens første beskyttede vinregioner. De stejle skiferterrasser langs floden kom på UNESCO's verdensarvsliste i 2001.",
+      "Traditionelt blev vinen sejlet ned til Porto og lagret i handelshusenes lagre i Vila Nova de Gaia. Siden 1950'erne, med Barca Velha som pioner, er der også lavet tørre rødvine på de samme druer, blandt andet Touriga Nacional og Tinta Roriz.",
+    ],
   }),
 
   // ---------------------------------------------------------------- Germany & Austria
@@ -490,6 +666,10 @@ export const regions: Region[] = [
     climate: 'cool',
     center: [7.0, 49.9],
     difficulty: 1,
+    story: [
+      'Mosel snor sig gennem det vestlige Tyskland, og vinmarkerne klamrer sig til nogle af verdens stejleste skråninger, som Bremmer Calmont. Skiferjorden oplagrer varme og spejler solen op på druerne.',
+      'Riesling fra Mosel er let i alkohol, høj i syre og har ofte restsødme. Bernkastel, Piesport og Wehlen er de berømte landsbyer, og bifloderne Saar og Ruwer giver endnu strammere vine.',
+    ],
   }),
   r({
     id: 'rheingau',
@@ -500,6 +680,10 @@ export const regions: Region[] = [
     climate: 'cool',
     center: [8.0, 50.02],
     difficulty: 2,
+    story: [
+      'Rheingau er en sydvendt skråning nord for Rhinen mellem Wiesbaden og Rüdesheim. Cistercienserklostret Eberbach, grundlagt i 1136, var i middelalderen en af Europas største vinproducenter.',
+      'Schloss Johannisberg regnes for det første rene Riesling-gods, og ifølge traditionen blev den første Spätlese lavet her i 1775, da høsttilladelsen kom for sent. Rheingau giver fyldigere og oftere tørre Riesling end Mosel, og Assmannshausen er kendt for Spätburgunder.',
+    ],
   }),
   r({
     id: 'wachau',
@@ -510,6 +694,10 @@ export const regions: Region[] = [
     climate: 'cool',
     center: [15.45, 48.38],
     difficulty: 2,
+    story: [
+      "Wachau er en smal Donau-dal mellem Melk og Krems i Østrig, hvor vinmarkerne ligger på stenterrasser bygget gennem århundreder. Landskabet kom på UNESCO's verdensarvsliste i 2000.",
+      "Producentsammenslutningen Vinea Wachau indførte i 1980'erne sin egen inddeling efter modenhed: Steinfeder (lettest), Federspiel og Smaragd (kraftigst). Grüner Veltliner og Riesling er druerne, og jordbunden veksler mellem løss og urgestein.",
+    ],
     note: 'Cool-to-moderate continental.',
   }),
 
@@ -523,6 +711,10 @@ export const regions: Region[] = [
     climate: 'warm',
     center: [-122.3, 38.45],
     difficulty: 1,
+    story: [
+      "Napa Valley nord for San Francisco har lavet vin siden 1860'erne, men phylloxera og forbudstiden satte industrien tilbage. Robert Mondavi grundlagde sit vineri i 1966 og satte gang i den moderne æra.",
+      "Ved 'Judgment of Paris' i 1976 slog en Cabernet Sauvignon fra Stag's Leap Wine Cellars de franske topvine i en blindsmagning, og Napa blev verdensberømt. Cabernet Sauvignon fra underområder som Oakville, Rutherford og Stags Leap District er i dag blandt verdens dyreste vine.",
+    ],
   }),
   r({
     id: 'sonoma',
@@ -533,6 +725,10 @@ export const regions: Region[] = [
     climate: 'moderate',
     center: [-122.8, 38.45],
     difficulty: 2,
+    story: [
+      'Sonoma ligger mellem Napa og Stillehavet og er ældre og mere varieret end naboen. Buena Vista, grundlagt i 1857, regnes for Californiens ældste kommercielle vineri.',
+      'Havtågen køler de vestlige dele, hvor Russian River Valley og Sonoma Coast giver Pinot Noir og Chardonnay, mens de varmere indre dale, Dry Creek og Alexander Valley, er kendt for Zinfandel og Cabernet.',
+    ],
     note: 'Very varied; coastal parts are cool, inland parts warm.',
   }),
   r({
@@ -544,6 +740,10 @@ export const regions: Region[] = [
     climate: 'cool',
     center: [-123.0, 45.2],
     difficulty: 2,
+    story: [
+      "Willamette Valley i Oregon ligger på samme breddegrad som Bourgogne, og pionerer som David Lett fra Eyrie Vineyards plantede Pinot Noir her i 1960'erne mod eksperternes råd.",
+      'Da Eyries Pinot Noir klarede sig godt mod Bourgogne-vine ved smagninger i Paris i 1979 og 1980, kom området på kortet, og Bourgogne-huset Drouhin købte jord her i 1987. Den røde vulkanske jord i Dundee Hills er blandt de mest kendte.',
+    ],
   }),
 
   // ---------------------------------------------------------------- Australia & New Zealand
@@ -556,6 +756,10 @@ export const regions: Region[] = [
     climate: 'warm',
     center: [138.95, -34.55],
     difficulty: 1,
+    story: [
+      "Barossa Valley nordøst for Adelaide blev koloniseret i 1840'erne af tyske lutheranere fra Schlesien, og den tyske arv ses stadig i landsbynavne og madkultur. Området har aldrig haft phylloxera, så nogle Shiraz-stokke fra 1840'erne producerer stadig.",
+      'Barossa er Australiens Shiraz-hovedstad og hjemsted for Penfolds, hvis Grange fra 1951 er landets mest berømte vin. De højere Eden Valley-bakker ved siden af giver Riesling.',
+    ],
   }),
   r({
     id: 'clare-valley',
@@ -566,6 +770,10 @@ export const regions: Region[] = [
     climate: 'moderate',
     center: [138.6, -33.85],
     difficulty: 3,
+    story: [
+      'Clare Valley ligger nord for Adelaide og er varmere, end dens ry som Riesling-region antyder, men højden og de kølige nætter bevarer syren. Jesuitterne grundlagde Sevenhill, områdets ældste vineri, i 1851.',
+      'I 2000 gik en gruppe Clare-producenter samlet over til skruelåg for at beskytte deres Riesling, hvilket satte gang i skruelågets udbredelse i Australien. Polish Hill River og Watervale er de kendte underområder.',
+    ],
     note: 'Warm days but altitude and cool nights; Riesling keeps high acidity. Review.',
   }),
   r({
@@ -577,6 +785,10 @@ export const regions: Region[] = [
     climate: 'moderate',
     center: [115.07, -33.85],
     difficulty: 2,
+    story: [
+      "Margaret River i det sydvestlige Australien blev udpeget som lovende vinland i en videnskabelig rapport fra 1965, som pegede på ligheden med Bordeaux' klima. Vasse Felix plantede de første stokke i 1967.",
+      'Det Indiske Ocean giver et mildt, maritimt klima. Cabernet Sauvignon og Chardonnay er flagskibene, og området er også kendt for surfing og skove.',
+    ],
   }),
   r({
     id: 'yarra-valley',
@@ -587,6 +799,10 @@ export const regions: Region[] = [
     climate: 'cool',
     center: [145.5, -37.7],
     difficulty: 2,
+    story: [
+      "Yarra Valley øst for Melbourne var Victorias første vinregion, med vinstokke fra 1838. Området lå næsten brak i første halvdel af 1900-tallet, da efterspørgslen gik mod forstærkede vine, men blev genoplivet fra 1960'erne.",
+      'Det kølige klima passer til Pinot Noir, Chardonnay og mousserende vin, og Moët & Chandon etablerede Domaine Chandon her i 1986.',
+    ],
   }),
   r({
     id: 'marlborough',
@@ -597,6 +813,10 @@ export const regions: Region[] = [
     climate: 'cool',
     center: [173.75, -41.5],
     difficulty: 1,
+    story: [
+      'Marlborough i den nordøstlige del af New Zealands Sydø var fåreland, indtil vinhuset Montana plantede Sauvignon Blanc her i 1973. Cloudy Bay, grundlagt i 1985, gjorde stilen verdensberømt.',
+      'Området er solrigt og tørt med kølige nætter, hvilket giver eksplosivt aromatiske vine med høj syre. Marlborough er i dag New Zealands klart største vinregion, og Wairau og Awatere er de to hoveddale.',
+    ],
   }),
   r({
     id: 'central-otago',
@@ -607,6 +827,10 @@ export const regions: Region[] = [
     climate: 'cool',
     center: [169.2, -45.0],
     difficulty: 2,
+    story: [
+      "Central Otago på New Zealands Sydø er en af verdens sydligste vinregioner og den eneste i landet med kontinentalt klima: varme, tørre somre og kolde vintre. Guldgravere plantede vin her i 1860'erne, men den moderne industri begyndte først i 1980'erne.",
+      'Pinot Noir er den altdominerende drue og giver mørkere og frugtigere vine end i Bourgogne. Bannockburn, Gibbston og Bendigo er de kendte underområder, tæt på Queenstown.',
+    ],
   }),
 
   // ---------------------------------------------------------------- South America & South Africa
@@ -619,6 +843,10 @@ export const regions: Region[] = [
     climate: 'warm',
     center: [-68.85, -33.0],
     difficulty: 1,
+    story: [
+      'Mendoza ved foden af Andesbjergene står for omkring 70 % af Argentinas vin. Området er ørken, og vinmarkerne vandes med smeltevand fra bjergene gennem kanaler, som går tilbage til tiden før spanierne.',
+      "Vinmarkerne ligger i 600–1.500 meters højde, og jo højere, jo køligere. Luján de Cuyo er det klassiske Malbec-område, mens Uco-dalen længere sydpå og højere oppe er blevet det mest eftertragtede område siden 1990'erne.",
+    ],
     note: 'High altitude moderates the heat; often described as warm continental.',
   }),
   r({
@@ -630,6 +858,10 @@ export const regions: Region[] = [
     climate: 'warm',
     center: [-70.7, -33.7],
     difficulty: 2,
+    story: [
+      'Valle del Maipo omkring Santiago er Chiles ældste og mest kendte vinregion. Rige familier grundlagde i 1800-tallet vinhuse som Cousiño Macul, Santa Rita og Concha y Toro med franske druer og franske rådgivere.',
+      "Cabernet Sauvignon er hoveddruen, og de bedste marker ligger i Alto Maipo ved Andes' fod, hvor kolde nætter bevarer syren. En mentol- eller eukalyptus-note er et kendetegn for mange Maipo-vine.",
+    ],
   }),
   r({
     id: 'stellenbosch',
@@ -640,6 +872,10 @@ export const regions: Region[] = [
     climate: 'warm',
     center: [18.86, -33.93],
     difficulty: 1,
+    story: [
+      'Stellenbosch blev grundlagt i 1679 af guvernør Simon van der Stel og er Sydafrikas vigtigste vinregion og universitetsby. Bjergene Simonsberg og Helderberg giver granit- og sandstensjord, og brisen fra False Bay køler vinmarkerne.',
+      'Cabernet Sauvignon og Bordeaux-blandinger er områdets styrke, sammen med Chenin Blanc. Pinotage blev skabt her på universitetet i 1925, og Sydafrikas første vinrute åbnede i Stellenbosch i 1971.',
+    ],
     note: 'Warm Mediterranean with cooling ocean breezes.',
   }),
 ]
