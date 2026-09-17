@@ -111,8 +111,6 @@ export function validateContent(content: ContentBundle): ValidationResult {
               where,
               message: `parent "${parent.id}" (${parent.type}) must be above ${region.type}`,
             })
-          if (parent.world !== region.world)
-            errors.push({ where, message: `world differs from parent "${parent.id}"` })
         }
       }
     }

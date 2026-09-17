@@ -49,7 +49,7 @@ Vælg den mest typiske farve for en ung-til-moden udgave af stilen.
 ## Sådan tilføjer du en style
 
 1. Tjek, at druen findes i `grapes.ts` og regionen i `regions.ts`. Mangler regionen, tilføj den først med
-   korrekt `parentId`, `world`, `climate` og `center` (`[lng, lat]`).
+   korrekt `parentId`, `climate` og `center` (`[lng, lat]`).
 2. Tilføj et objekt i `styles.ts` med helper'en `s({...})`:
 
 ```ts

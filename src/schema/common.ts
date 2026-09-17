@@ -37,8 +37,5 @@ export const storySchema = z.array(z.string().min(1)).optional()
 export const grapeColorSchema = z.enum(['red', 'white'])
 export type GrapeColor = z.infer<typeof grapeColorSchema>
 
-export const worldSchema = z.enum(['old', 'new'])
-export type World = z.infer<typeof worldSchema>
-
 export const climateSchema = z.enum(['cool', 'moderate', 'warm'])
 export type Climate = z.infer<typeof climateSchema>

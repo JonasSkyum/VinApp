@@ -59,16 +59,17 @@ export function mapQuizPool(catalog: Catalog, options: MapQuizOptions): Region[]
 }
 
 /**
- * Regions where a grape is classically grown: homes of the styles that lead with it.
- * Old World regions when there are any, otherwise all of them.
+ * Regions where a grape is classically grown: homes of the styles that lead with it,
+ * narrowed to the grape's country of origin when any home lies there.
  */
 export function classicRegionsForGrape(catalog: Catalog, grapeId: string): Region[] {
+  const origin = catalog.grape(grapeId).origin
   const homes = catalog.styles
     .filter((s) => s.grapeIds[0] === grapeId)
     .map((s) => catalog.region(s.regionId))
   const unique = [...new Map(homes.map((r) => [r.id, r])).values()]
-  const oldWorld = unique.filter((r) => r.world === 'old')
-  return oldWorld.length > 0 ? oldWorld : unique
+  const atOrigin = unique.filter((r) => catalog.countryOf(r.id).id === origin)
+  return atOrigin.length > 0 ? atOrigin : unique
 }
 
 /**

@@ -1,12 +1,5 @@
 import { z } from 'zod'
-import {
-  climateSchema,
-  difficultySchema,
-  idSchema,
-  storySchema,
-  verifiableSchema,
-  worldSchema,
-} from './common'
+import { climateSchema, difficultySchema, idSchema, storySchema, verifiableSchema } from './common'
 
 export const regionTypeSchema = z.enum(['country', 'region', 'subregion', 'appellation'])
 export type RegionType = z.infer<typeof regionTypeSchema>
@@ -22,7 +15,6 @@ export const regionSchema = verifiableSchema.extend({
   type: regionTypeSchema,
   /** Parent in the hierarchy country > region > subregion > appellation. Null for countries. */
   parentId: idSchema.nullable(),
-  world: worldSchema,
   /** Null only for countries, which span several climates. */
   climate: climateSchema.nullable(),
   center: lngLatSchema,

@@ -35,11 +35,11 @@ describe('mapQuizPool', () => {
 })
 
 describe('classicRegionsForGrape', () => {
-  it('prefers Old World homes of styles led by the grape', () => {
+  it("prefers homes in the grape's country of origin", () => {
     expect(classicRegionsForGrape(catalog, 'nebbiolo').map((r) => r.id)).toEqual(['barolo'])
     const cab = classicRegionsForGrape(catalog, 'cabernet-sauvignon').map((r) => r.id)
     expect(cab).toEqual(['pauillac'])
-    // Malbec only leads a New World style, so that is what remains.
+    // Malbec leads no style in France, so its only home remains.
     expect(classicRegionsForGrape(catalog, 'malbec').map((r) => r.id)).toEqual(['mendoza'])
   })
 })

@@ -33,7 +33,7 @@ Mål: Typestærke, validerede vindata, som resten af appen bygger på.
 ### 1.1 Skemaer (`src/schema/`)
 - [x] `Level`-type: tal 1–5 og `Range = [min, max]` med refine `min <= max`
 - [x] `Grape`: `id, name, aliases[], color ('red'|'white'), origin (countryId), typicalProfile (profil-intervaller), keyDescriptors[], notes, verified, sources[]`
-- [x] `Region`: `id, name, type ('country'|'region'|'subregion'|'appellation'), parentId|null, world ('old'|'new'), climate ('cool'|'moderate'|'warm'), center [lng, lat], geoId?, difficulty (1–3), verified, sources[]`
+- [x] `Region`: `id, name, type ('country'|'region'|'subregion'|'appellation'), parentId|null, climate ('cool'|'moderate'|'warm'), center [lng, lat], geoId?, difficulty (1–3), verified, sources[]`
 - [x] `Style`: `id, name (fx "Sancerre"), color ('red'|'white'|'rosé'|'sparkling'|'sweet'|'fortified'), grapeIds[], regionId, profile, descriptorIds[], oak ('none'|'light'|'pronounced'), difficulty (1–3), verified, sources[], note?`
 - [x] `Profile`: `appearance (white: 'lemon-green'|'lemon'|'gold'|'amber'; red: 'purple'|'ruby'|'garnet'|'tawny'), intensity: Range, sweetness: Range, acidity: Range, tannin: Range (null for hvid), alcohol: Range, body: Range, finish: Range`
 - [x] `Descriptor`: `id, name (dansk), cluster ('citrus'|'green-fruit'|'stone-fruit'|'tropical'|'red-fruit'|'black-fruit'|'floral'|'herbal'|'spice'|'oak'|'earth'|'mineral'|'other'), primary|secondary|tertiary`
@@ -82,7 +82,7 @@ Mål: Al logik til blindsmagning uden UI.
 - [x] Trin (tiers) og point:
   | Trin | Spørgsmål | Point | Niveau |
   |---|---|---|---|
-  | ~~1~~ | ~~Gamle / Nye Verden~~ | — | fjernet igen (begrebet forvirrede mere, end det lærte; `world` bliver i data) |
+  | ~~1~~ | ~~Gamle / Nye Verden~~ | — | fjernet igen (begrebet forvirrede mere, end det lærte) |
   | 2 | Klima (kølig/moderat/varm) | 1 | alle |
   | 3 | Drue | 3 | alle |
   | 4 | Land | 2 | alle |
