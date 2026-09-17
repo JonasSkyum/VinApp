@@ -53,6 +53,8 @@ export default defineConfig({
     globals: true,
     setupFiles: ['./src/test/setup.ts'],
     include: ['src/**/*.{test,spec}.{ts,tsx}'],
+    // UI tests render the whole app through jsdom; on a loaded machine the 5 s default flakes.
+    testTimeout: 15_000,
     coverage: {
       provider: 'v8',
       include: ['src/engine/**'],

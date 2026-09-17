@@ -34,7 +34,7 @@ export function GrapePage({ catalog = defaultCatalog }: { catalog?: Catalog }) {
           </>
         }
         verified={grape.verified}
-        note={grape.notes}
+        note={grape.note}
         sources={grape.sources}
       />
 
