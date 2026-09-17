@@ -97,9 +97,8 @@ describe('sync', () => {
     act(() => backend.completeSignIn())
     await waitFor(() => expect(backend.pushes.length).toBeGreaterThanOrEqual(0))
 
-    // Play one beginner round: skip world/climate, answer grape and country.
+    // Play one beginner round: skip climate, answer grape and country.
     await u.click(screen.getByRole('button', { name: da.common.start }))
-    await u.click(await screen.findByRole('button', { name: da.common.skip }))
     await u.click(await screen.findByRole('button', { name: da.common.skip }))
     for (let i = 0; i < 2; i++) {
       const group = await screen.findByRole('radiogroup')

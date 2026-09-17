@@ -35,7 +35,6 @@ type Action =
 
 export const DEFAULT_MAP_OPTIONS: MapQuizOptions = {
   mode: 'find',
-  world: 'all',
   countryId: 'all',
   difficulty: 'beginner',
   count: 10,

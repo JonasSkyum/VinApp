@@ -17,12 +17,12 @@ describe('guessedStyle', () => {
   it('returns null when every identifying answer was right or skipped', () => {
     const allRight = scoreRound(
       sancerre,
-      { 1: 'new', 3: 'sauvignon-blanc', 4: 'france', 5: 'loire', 6: 'sancerre' },
+      { 2: 'cool', 3: 'sauvignon-blanc', 4: 'france', 5: 'loire', 6: 'sancerre' },
       'expert',
       catalog,
     )
     expect(guessedStyle(sancerre, allRight, catalog)).toBeNull()
-    const skipped = scoreRound(sancerre, { 1: 'new' }, 'beginner', catalog)
+    const skipped = scoreRound(sancerre, { 2: 'cool' }, 'beginner', catalog)
     expect(guessedStyle(sancerre, skipped, catalog)).toBeNull()
   })
 

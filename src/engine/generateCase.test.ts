@@ -87,12 +87,12 @@ describe('generateCase', () => {
 
 describe('tiers', () => {
   it('unlocks tiers by level and sums points', () => {
-    expect(tiersFor('beginner').map((t) => t.tier)).toEqual([1, 2, 3, 4])
-    expect(tiersFor('advanced').map((t) => t.tier)).toEqual([1, 2, 3, 4, 5])
-    expect(tiersFor('expert').map((t) => t.tier)).toEqual([1, 2, 3, 4, 5, 6])
-    expect(maxScore('beginner')).toBe(7)
-    expect(maxScore('advanced')).toBe(10)
-    expect(maxScore('expert')).toBe(15)
+    expect(tiersFor('beginner').map((t) => t.tier)).toEqual([2, 3, 4])
+    expect(tiersFor('advanced').map((t) => t.tier)).toEqual([2, 3, 4, 5])
+    expect(tiersFor('expert').map((t) => t.tier)).toEqual([2, 3, 4, 5, 6])
+    expect(maxScore('beginner')).toBe(6)
+    expect(maxScore('advanced')).toBe(9)
+    expect(maxScore('expert')).toBe(14)
   })
 
   it('rejects unknown tiers', () => {

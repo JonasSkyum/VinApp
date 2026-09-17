@@ -16,7 +16,7 @@ describe('roundRecords', () => {
   it('creates one record per unit with confusions and points', () => {
     const score = scoreRound(
       pauillac,
-      { 1: 'old', 2: 'moderate', 3: 'merlot', 4: 'france', 5: 'rioja', 6: 'saint-emilion' },
+      { 2: 'moderate', 3: 'merlot', 4: 'france', 5: 'rioja', 6: 'saint-emilion' },
       'expert',
       catalog,
     )
@@ -25,7 +25,7 @@ describe('roundRecords', () => {
       ['grape', 'cabernet-sauvignon', false, 'merlot', 1],
       ['region', 'france', true, null, 2],
       ['region', 'bordeaux', false, 'rioja', 0],
-      ['style', 'pauillac', false, 'saint-emilion', 2 + 2], // partial + world/climate points
+      ['style', 'pauillac', false, 'saint-emilion', 2 + 1], // partial + climate points
     ])
     expect(records.reduce((s, r) => s + r.points, 0)).toBe(score.total)
     expect(records.every((r) => r.timestamp === NOW)).toBe(true)
@@ -34,7 +34,7 @@ describe('roundRecords', () => {
   it('synthesises the style record on beginner from the played tiers', () => {
     const allRight = scoreRound(
       pauillac,
-      { 1: 'old', 2: 'moderate', 3: 'cabernet-sauvignon', 4: 'france' },
+      { 2: 'moderate', 3: 'cabernet-sauvignon', 4: 'france' },
       'beginner',
       catalog,
     )
@@ -44,10 +44,10 @@ describe('roundRecords', () => {
       kind: 'style',
       itemId: 'pauillac',
       correct: true,
-      points: 2,
+      points: 1,
     })
 
-    const skipped = scoreRound(pauillac, { 1: 'old' }, 'beginner', catalog)
+    const skipped = scoreRound(pauillac, { 2: 'moderate' }, 'beginner', catalog)
     const rs = roundRecords(pauillac, skipped, catalog, NOW)
     expect(rs.find((r) => r.kind === 'grape')).toMatchObject({ correct: false, guessedId: null })
     expect(rs.find((r) => r.kind === 'style')).toMatchObject({ correct: false, points: 1 })

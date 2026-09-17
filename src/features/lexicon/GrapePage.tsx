@@ -31,7 +31,6 @@ export function GrapePage({ catalog = defaultCatalog }: { catalog?: Catalog }) {
         chips={
           <>
             <Chip dot={STYLE_COLOR_HEX[grape.color]}>{da.lexicon.grapeColor[grape.color]}</Chip>
-            <Chip>{da.world[origin.world]}</Chip>
           </>
         }
         verified={grape.verified}

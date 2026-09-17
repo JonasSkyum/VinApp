@@ -43,13 +43,10 @@ describe('buildQuestion', () => {
     }
   })
 
-  it('always offers the full world and climate choice', () => {
+  it('always offers the full climate choice', () => {
     const tastingCase = generateCase(catalog.style('chablis'), 'expert', createRng('c'))
-    const world = buildQuestion(tastingCase, 1, 'expert', catalog, createRng('w'))
-    expect(world.kind).toBe('choice')
-    expect([...world.options].sort()).toEqual(['new', 'old'])
-    expect(world.correctId).toBe('old')
-    const climate = buildQuestion(tastingCase, 2, 'beginner', catalog, createRng('w'))
+    const climate = buildQuestion(tastingCase, 2, 'expert', catalog, createRng('w'))
+    expect(climate.kind).toBe('choice')
     expect([...climate.options].sort()).toEqual(['cool', 'moderate', 'warm'])
     expect(climate.correctId).toBe('cool')
   })

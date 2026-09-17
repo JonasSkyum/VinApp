@@ -28,10 +28,9 @@ function renderAt(storage: StorageLike) {
 
 const user = () => userEvent.setup()
 
-/** Plays the daily round: world/climate skipped, grape/country/region answered with the first option. */
+/** Plays the daily round: climate skipped, grape/country/region answered with the first option. */
 async function playDaily(u: ReturnType<typeof user>) {
   await u.click(screen.getByRole('button', { name: da.daily.start }))
-  await u.click(await screen.findByRole('button', { name: da.common.skip }))
   await u.click(await screen.findByRole('button', { name: da.common.skip }))
   for (let i = 0; i < 3; i++) {
     const group = await screen.findByRole('radiogroup')
@@ -66,8 +65,8 @@ describe('daily challenge', () => {
     const stored = JSON.parse(storage.getItem(PROGRESS_KEY)!)
     const result = stored.data.daily['2026-09-16']
     expect(result.styleId).toBe(pickDailyStyle(catalog, '2026-09-16').id)
-    expect(result.tiers).toHaveLength(5)
-    expect(result.max).toBe(10)
+    expect(result.tiers).toHaveLength(4)
+    expect(result.max).toBe(9)
     expect(stored.data.log.length).toBeGreaterThan(0) // XP and Leitner get the round too
     first.unmount()
 
@@ -91,7 +90,7 @@ describe('daily challenge', () => {
     await u.click(await screen.findByRole('button', { name: da.daily.share }))
     expect(await screen.findByRole('status')).toHaveTextContent(da.daily.copied)
     const text = await navigator.clipboard.readText()
-    expect(text).toMatch(/^Vinspil #1 🍷 [🟩🟨⬛⬜]{5} \d+\/10\n.*#\/daily$/u)
+    expect(text).toMatch(/^Vinspil #1 🍷 [🟩🟨⬛⬜]{4} \d+\/9\n.*#\/daily$/u)
   })
 
   it('uses the Web Share API when the browser has it', async () => {

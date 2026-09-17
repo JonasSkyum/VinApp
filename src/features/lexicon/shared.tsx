@@ -16,7 +16,7 @@ interface EntryHeaderProps {
   subtitle?: ReactNode
   /** Breadcrumb or category line above the title. */
   crumbs?: ReactNode
-  /** Chips: colour, world, climate … */
+  /** Chips: colour, climate … */
   chips?: ReactNode
   verified: boolean
   note?: string | undefined

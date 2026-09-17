@@ -106,7 +106,6 @@ export function createCatalog(content: ContentBundle): Catalog {
     const style = lookup(stylesById, 'style', styleId)
     const home = region(style.regionId)
     const key: AnswerKey = {
-      world: home.world,
       climate: home.climate ?? regionLevelOf(home.id).climate ?? 'moderate',
       grapeId: style.grapeIds[0]!,
       countryId: countryOf(home.id).id,

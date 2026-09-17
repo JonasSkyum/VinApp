@@ -4,7 +4,7 @@
 Vinspil er en webapp (PWA), der lærer vin gennem spil. Den skal kunne tage en nybegynder hele vejen til at være skarp. Det er et hobbyprojekt uden krav om indtjening.
 
 Spiltilstande:
-1. **Blindsmagning (deduktion):** Appen viser en smagsprofil (farve, aroma, sødme, syre, tannin, alkohol, krop, eg, finish). Brugeren gætter sig trinvis frem: Gamle/Nye Verden → klima → drue → land → region → appellation. Der gives point pr. trin og forklaring bagefter.
+1. **Blindsmagning (deduktion):** Appen viser en smagsprofil (farve, aroma, sødme, syre, tannin, alkohol, krop, eg, finish). Brugeren gætter sig trinvis frem: klima → drue → land → region → appellation. (Trinnet Gamle/Nye Verden er fjernet fra spillet; feltet `world` findes stadig i regionsdata.) Der gives point pr. trin og forklaring bagefter.
 2. **Kortquiz (Seterra-stil):** "Klik på Barolo" eller "Hvilken region er markeret?". Kortet har INGEN labels.
 3. **Daglig udfordring:** Én blindsmagning pr. dag, som er ens for alle, og som kan deles som en emoji-streng.
 4. **Leksikon:** Sider for druer og regioner, som feedback fra spillene linker til.

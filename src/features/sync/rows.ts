@@ -72,7 +72,10 @@ export function fromDailyRow(row: Tables<'daily_results'>): DailyResult {
     styleId: row.style_id,
     total: row.total,
     max: row.max,
-    tiers: row.tiers as DailyResult['tiers'],
+    // Rows saved before the world tier was removed still carry `tier: 1`.
+    tiers: (row.tiers as { tier: number; outcome: string }[]).filter(
+      (t) => t.tier !== 1,
+    ) as DailyResult['tiers'],
     playedAt: ms(row.played_at),
   }
 }

@@ -10,7 +10,6 @@ export type MapMode = 'find' | 'name' | 'grape'
 
 export interface MapQuizOptions {
   mode: MapMode
-  world: 'old' | 'new' | 'all'
   /** Region id of a country, or 'all'. */
   countryId: string | 'all'
   difficulty: Difficulty
@@ -46,12 +45,11 @@ export interface MapResult {
 /** A click scoring above this share of the maximum counts as correct. */
 export const CORRECT_SHARE = 0.5
 
-/** Regions that can be asked about under the given filters. Countries only appear in the world-wide view. */
+/** Regions that can be asked about under the given filters. Countries only appear when no country is chosen. */
 export function mapQuizPool(catalog: Catalog, options: MapQuizOptions): Region[] {
   const level = DIFFICULTY_LEVEL[options.difficulty]
   return catalog.regions.filter((r) => {
     if (r.difficulty > level) return false
-    if (options.world !== 'all' && r.world !== options.world) return false
     if (options.countryId !== 'all') {
       if (r.type === 'country') return false
       return catalog.countryOf(r.id).id === options.countryId

@@ -7,7 +7,7 @@ import type { RoundScore, TastingCase } from './types'
 /**
  * Turns a scored tasting round into answer records, one per learning unit:
  * grape (tier 3), country and region (tiers 4–5) and the style itself.
- * World/climate points are folded into the style record so XP equals the round score.
+ * Climate points are folded into the style record so XP equals the round score.
  */
 export function roundRecords(
   tastingCase: TastingCase,
@@ -28,7 +28,7 @@ export function roundRecords(
 
   const style = tier(6)
   const played = score.tiers.filter((t) => t.tier >= 3 && t.answer !== null)
-  const basePoints = (tier(1)?.points ?? 0) + (tier(2)?.points ?? 0)
+  const basePoints = tier(2)?.points ?? 0
   if (style) {
     const r = record('style', key.styleId, 6, style, now)
     records.push({ ...r, points: r.points + basePoints })

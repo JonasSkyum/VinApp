@@ -122,7 +122,7 @@ describe('navigation from a game result', () => {
     const u = user()
     renderAt('/tasting')
     await u.click(screen.getByRole('button', { name: da.common.start }))
-    for (let i = 0; i < 4; i++) {
+    for (let i = 0; i < 3; i++) {
       await u.click(await screen.findByRole('button', { name: da.common.skip }))
     }
     const links = await screen.findAllByRole('link', { name: /Læs om/ })

@@ -26,7 +26,7 @@ describe('session reducer', () => {
     expect(a.styleIds).toHaveLength(2)
     expect(a.styleIds).toEqual(b.styleIds)
     expect(a.round).toEqual(b.round)
-    expect(a.round!.questions).toHaveLength(4)
+    expect(a.round!.questions).toHaveLength(3)
     for (const id of a.styleIds) expect(catalog.style(id).color).toBe('red')
   })
 
@@ -38,9 +38,9 @@ describe('session reducer', () => {
     s = reducer(s, { type: 'lock' })
     expect(s.tierIndex).toBe(1)
     expect(s.pending).toBeNull()
-    expect(s.answers).toEqual({ 1: q1.correctId })
+    expect(s.answers).toEqual({ 2: q1.correctId })
 
-    s = playRound(s, (tier) => (tier === 3 ? null : s.round!.questions[tier - 1]!.correctId))
+    s = playRound(s, (tier) => (tier === 3 ? null : s.round!.questions[tier - 2]!.correctId))
     expect(s.phase).toBe('result')
     expect(s.scores).toHaveLength(1)
     const score = s.scores[0]!
@@ -97,7 +97,7 @@ describe('createRound', () => {
     const b = createRound(catalog, 'barolo', 'seed', 0, { ...options, difficulty: 'expert' })
     const c = createRound(catalog, 'barolo', 'seed', 1, { ...options, difficulty: 'expert' })
     expect(a).toEqual(b)
-    expect(a.questions.map((q) => q.tier)).toEqual([1, 2, 3, 4, 5, 6])
+    expect(a.questions.map((q) => q.tier)).toEqual([2, 3, 4, 5, 6])
     expect(a.tastingCase).not.toEqual(c.tastingCase)
   })
 })

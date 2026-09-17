@@ -29,7 +29,7 @@ export const da = {
     dailyLabel: 'DAGENS UDFORDRING · #{number}',
     dailyNotPlayed: 'Ikke spillet',
     dailyPlayed: 'Spillet',
-    dailyTitle: 'Én vin. Fem gæt.',
+    dailyTitle: 'Én vin. Fire gæt.',
     dailySubtitle: 'Samme vin for alle i dag · niveau Øvet',
     dailyNextIn: 'Ny vin om',
     dailyPlay: 'Spil nu',
@@ -96,10 +96,6 @@ export const da = {
   },
   rounds: {
     labelName: 'Antal runder',
-  },
-  world: {
-    old: 'Gamle Verden',
-    new: 'Nye Verden',
   },
   climate: {
     cool: 'Køligt',
@@ -186,14 +182,12 @@ export const da = {
       'Vælg niveau, vintype og antal runder. Du får et smagekort og gætter dig frem trin for trin.',
   },
   tier: {
-    1: 'Gamle eller Nye Verden?',
     2: 'Hvilket klima?',
     3: 'Hvilken drue?',
     4: 'Hvilket land?',
     5: 'Hvilken region?',
     6: 'Hvilken appellation eller stil?',
     short: {
-      1: 'Verden',
       2: 'Klima',
       3: 'Drue',
       4: 'Land',
@@ -234,7 +228,8 @@ export const da = {
     yourGuessNamed: 'Dit gæt: {name}',
     headlineAll: 'Alt sad!',
     headlineGrape: 'Druen sad!',
-    headlineWorld: 'Verden sad!',
+    headlinePlace: 'Stedet sad!',
+    headlineClimate: 'Klimaet sad!',
     headlineNone: 'Ikke denne gang',
     subAll: 'Perfekt deduktion',
     subPlace: 'Men stedet snød dig',
@@ -262,11 +257,8 @@ export const da = {
       nameHelp: 'En region blinker. Vælg dens navn.',
       grapeHelp: 'Klik der, hvor druen klassisk kommer fra.',
     },
-    world: {
-      labelName: 'Verden',
+    scope: {
       all: 'Hele verden',
-      old: 'Gamle Verden',
-      new: 'Nye Verden',
     },
     country: {
       labelName: 'Land',
@@ -347,7 +339,6 @@ export const da = {
     grapesInRegion: 'Druer',
     stylesInRegion: 'Stilarter',
     climate: 'Klima',
-    world: 'Verden',
     grapes_: 'Druer',
     oak: 'Eg',
     difficulty: 'Sværhedsgrad',

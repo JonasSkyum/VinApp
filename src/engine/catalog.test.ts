@@ -65,7 +65,6 @@ describe('createCatalog', () => {
   it('builds and caches the answer key', () => {
     const key = catalog.answerKey('sancerre')
     expect(key).toEqual({
-      world: 'old',
       climate: 'cool',
       grapeId: 'sauvignon-blanc',
       countryId: 'france',
@@ -74,7 +73,6 @@ describe('createCatalog', () => {
     })
     expect(catalog.answerKey('sancerre')).toBe(key)
     expect(catalog.answerKey('barossa-shiraz')).toMatchObject({
-      world: 'new',
       climate: 'warm',
       grapeId: 'syrah',
       countryId: 'australia',

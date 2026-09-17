@@ -82,7 +82,7 @@ Mål: Al logik til blindsmagning uden UI.
 - [x] Trin (tiers) og point:
   | Trin | Spørgsmål | Point | Niveau |
   |---|---|---|---|
-  | 1 | Gamle / Nye Verden | 1 | alle |
+  | ~~1~~ | ~~Gamle / Nye Verden~~ | — | fjernet igen (begrebet forvirrede mere, end det lærte; `world` bliver i data) |
   | 2 | Klima (kølig/moderat/varm) | 1 | alle |
   | 3 | Drue | 3 | alle |
   | 4 | Land | 2 | alle |
@@ -127,7 +127,7 @@ Mål: Al logik til blindsmagning uden UI.
 
 ## Fase 5 — Leksikon (`features/lexicon/`)
 - [x] `/lexicon/grapes/:id`: navn, aliaser, farve, typisk profil (samme bjælker som i spillet), nøglearomaer og liste over styles → links
-- [x] `/lexicon/regions/:id`: breadcrumb (land > region > appellation), klima, Gamle/Nye Verden, mini-kort, druer og styles
+- [x] `/lexicon/regions/:id`: breadcrumb (land > region > appellation), klima, mini-kort, druer og styles
 - [x] `/lexicon/styles/:id`: fuld profil + "Forveksles ofte med" (de nærmeste naboer fra `rankCandidates`) med sammenligning side om side
 - [x] Søgning på tværs af druer, regioner og styles
 - [x] Badge for uverificeret indhold (`verified: false`), så man ved, hvad der endnu ikke er tjekket

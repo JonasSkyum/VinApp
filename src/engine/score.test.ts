@@ -12,7 +12,6 @@ describe('scoreRound', () => {
     const score = scoreRound(
       pauillac,
       {
-        1: 'old',
         2: 'moderate',
         3: 'cabernet-sauvignon',
         4: 'france',
@@ -22,27 +21,27 @@ describe('scoreRound', () => {
       'expert',
       catalog,
     )
-    expect(score.total).toBe(15)
-    expect(score.max).toBe(15)
+    expect(score.total).toBe(14)
+    expect(score.max).toBe(14)
     expect(score.tiers.every((t) => t.outcome === 'correct')).toBe(true)
   })
 
   it('only scores the tiers available at the level', () => {
-    const score = scoreRound(pauillac, { 1: 'old', 2: 'moderate' }, 'beginner', catalog)
-    expect(score.tiers.map((t) => t.tier)).toEqual([1, 2, 3, 4])
-    expect(score.max).toBe(7)
-    expect(score.total).toBe(2)
-    expect(score.tiers[2]).toMatchObject({ tier: 3, answer: null, outcome: 'skipped', points: 0 })
+    const score = scoreRound(pauillac, { 2: 'moderate' }, 'beginner', catalog)
+    expect(score.tiers.map((t) => t.tier)).toEqual([2, 3, 4])
+    expect(score.max).toBe(6)
+    expect(score.total).toBe(1)
+    expect(score.tiers[1]).toMatchObject({ tier: 3, answer: null, outcome: 'skipped', points: 0 })
   })
 
   it('marks wrong answers with zero points', () => {
     const score = scoreRound(
       pauillac,
-      { 1: 'new', 3: 'pinot-noir', 4: 'italy' },
+      { 2: 'cool', 3: 'pinot-noir', 4: 'italy' },
       'beginner',
       catalog,
     )
-    expect(score.tiers.find((t) => t.tier === 1)).toMatchObject({ outcome: 'wrong', points: 0 })
+    expect(score.tiers.find((t) => t.tier === 2)).toMatchObject({ outcome: 'wrong', points: 0 })
     expect(score.tiers.find((t) => t.tier === 3)).toMatchObject({ outcome: 'wrong', points: 0 })
     expect(score.tiers.find((t) => t.tier === 4)).toMatchObject({ outcome: 'wrong', points: 0 })
   })

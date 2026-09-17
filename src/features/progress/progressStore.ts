@@ -5,14 +5,10 @@ import { createStore, type StorageLike, type Store } from '@/lib/storage'
 export const PROGRESS_KEY = 'vinspil:progress'
 export const PROGRESS_VERSION = 2
 
-const tierSchema = z.union([
-  z.literal(1),
-  z.literal(2),
-  z.literal(3),
-  z.literal(4),
-  z.literal(5),
-  z.literal(6),
-])
+const tierSchema = z.union([z.literal(2), z.literal(3), z.literal(4), z.literal(5), z.literal(6)])
+
+/** Daily results saved before the world tier was removed still carry `tier: 1`; it is dropped. */
+const storedDailyTierSchema = z.union([z.literal(1), tierSchema])
 
 const answerRecordSchema = z.object({
   kind: z.enum(['grape', 'region', 'style', 'map-location']),
@@ -37,7 +33,9 @@ const dailyResultSchema = z.object({
   styleId: z.string(),
   total: z.number(),
   max: z.number(),
-  tiers: z.array(z.object({ tier: tierSchema, outcome: outcomeSchema })),
+  tiers: z
+    .array(z.object({ tier: storedDailyTierSchema, outcome: outcomeSchema }))
+    .transform((tiers) => tiers.filter((t) => t.tier !== 1)),
   playedAt: z.number(),
 })
 

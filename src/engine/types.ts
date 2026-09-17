@@ -11,7 +11,7 @@ export const DIFFICULTY_LEVEL: Record<Difficulty, 1 | 2 | 3> = {
 }
 
 /** Guessing steps, in order. See TIERS for points and availability. */
-export type Tier = 1 | 2 | 3 | 4 | 5 | 6
+export type Tier = 2 | 3 | 4 | 5 | 6
 
 /** One concrete wine as shown to the player: a point inside the style's ranges. */
 export interface CaseProfile {
@@ -41,7 +41,6 @@ export interface TastingCase {
 
 /** The correct answer for every tier of a given style. */
 export interface AnswerKey {
-  world: string
   climate: string
   grapeId: string
   countryId: string
@@ -55,7 +54,7 @@ export interface Question {
   tier: Tier
   /** Multiple choice, or free text with `options` as the autocomplete universe. */
   kind: 'choice' | 'text'
-  /** Answer ids. For world/climate these are enum values; otherwise content ids. */
+  /** Answer ids. For climate these are enum values; otherwise content ids. */
   options: string[]
   correctId: string
   points: number

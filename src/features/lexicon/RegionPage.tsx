@@ -47,7 +47,6 @@ export function RegionPage({ catalog = defaultCatalog }: { catalog?: Catalog }) 
         subtitle={da.lexicon.regionType[region.type]}
         chips={
           <>
-            <Chip>{da.world[region.world]}</Chip>
             {region.climate && (
               <Chip>
                 <Icon

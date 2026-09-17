@@ -51,21 +51,19 @@ describe('TastingPage', () => {
     // Tasting card and first question.
     expect(screen.getByText(da.tastingCard.title)).toBeInTheDocument()
     expect(screen.getByText(`${da.common.round} 1 ${da.common.of} 5`)).toBeInTheDocument()
-    expect(screen.getByRole('heading', { name: da.tier[1] })).toBeInTheDocument()
+    expect(screen.getByRole('heading', { name: da.tier[2] })).toBeInTheDocument()
     expect(screen.getByRole('button', { name: da.common.lockAnswer })).toBeDisabled()
 
     // Select, lock, move on; the answer is now locked (no way back).
-    await u.click(screen.getByRole('radio', { name: da.world.old }))
+    await u.click(screen.getByRole('radio', { name: da.climate.cool }))
     expect(screen.getByRole('button', { name: da.common.lockAnswer })).toBeEnabled()
     await u.click(screen.getByRole('button', { name: da.common.lockAnswer }))
-    expect(await screen.findByRole('heading', { name: da.tier[2] })).toBeInTheDocument()
-    expect(screen.queryByRole('radio', { name: da.world.old })).not.toBeInTheDocument()
-
-    // Skip climate, answer grape and country.
-    await u.click(screen.getByRole('button', { name: da.common.skip }))
     expect(await screen.findByRole('heading', { name: da.tier[3] })).toBeInTheDocument()
+    expect(screen.queryByRole('radio', { name: da.climate.cool })).not.toBeInTheDocument()
+
+    // Skip grape, answer country.
     expect(screen.getAllByRole('radio')).toHaveLength(4)
-    await answerFirstOption(u)
+    await u.click(screen.getByRole('button', { name: da.common.skip }))
     expect(await screen.findByRole('heading', { name: da.tier[4] })).toBeInTheDocument()
     await answerFirstOption(u)
 
@@ -73,7 +71,7 @@ describe('TastingPage', () => {
     expect(await screen.findByText(da.result.reveal)).toBeInTheDocument()
     expect(screen.getByText(da.result.roundScore)).toBeInTheDocument()
     const table = screen.getByRole('table')
-    expect(within(table).getAllByRole('row')).toHaveLength(5) // header + 4 tiers
+    expect(within(table).getAllByRole('row')).toHaveLength(4) // header + 3 tiers
     expect(within(table).getByText(da.outcome.skipped)).toBeInTheDocument()
     expect(screen.getByText(da.result.whyTitle)).toBeInTheDocument()
     expect(screen.getAllByRole('link', { name: /Læs om/ })).toHaveLength(2)
@@ -87,7 +85,7 @@ describe('TastingPage', () => {
     await startSession(u, da.level.beginner, da.colorFilter.white)
 
     for (let round = 1; round <= 5; round++) {
-      for (let tier = 0; tier < 4; tier++) {
+      for (let tier = 0; tier < 3; tier++) {
         await u.click(await screen.findByRole('button', { name: da.common.skip }))
       }
       const label = round === 5 ? da.summary.title : da.tasting.nextWine
@@ -97,7 +95,7 @@ describe('TastingPage', () => {
     expect(await screen.findByRole('heading', { name: da.summary.title })).toBeInTheDocument()
     expect(screen.getByText(da.summary.total)).toBeInTheDocument()
     expect(screen.getByText(da.summary.bestTier)).toBeInTheDocument()
-    expect(screen.getAllByText(/Runde \d: 0\/7/)).toHaveLength(5)
+    expect(screen.getAllByText(/Runde \d: 0\/6/)).toHaveLength(5)
 
     await u.click(screen.getByRole('button', { name: da.common.newSession }))
     expect(screen.getByRole('button', { name: da.common.start })).toBeInTheDocument()
@@ -123,8 +121,7 @@ describe('TastingPage', () => {
     renderPage(storage)
     await startSession(u, da.level.expert, da.colorFilter.red)
 
-    await u.click(screen.getByRole('button', { name: da.common.skip })) // world
-    await u.click(await screen.findByRole('button', { name: da.common.skip })) // climate
+    await u.click(screen.getByRole('button', { name: da.common.skip })) // climate
     expect(await screen.findByRole('heading', { name: da.tier[3] })).toBeInTheDocument()
 
     const input = screen.getByRole('combobox')

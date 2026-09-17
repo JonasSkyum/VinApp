@@ -383,17 +383,9 @@ function Prompt({ question, catalog }: { question: MapQuestion; catalog: Catalog
   }
 }
 
-function scopeLabel(
-  options: { mode: string; countryId: string; world: string },
-  catalog: Catalog,
-): string {
+function scopeLabel(options: { mode: string; countryId: string }, catalog: Catalog): string {
   const t = da.mapQuiz
-  const place =
-    options.countryId !== 'all'
-      ? catalog.region(options.countryId).name
-      : options.world === 'all'
-        ? t.world.all
-        : t.world[options.world as 'old' | 'new']
+  const place = options.countryId !== 'all' ? catalog.region(options.countryId).name : t.scope.all
   if (options.mode === 'name') return interpolate(t.nameIn, { name: place })
   if (options.mode === 'grape') return t.grapeIn
   return interpolate(t.findIn, { name: place })

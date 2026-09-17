@@ -51,8 +51,8 @@ function headline(score: RoundScore): { title: string; sub: string } {
   if (grape === 'correct' && place.some((o) => o !== 'correct'))
     return { title: da.result.headlineGrape, sub: da.result.subPlace }
   if (grape && grape !== 'correct' && place.length > 0 && place.every((o) => o === 'correct'))
-    return { title: da.result.headlineWorld, sub: da.result.subGrape }
-  if (outcome(1) === 'correct') return { title: da.result.headlineWorld, sub: da.result.subNone }
+    return { title: da.result.headlinePlace, sub: da.result.subGrape }
+  if (outcome(2) === 'correct') return { title: da.result.headlineClimate, sub: da.result.subNone }
   return { title: da.result.headlineNone, sub: da.result.subNone }
 }
 

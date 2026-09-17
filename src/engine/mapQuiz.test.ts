@@ -15,20 +15,17 @@ import { createRng } from './rng'
 const catalog = createCatalog(content)
 const base: MapQuizOptions = {
   mode: 'find',
-  world: 'all',
   countryId: 'all',
   difficulty: 'expert',
   count: 10,
 }
 
 describe('mapQuizPool', () => {
-  it('filters by level, world and country', () => {
+  it('filters by level and country', () => {
     const all = mapQuizPool(catalog, base)
     expect(all.some((r) => r.type === 'country')).toBe(true)
     const beginner = mapQuizPool(catalog, { ...base, difficulty: 'beginner' })
     expect(beginner.every((r) => r.difficulty === 1)).toBe(true)
-    const oldWorld = mapQuizPool(catalog, { ...base, world: 'old' })
-    expect(oldWorld.every((r) => r.world === 'old')).toBe(true)
     const france = mapQuizPool(catalog, { ...base, countryId: 'france' })
     expect(france.length).toBeGreaterThan(5)
     expect(
@@ -100,13 +97,14 @@ describe('buildMapQuiz', () => {
   })
 
   it('builds grape questions whose regions respect the filters', () => {
-    const qs = buildMapQuiz(catalog, { ...base, mode: 'grape', world: 'old' }, createRng('g'))
+    const qs = buildMapQuiz(catalog, { ...base, mode: 'grape' }, createRng('g'))
     expect(qs).toHaveLength(10)
     for (const q of qs) {
       expect(q.kind).toBe('grape')
       if (q.kind !== 'grape') continue
       expect(q.regionIds.length).toBeGreaterThan(0)
-      for (const id of q.regionIds) expect(catalog.region(id).world).toBe('old')
+      for (const id of q.regionIds)
+        expect(catalog.stylesIn(id).some((s) => s.grapeIds[0] === q.grapeId)).toBe(true)
     }
   })
 

@@ -24,10 +24,9 @@ function renderAt(path: string, storage: StorageLike) {
 
 const user = () => userEvent.setup()
 
-/** Plays one beginner round: world/climate skipped, grape and country answered with the first option. */
+/** Plays one beginner round: climate skipped, grape and country answered with the first option. */
 async function playOneRound(u: ReturnType<typeof user>) {
   await u.click(screen.getByRole('button', { name: da.common.start }))
-  await u.click(await screen.findByRole('button', { name: da.common.skip }))
   await u.click(await screen.findByRole('button', { name: da.common.skip }))
   for (let i = 0; i < 2; i++) {
     const group = await screen.findByRole('radiogroup')
@@ -99,7 +98,7 @@ describe('progress', () => {
     // Weak-point training starts a session straight away.
     await u.click(screen.getAllByRole('link', { name: da.nav.tasting })[0]!)
     await u.click(screen.getByRole('button', { name: da.training.weakButton }))
-    expect(await screen.findByRole('heading', { name: da.tier[1] })).toBeInTheDocument()
+    expect(await screen.findByRole('heading', { name: da.tier[2] })).toBeInTheDocument()
   })
 
   it('imports an exported file and can reset with confirmation', async () => {

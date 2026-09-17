@@ -5,7 +5,6 @@ import { createMapReducer, initialMapState } from './useMapQuiz'
 const reducer = createMapReducer(catalog)
 const options: MapQuizOptions = {
   mode: 'find',
-  world: 'old',
   countryId: 'france',
   difficulty: 'advanced',
   count: 3,

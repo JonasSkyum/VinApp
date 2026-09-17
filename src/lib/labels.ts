@@ -6,8 +6,6 @@ import type { Appearance, Level, Range, StructureKey } from '@/schema'
 /** Danish label for an answer id of the given tier field. */
 export function answerLabel(field: AnswerField, id: string, catalog: Catalog): string {
   switch (field) {
-    case 'world':
-      return da.world[id as keyof typeof da.world] ?? id
     case 'climate':
       return da.climate[id as keyof typeof da.climate] ?? id
     case 'grapeId':

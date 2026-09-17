@@ -1,4 +1,4 @@
-import { climateSchema, worldSchema, type Style } from '@/schema'
+import { climateSchema, type Style } from '@/schema'
 import type { Catalog } from './catalog'
 import { rankCandidates } from './distance'
 import { shuffle, type Rng } from './rng'
@@ -15,7 +15,7 @@ export const OPTION_COUNT: Record<Difficulty, number> = {
 /**
  * Builds the question for one tier. Distractors are the answers of the nearest
  * neighbouring styles of the same colour, so wrong options are plausible.
- * World and climate are always a full multiple choice (2 and 3 options).
+ * Climate is always a full multiple choice (3 options).
  */
 export function buildQuestion(
   tastingCase: TastingCase,
@@ -29,7 +29,7 @@ export function buildQuestion(
   const correctId = catalog.answerKey(correctStyle.id)[spec.field]
   const universe = answerUniverse(spec.field, correctStyle, catalog)
 
-  const isFixedChoice = spec.field === 'world' || spec.field === 'climate'
+  const isFixedChoice = spec.field === 'climate'
   if (isFixedChoice || difficulty === 'expert') {
     return {
       tier,
@@ -69,8 +69,6 @@ export function buildQuestion(
 /** Every answer id that could be correct for this field, given the style's colour. */
 export function answerUniverse(field: AnswerField, style: Style, catalog: Catalog): string[] {
   switch (field) {
-    case 'world':
-      return [...worldSchema.options]
     case 'climate':
       return [...climateSchema.options]
     case 'grapeId': {

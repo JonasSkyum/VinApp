@@ -11,7 +11,6 @@ export interface TierSpec {
 }
 
 export const TIERS: readonly TierSpec[] = [
-  { tier: 1, field: 'world', points: 1, minLevel: 'beginner' },
   { tier: 2, field: 'climate', points: 1, minLevel: 'beginner' },
   { tier: 3, field: 'grapeId', points: 3, minLevel: 'beginner' },
   { tier: 4, field: 'countryId', points: 2, minLevel: 'beginner' },

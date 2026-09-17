@@ -13,14 +13,13 @@ interface MapSetupScreenProps {
 }
 
 const MODES: MapMode[] = ['find', 'name', 'grape']
-const WORLDS: MapQuizOptions['world'][] = ['all', 'old', 'new']
 const LEVELS: Difficulty[] = ['beginner', 'advanced', 'expert']
 const COUNTS = [5, 10, 20] as const
 
 export function MapSetupScreen({ initial, catalog, onStart }: MapSetupScreenProps) {
   const [options, setOptions] = useState<MapQuizOptions>(initial)
   const countries = catalog.regions
-    .filter((r) => r.type === 'country' && (options.world === 'all' || r.world === options.world))
+    .filter((r) => r.type === 'country')
     .sort((a, b) => a.name.localeCompare(b.name, 'da'))
 
   return (
@@ -41,13 +40,6 @@ export function MapSetupScreen({ initial, catalog, onStart }: MapSetupScreenProp
           />
           <p className="text-ink-2 text-[13px]">{da.mapQuiz.mode[`${options.mode}Help`]}</p>
         </div>
-
-        <ChoiceGroup
-          name={da.mapQuiz.world.labelName}
-          items={WORLDS.map((w) => ({ id: w, label: da.mapQuiz.world[w] }))}
-          value={options.world}
-          onChange={(world) => setOptions({ ...options, world, countryId: 'all' })}
-        />
 
         <label className="block">
           <span className="text-ink-2 mb-2 block text-xs font-extrabold tracking-[0.08em] uppercase">

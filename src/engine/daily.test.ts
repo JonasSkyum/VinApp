@@ -113,10 +113,9 @@ describe('msUntilNextDaily', () => {
 
 describe('shareString', () => {
   const score: RoundScore = {
-    total: 9,
-    max: 10,
+    total: 8,
+    max: 9,
     tiers: [
-      { tier: 1, answer: 'old', correctId: 'old', points: 1, maxPoints: 1, outcome: 'correct' },
       { tier: 2, answer: 'cool', correctId: 'cool', points: 1, maxPoints: 1, outcome: 'correct' },
       { tier: 3, answer: 'x', correctId: 'y', points: 1, maxPoints: 3, outcome: 'partial' },
       { tier: 4, answer: 'x', correctId: 'y', points: 0, maxPoints: 2, outcome: 'wrong' },
@@ -126,10 +125,10 @@ describe('shareString', () => {
 
   it('builds a Wordle-style line with one emoji per tier', () => {
     const result = toDailyResult(keyPlusDays(DAILY_EPOCH, 41), 'sancerre', score, 1)
-    expect(outcomeRow(result.tiers)).toBe('🟩🟩🟨⬛⬜')
-    expect(shareString(result)).toBe('Vinspil #42 🍷 🟩🟩🟨⬛⬜ 9/10')
+    expect(outcomeRow(result.tiers)).toBe('🟩🟨⬛⬜')
+    expect(shareString(result)).toBe('Vinspil #42 🍷 🟩🟨⬛⬜ 8/9')
     expect(shareString(result, 'https://example.test/#/daily')).toBe(
-      'Vinspil #42 🍷 🟩🟩🟨⬛⬜ 9/10\nhttps://example.test/#/daily',
+      'Vinspil #42 🍷 🟩🟨⬛⬜ 8/9\nhttps://example.test/#/daily',
     )
   })
 })

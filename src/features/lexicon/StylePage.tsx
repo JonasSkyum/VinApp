@@ -58,7 +58,6 @@ export function StylePage({ catalog = defaultCatalog }: { catalog?: Catalog }) {
         chips={
           <>
             <Chip dot={STYLE_COLOR_HEX[style.color]}>{da.lexicon.styleColor[style.color]}</Chip>
-            <Chip>{da.world[region.world]}</Chip>
             {climate && (
               <Chip>
                 <Icon name={climate === 'warm' ? 'sun' : 'snow'} size={12} strokeWidth={2.2} />
