@@ -103,7 +103,7 @@ export const styles: Style[] = [
     },
     descriptorIds: ['green-apple', 'lemon', 'wet-stone', 'flint', 'chalk'],
     oak: 'none',
-    difficulty: 2,
+    difficulty: 1,
     story: [
       'Chablis er Chardonnay i sin strammeste form: kølig, tør og mineralsk med høj syre og grønt æble, citrus og en flintet, saltagtig karakter. Kimmeridge-kalken med fossile østers er en del af forklaringen.',
       'Klassisk Chablis laves uden ny eg, hvilket adskiller den tydeligt fra de fyldigere, nøddeagtige hvidvine fra Côte de Beaune. Premier og grand cru-vine kan dog lagres på ældre fade og udvikle mere fylde.',
@@ -200,7 +200,7 @@ export const styles: Style[] = [
     },
     descriptorIds: ['green-apple', 'lime', 'peach', 'wet-stone', 'honeysuckle'],
     oak: 'none',
-    difficulty: 2,
+    difficulty: 1,
     story: [
       'Kabinett er det letteste niveau i det tyske Prädikat-system, lavet på druer høstet ved normal modenhed. Fra Mosel giver det vine med kun 7–9 % alkohol, høj syre og let restsødme, der balancerer syren.',
       'Aromaerne er grønt æble, lime og hvide blomster med den skiferprægede mineralitet, som Mosel er kendt for. Det er en af de få klassiske stilarter med både lav alkohol og let sødme.',
@@ -490,7 +490,7 @@ export const styles: Style[] = [
     },
     descriptorIds: ['grapefruit', 'lemon', 'peach', 'saline'],
     oak: 'none',
-    difficulty: 2,
+    difficulty: 1,
     story: [
       'Albariño fra Rías Baixas er den friske, aromatiske hvidvin fra Galiciens atlanterhavskyst. Vinen laves på ståltank og har høj syre, moderat alkohol og noter af citrus, fersken og en saltagtig karakter.',
       'Den tykke druehud giver en let bitterhed og tekstur, som adskiller den fra Sauvignon Blanc, selvom aromaintensiteten kan ligne.',
@@ -735,7 +735,7 @@ export const styles: Style[] = [
     },
     descriptorIds: ['red-cherry', 'raspberry', 'forest-floor', 'violet', 'mushroom'],
     oak: 'light',
-    difficulty: 2,
+    difficulty: 1,
     story: [
       'Rød Bourgogne fra Côte de Nuits er Pinot Noirs klassiske udtryk: lys i farven, men intens i duft og smag. Landsbyer som Gevrey-Chambertin, Chambolle-Musigny og Vosne-Romanée har hver deres karakter.',
       'Rødt kirsebær, hindbær og med alderen skovbund og svampe er kendetegnene, sammen med høj syre og silkeagtig, moderat tannin. Vinene lagres på egefade, men egen skal være diskret.',
@@ -832,7 +832,7 @@ export const styles: Style[] = [
     },
     descriptorIds: ['blackberry', 'black-pepper', 'violet', 'smoke', 'liquorice'],
     oak: 'light',
-    difficulty: 2,
+    difficulty: 1,
     story: [
       "Côte-Rôtie, 'den ristede skråning', er den nordligste appellation i Rhône og laver Syrah på stejle terrasser, traditionelt gæret sammen med lidt Viognier, som giver duft og farvestabilitet.",
       'Stilen er den elegante Syrah: sort peber, violer, bacon og mørke bær, med fast tannin og høj syre. Sammenlignet med Barossa Shiraz er den lettere, mere krydret og mindre sød i frugten.',
@@ -888,7 +888,7 @@ export const styles: Style[] = [
       'leather',
     ],
     oak: 'light',
-    difficulty: 2,
+    difficulty: 1,
     story: [
       'Châteauneuf-du-Pape er det sydlige Rhônes store rødvin, en Grenache-baseret blanding med Syrah, Mourvèdre og op til flere andre druer. De store, runde sten i vinmarkerne oplagrer varme og giver kraftige vine.',
       'Stilen er varm og fyldig med rød og mørk frugt, tørrede urter (garrigue), lakrids og læder, høj alkohol, moderat syre og blød tannin. Ny eg bruges sjældent.',
@@ -1034,7 +1034,7 @@ export const styles: Style[] = [
     },
     descriptorIds: ['rose', 'tar', 'red-cherry', 'liquorice', 'dried-herbs'],
     oak: 'light',
-    difficulty: 2,
+    difficulty: 1,
     story: [
       "Barolo er Nebbiolo fra bakkerne sydvest for Alba, lagret mindst 38 måneder før salg. Vinens tilnavn, 'kongernes vin', stammer fra dens popularitet ved Savoyen-hoffet i 1800-tallet.",
       'Den lyse, granatrøde farve narrer: vinen har meget høj tannin og syre. Roser, tjære, tørrede kirsebær og lakrids er de klassiske aromaer. Sammen med Barbaresco er det en af de få stilarter, hvor lys farve og kraftig struktur følges ad.',
