@@ -43,7 +43,7 @@ export function dailySeed(dateKey: string): string {
 
 /** Verified styles playable on the daily level, or every eligible style when too few are verified. */
 export function dailyPool(catalog: Catalog): Style[] {
-  const eligible = eligibleStyles(catalog, { difficulty: DAILY_DIFFICULTY, colors: 'both' })
+  const eligible = eligibleStyles(catalog, { difficulty: DAILY_DIFFICULTY, colors: 'all' })
   const verified = eligible.filter((s) => s.verified)
   return verified.length >= MIN_VERIFIED_POOL ? verified : eligible
 }

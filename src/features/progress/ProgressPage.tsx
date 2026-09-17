@@ -33,7 +33,7 @@ import { useProgress } from './progressContext'
 const HEAT_WEEKS = 18
 const TOP_CONFUSIONS = 5
 const MASTERY_KINDS: UnitKind[] = ['grape', 'region', 'style', 'map-location']
-const WEAK_OPTIONS = { difficulty: 'advanced', colors: 'both', rounds: 5 } as const
+const WEAK_OPTIONS = { difficulty: 'advanced', colors: 'all', rounds: 5 } as const
 
 interface ProgressPageProps {
   catalog?: Catalog

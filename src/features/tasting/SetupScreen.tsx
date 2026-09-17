@@ -17,7 +17,7 @@ interface SetupScreenProps {
 }
 
 const LEVELS: Difficulty[] = ['beginner', 'advanced', 'expert']
-const COLORS: ColorFilter[] = ['red', 'white', 'both']
+const COLORS: ColorFilter[] = ['red', 'white', 'other', 'all']
 const ROUNDS = [5, 10] as const
 
 export function SetupScreen({
@@ -72,12 +72,17 @@ export function SetupScreen({
             })}
           </ul>
         </div>
-        <ChoiceGroup
-          name={da.colorFilter.labelName}
-          items={COLORS.map((c) => ({ id: c, label: da.colorFilter[c] }))}
-          value={options.colors}
-          onChange={(colors) => setOptions({ ...options, colors })}
-        />
+        <div className="flex flex-col gap-2">
+          <ChoiceGroup
+            name={da.colorFilter.labelName}
+            items={COLORS.map((c) => ({ id: c, label: da.colorFilter[c] }))}
+            value={options.colors}
+            onChange={(colors) => setOptions({ ...options, colors })}
+          />
+          {options.colors === 'other' && (
+            <p className="text-ink-2 text-[13px]">{da.colorFilter.otherHelp}</p>
+          )}
+        </div>
         <ChoiceGroup
           name={da.rounds.labelName}
           items={ROUNDS.map((r) => ({ id: r, label: String(r) }))}

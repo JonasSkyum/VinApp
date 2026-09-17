@@ -91,7 +91,9 @@ export const da = {
   colorFilter: {
     red: 'Rød',
     white: 'Hvid',
-    both: 'Begge',
+    other: 'Andre',
+    all: 'Alle',
+    otherHelp: 'Rosé, mousserende, sød og hedvin',
     labelName: 'Vintype',
   },
   rounds: {

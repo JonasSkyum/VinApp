@@ -32,7 +32,7 @@ import { interpolate } from '@/lib/text'
 import { DailySummary } from './DailySummary'
 import { useCountdown } from './useCountdown'
 
-const DAILY_OPTIONS: SessionOptions = { difficulty: DAILY_DIFFICULTY, colors: 'both', rounds: 1 }
+const DAILY_OPTIONS: SessionOptions = { difficulty: DAILY_DIFFICULTY, colors: 'all', rounds: 1 }
 
 /**
  * One seeded round per calendar day (Europe/Copenhagen), the same for everyone.

@@ -49,7 +49,7 @@ describe('pickDailyStyle', () => {
 
   it('only serves styles playable on the daily level', () => {
     const allowed = new Set(
-      eligibleStyles(catalog, { difficulty: 'advanced', colors: 'both' }).map((s) => s.id),
+      eligibleStyles(catalog, { difficulty: 'advanced', colors: 'all' }).map((s) => s.id),
     )
     for (let i = 0; i < 30; i++) {
       expect(allowed.has(pickDailyStyle(catalog, keyPlusDays(DAILY_EPOCH, i)).id)).toBe(true)
@@ -65,7 +65,7 @@ describe('pickDailyStyle', () => {
   })
 
   it('prefers verified styles once enough exist, otherwise falls back to all', () => {
-    const eligible = eligibleStyles(catalog, { difficulty: 'advanced', colors: 'both' })
+    const eligible = eligibleStyles(catalog, { difficulty: 'advanced', colors: 'all' })
     const verifiedIds = new Set(eligible.slice(0, MIN_VERIFIED_POOL).map((s) => s.id))
     const verifiedCatalog = createCatalog({
       ...content,

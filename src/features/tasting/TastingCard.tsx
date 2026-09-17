@@ -31,15 +31,23 @@ export function TastingCard({ tastingCase, catalog, fixed = false }: TastingCard
   const style = catalog.style(tastingCase.styleId)
   const expanded = fixed || !collapsed
   const colour = capitalize(appearanceLabel(profile.appearance))
+  // Bubbles and fortification are visible in the glass, so the card says so.
+  const kind =
+    style.color === 'sparkling' || style.color === 'fortified'
+      ? da.lexicon.styleColor[style.color]
+      : null
   const summary = [
     colour,
+    kind?.toLowerCase(),
     descriptorIds
       .slice(0, 2)
       .map((id) => catalog.descriptor(id).name.toLowerCase())
       .join(', '),
     `${da.attribute.acidity.toLowerCase()} ${levelLabel('acidity', profile.acidity)}`,
     da.oak[style.oak],
-  ].join(' · ')
+  ]
+    .filter(Boolean)
+    .join(' · ')
 
   return (
     <Card
@@ -77,7 +85,10 @@ export function TastingCard({ tastingCase, catalog, fixed = false }: TastingCard
             <WineGlass appearance={profile.appearance} intensity={profile.intensity} />
             <div className="flex flex-col gap-0.5">
               <Label>1 · {da.tastingCard.appearance}</Label>
-              <span className="text-[17px] font-extrabold">{colour}</span>
+              <span className="text-[17px] font-extrabold">
+                {colour}
+                {kind && <span className="text-ink-2 font-bold"> · {kind}</span>}
+              </span>
               <span className="text-ink-2 text-[13px]">
                 {interpolate(da.intensity.label, {
                   value: levelLabel('intensity', profile.intensity),

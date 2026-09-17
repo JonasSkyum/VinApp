@@ -3,7 +3,14 @@ import type { Catalog } from './catalog'
 import { shuffle, type Rng } from './rng'
 import { DIFFICULTY_LEVEL, type Difficulty } from './types'
 
-export type ColorFilter = 'red' | 'white' | 'both'
+/** red/white: still wines of that colour · other: rosé, sparkling, sweet and fortified · all: everything. */
+export type ColorFilter = 'red' | 'white' | 'other' | 'all'
+
+export function matchesColorFilter(style: Style, filter: ColorFilter): boolean {
+  if (filter === 'all') return true
+  if (filter === 'other') return style.color !== 'red' && style.color !== 'white'
+  return style.color === filter
+}
 
 export interface SessionOptions {
   difficulty: Difficulty
@@ -11,14 +18,11 @@ export interface SessionOptions {
   rounds: number
 }
 
-/** Styles a player at this level may be served. Only still red and white wines for now. */
+/** Styles a player at this level may be served. */
 export function eligibleStyles(catalog: Catalog, options: Omit<SessionOptions, 'rounds'>): Style[] {
   const level = DIFFICULTY_LEVEL[options.difficulty]
   return catalog.styles.filter(
-    (s) =>
-      s.difficulty <= level &&
-      (s.color === 'red' || s.color === 'white') &&
-      (options.colors === 'both' || s.color === options.colors),
+    (s) => s.difficulty <= level && matchesColorFilter(s, options.colors),
   )
 }
 

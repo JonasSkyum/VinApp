@@ -19,7 +19,7 @@ import { Breadcrumb, Chip, EntryHeader, NotFound, StoryCard } from './shared'
 
 const NEIGHBOUR_COUNT = 3
 const PROFILE_KEYS: StructureKey[] = ['sweetness', 'acidity', 'tannin', 'alcohol', 'body', 'finish']
-const TRAIN_OPTIONS = { difficulty: 'advanced', colors: 'both', rounds: 5 } as const
+const TRAIN_OPTIONS = { difficulty: 'advanced', colors: 'all', rounds: 5 } as const
 
 function capitalize(s: string): string {
   return s.charAt(0).toUpperCase() + s.slice(1)

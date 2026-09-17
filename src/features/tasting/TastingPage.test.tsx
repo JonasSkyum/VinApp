@@ -39,7 +39,7 @@ describe('TastingPage', () => {
   it('shows the setup screen first', () => {
     renderPage()
     expect(screen.getByRole('radio', { name: da.level.beginner })).toBeChecked()
-    expect(screen.getByRole('radio', { name: da.colorFilter.both })).toBeChecked()
+    expect(screen.getByRole('radio', { name: da.colorFilter.all })).toBeChecked()
     expect(screen.getByRole('radio', { name: '5' })).toBeChecked()
   })
 

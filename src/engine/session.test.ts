@@ -13,15 +13,18 @@ describe('eligibleStyles', () => {
       expect(s.color).toBe('red')
       expect(s.difficulty).toBe(1)
     }
-    const expertBoth = eligibleStyles(catalog, { difficulty: 'expert', colors: 'both' })
-    expect(expertBoth.map((s) => s.id)).not.toContain('sauternes')
-    expect(expertBoth.length).toBeGreaterThan(beginnerRed.length)
+    const expertAll = eligibleStyles(catalog, { difficulty: 'expert', colors: 'all' })
+    expect(expertAll.map((s) => s.id)).toContain('sauternes')
+    expect(expertAll.length).toBeGreaterThan(beginnerRed.length)
+    const other = eligibleStyles(catalog, { difficulty: 'expert', colors: 'other' })
+    expect(other.length).toBeGreaterThan(0)
+    for (const s of other) expect(['red', 'white']).not.toContain(s.color)
   })
 })
 
 describe('pickStyles', () => {
   it('is deterministic and avoids repeats while the pool allows', () => {
-    const options = { difficulty: 'beginner', colors: 'both', rounds: 5 } as const
+    const options = { difficulty: 'beginner', colors: 'all', rounds: 5 } as const
     const a = pickStyles(catalog, options, createRng('session'))
     const b = pickStyles(catalog, options, createRng('session'))
     expect(a.map((s) => s.id)).toEqual(b.map((s) => s.id))
@@ -44,7 +47,7 @@ describe('pickStyles', () => {
   it('throws when nothing matches', () => {
     const empty = createCatalog({ ...content, styles: [] })
     expect(() =>
-      pickStyles(empty, { difficulty: 'expert', colors: 'both', rounds: 1 }, createRng(1)),
+      pickStyles(empty, { difficulty: 'expert', colors: 'all', rounds: 1 }, createRng(1)),
     ).toThrow('No styles match')
   })
 })

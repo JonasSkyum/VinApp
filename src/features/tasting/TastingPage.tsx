@@ -197,6 +197,6 @@ export function TastingPage() {
 }
 
 function sessionLabel(options: SessionOptions): string {
-  const colour = options.colors === 'both' ? null : da.colorFilter[options.colors]
+  const colour = options.colors === 'all' ? null : da.colorFilter[options.colors]
   return [da.level[options.difficulty], colour].filter(Boolean).join(' · ')
 }

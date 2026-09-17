@@ -29,7 +29,7 @@ import { APPEARANCE_HEX, STYLE_COLOR_HEX } from '@/lib/palette'
 import { interpolate } from '@/lib/text'
 
 const WEAK_PAIRS = 3
-const WEAK_OPTIONS = { difficulty: 'advanced', colors: 'both', rounds: 5 } as const
+const WEAK_OPTIONS = { difficulty: 'advanced', colors: 'all', rounds: 5 } as const
 
 function greeting(hour: number): string {
   if (hour < 10) return da.home.greetingMorning

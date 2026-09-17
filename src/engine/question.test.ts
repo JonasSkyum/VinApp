@@ -95,3 +95,14 @@ describe('answerUniverse', () => {
     expect(answerUniverse('regionId', sauternes, catalog)).toContain('bordeaux')
   })
 })
+
+describe('non-still styles', () => {
+  it('draws style options from the same category and grapes from every colour', () => {
+    const tastingCase = generateCase(catalog.style('champagne-brut'), 'advanced', createRng('c'))
+    const style = buildQuestion(tastingCase, 6, 'advanced', catalog, createRng('s'))
+    for (const id of style.options) expect(catalog.style(id).color).toBe('sparkling')
+    const grape = buildQuestion(tastingCase, 3, 'advanced', catalog, createRng('g'))
+    expect(grape.options).toContain('chardonnay')
+    expect(grape.options).toHaveLength(6)
+  })
+})

@@ -44,7 +44,7 @@ type Action =
   | { type: 'restart'; seed: string }
   | { type: 'reset' }
 
-export const DEFAULT_OPTIONS: SessionOptions = { difficulty: 'beginner', colors: 'both', rounds: 5 }
+export const DEFAULT_OPTIONS: SessionOptions = { difficulty: 'beginner', colors: 'all', rounds: 5 }
 
 export function initialState(options: SessionOptions = DEFAULT_OPTIONS): SessionState {
   return {

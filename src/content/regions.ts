@@ -472,6 +472,33 @@ export const regions: Region[] = [
     ],
   }),
 
+  r({
+    id: 'provence',
+    name: 'Provence',
+    type: 'region',
+    parentId: 'france',
+    climate: 'warm',
+    center: [5.9, 43.4],
+    difficulty: 2,
+    story: [
+      'Provence er Frankrigs ældste vinregion. Grækerne grundlagde Marseille omkring 600 f.Kr. og bragte vinstokken med sig. I dag er området synonymt med rosé, som udgør over halvdelen af produktionen og omkring 80 % i den store appellation Côtes de Provence.',
+      'Rosévinene laves typisk på Grenache, Cinsault, Syrah og Mourvèdre og er lyse, tørre og lette med frisk syre.',
+    ],
+  }),
+  r({
+    id: 'tavel',
+    name: 'Tavel',
+    type: 'appellation',
+    parentId: 'southern-rhone',
+    climate: 'warm',
+    center: [4.7, 44.01],
+    difficulty: 3,
+    story: [
+      'Tavel ligger på Rhônes højre bred over for Châteauneuf-du-Pape og laver udelukkende rosé. Appellationen fik AOC-status i 1936 og har haft prominente tilhængere fra Ludvig 14. til Hemingway.',
+      'Vinene laves på Grenache og Cinsault med længere skindkontakt end de fleste roséer, hvilket giver dybere farve, mere krop og lidt tannin. Minimumsalkoholen er 11 %, og de bedste når op mod 14 %.',
+    ],
+  }),
+
   // ---------------------------------------------------------------- Italy
   r({
     id: 'piemonte',
@@ -596,6 +623,33 @@ export const regions: Region[] = [
     ],
   }),
 
+  r({
+    id: 'asti',
+    name: 'Asti',
+    type: 'appellation',
+    parentId: 'piemonte',
+    climate: 'moderate',
+    center: [8.2, 44.9],
+    difficulty: 2,
+    story: [
+      'Asti sydøst for Torino er hjemsted for Piemontes søde, perlende Moscato-vine. Moscato Bianco har været dyrket her i århundreder, og området fik DOCG-status i 1993.',
+      "Moscato d'Asti laves ved at afbryde gæringen med kulde, så vinen beholder druens naturlige sukker og kun når 5–5,5 % alkohol. Der er ingen anden gæring på flasken som i Champagne.",
+    ],
+  }),
+  r({
+    id: 'conegliano-valdobbiadene',
+    name: 'Conegliano Valdobbiadene',
+    type: 'appellation',
+    parentId: 'veneto',
+    climate: 'moderate',
+    center: [12.0, 45.9],
+    difficulty: 3,
+    story: [
+      'Bakkerne mellem Conegliano og Valdobbiadene nord for Treviso er Proseccos historiske kerneområde og fik DOCG-status som Prosecco Superiore. Druen hed tidligere selv Prosecco, men blev omdøbt til Glera, da navnet blev forbeholdt vinen.',
+      'Prosecco laves med tankmetoden (Charmat), hvor anden gæring sker i store trykbeholdere i stedet for på flasken. Det bevarer druens friske frugt af grønt æble, pære og melon.',
+    ],
+  }),
+
   // ---------------------------------------------------------------- Spain & Portugal
   r({
     id: 'rioja',
@@ -672,6 +726,33 @@ export const regions: Region[] = [
     story: [
       "Douro-dalen i det nordlige Portugal er portvinens hjemland og blev afgrænset i 1756 som en af verdens første beskyttede vinregioner. De stejle skiferterrasser langs floden kom på UNESCO's verdensarvsliste i 2001.",
       "Traditionelt blev vinen sejlet ned til Porto og lagret i handelshusenes lagre i Vila Nova de Gaia. Siden 1950'erne, med Barca Velha som pioner, er der også lavet tørre rødvine på de samme druer, blandt andet Touriga Nacional og Tinta Roriz.",
+    ],
+  }),
+
+  r({
+    id: 'jerez',
+    name: 'Jerez',
+    type: 'region',
+    parentId: 'spain',
+    climate: 'warm',
+    center: [-6.14, 36.69],
+    difficulty: 2,
+    story: [
+      'Jerez i Andalusien er sherryens hjem. Trekanten mellem byerne Jerez de la Frontera, Sanlúcar de Barrameda og El Puerto de Santa María er det lovbestemte produktionsområde, og den kridthvide albariza-jord, som er cirka 40 % kalk, holder på vinterens regn gennem den hede sommer.',
+      'Omkring 90 % af druerne er Palomino, en neutral drue, som får sin karakter fra lagringen: under et lag flor-gær (Fino) eller med adgang til luft (Oloroso), og altid i solera-systemet, hvor yngre vin gradvis blandes i ældre.',
+    ],
+  }),
+  r({
+    id: 'penedes',
+    name: 'Penedès',
+    type: 'region',
+    parentId: 'spain',
+    climate: 'moderate',
+    center: [1.7, 41.35],
+    difficulty: 3,
+    story: [
+      "Penedès sydvest for Barcelona er Cavaens hjem. Omkring 95 % af al Cava laves her, og landsbyen Sant Sadurní d'Anoia huser de største producenter.",
+      'Navnet Cava blev taget i brug i 1970 for at adskille vinen fra Champagne. Den laves efter samme traditionelle metode med anden gæring på flasken, men på de lokale druer Macabeo, Xarel·lo og Parellada.',
     ],
   }),
 
@@ -907,5 +988,34 @@ export const regions: Region[] = [
       'Cabernet Sauvignon og Bordeaux-blandinger er områdets styrke, sammen med Chenin Blanc. Pinotage blev skabt her på universitetet i 1925, og Sydafrikas første vinrute åbnede i Stellenbosch i 1971.',
     ],
     note: 'Warm Mediterranean with cooling ocean breezes.',
+  }),
+  // ---------------------------------------------------------------- Hungary
+  r({
+    id: 'hungary',
+    geoId: 'HUN',
+    name: 'Ungarn',
+    type: 'country',
+    parentId: null,
+    climate: null,
+    center: [19.5, 47.2],
+    difficulty: 3,
+    story: [
+      'Ungarn har en af Centraleuropas ældste vinkulturer og er mest kendt for de søde Tokaji-vine, som allerede i 1700-tallet blev serveret ved hoffet i Versailles og fik tilnavnet "kongernes vin, vinenes konge".',
+      'Landet laver også tørre hvidvine på Furmint og rødvine fra Eger og Villány. Tokaj-området blev klassificeret fra 1730 og er dermed blandt verdens allerførste afgrænsede vinregioner.',
+    ],
+  }),
+  r({
+    id: 'tokaj',
+    name: 'Tokaj',
+    type: 'region',
+    parentId: 'hungary',
+    climate: 'moderate',
+    center: [21.4, 48.12],
+    difficulty: 3,
+    story: [
+      'Tokaj ligger i det nordøstlige Ungarn ved foden af Karpaterne på vulkansk jord. Lange, varme efterår med tåge fra floderne giver ædelråd (botrytis) på druerne, som er grundlaget for den søde Tokaji Aszú.',
+      'Vinmarkerne blev klassificeret i 1730, og en kongelig forordning i 1757 gjorde området til en lukket produktionszone, mere end hundrede år før Bordeaux-klassifikationen. Furmint er hoveddruen, suppleret af Hárslevelű.',
+    ],
+    note: 'Continental with long warm autumns; classified as moderate. Review.',
   }),
 ]
