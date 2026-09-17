@@ -1,105 +1,320 @@
 @import 'tailwindcss';
 
-@theme {
-  --color-wine-50: #fdf2f4;
-  --color-wine-100: #fce7ea;
-  --color-wine-200: #f9d0d8;
-  --color-wine-300: #f4a8b7;
-  --color-wine-400: #ec758f;
-  --color-wine-500: #df4568;
-  --color-wine-600: #c52551;
-  --color-wine-700: #a51a42;
-  --color-wine-800: #8a183c;
-  --color-wine-900: #5e0f2a;
-  --color-wine-950: #3d0619;
+/* ---------- Fonts (self-hosted so the PWA works offline) ---------- */
+@font-face {
+  font-family: 'Fraunces';
+  font-style: normal;
+  font-weight: 400 700;
+  font-display: swap;
+  src: url('./assets/fonts/fraunces-latin.woff2') format('woff2');
+  unicode-range:
+    U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329,
+    U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: 'Fraunces';
+  font-style: normal;
+  font-weight: 400 700;
+  font-display: swap;
+  src: url('./assets/fonts/fraunces-latin-ext.woff2') format('woff2');
+  unicode-range:
+    U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329,
+    U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F,
+    U+A720-A7FF;
+}
+@font-face {
+  font-family: 'Fraunces';
+  font-style: italic;
+  font-weight: 400;
+  font-display: swap;
+  src: url('./assets/fonts/fraunces-italic-latin.woff2') format('woff2');
+  unicode-range:
+    U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329,
+    U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: 'Fraunces';
+  font-style: italic;
+  font-weight: 400;
+  font-display: swap;
+  src: url('./assets/fonts/fraunces-italic-latin-ext.woff2') format('woff2');
+  unicode-range:
+    U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329,
+    U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F,
+    U+A720-A7FF;
+}
+@font-face {
+  font-family: 'Manrope';
+  font-style: normal;
+  font-weight: 400 800;
+  font-display: swap;
+  src: url('./assets/fonts/manrope-latin.woff2') format('woff2');
+  unicode-range:
+    U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329,
+    U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: 'Manrope';
+  font-style: normal;
+  font-weight: 400 800;
+  font-display: swap;
+  src: url('./assets/fonts/manrope-latin-ext.woff2') format('woff2');
+  unicode-range:
+    U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329,
+    U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F,
+    U+A720-A7FF;
+}
+@font-face {
+  font-family: 'JetBrains Mono';
+  font-style: normal;
+  font-weight: 400 500;
+  font-display: swap;
+  src: url('./assets/fonts/jetbrains-mono-latin.woff2') format('woff2');
+  unicode-range:
+    U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329,
+    U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: 'JetBrains Mono';
+  font-style: normal;
+  font-weight: 400 500;
+  font-display: swap;
+  src: url('./assets/fonts/jetbrains-mono-latin-ext.woff2') format('woff2');
+  unicode-range:
+    U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329,
+    U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F,
+    U+A720-A7FF;
+}
+
+/* ---------- Semantic tokens ("Designsystem v0.1": parchment + bordeaux) ---------- */
+:root {
+  color-scheme: light;
+  --bg: #f7f1e8;
+  --surface: #fffcf7;
+  --surface-2: #f0e7da;
+  --line: #e2d5c3;
+  --track: #e9dfd1;
+  --ink: #2a1820;
+  --ink-2: #65505a;
+  --ink-3: #7a6570;
+  --primary: #7a1f3d;
+  --primary-press: #5e1530;
+  --on-primary: #ffffff;
+  --primary-ink: #7a1f3d;
+  --primary-soft: #f4e3e7;
+  --scale-on: #7a1f3d;
+  --scale-mid: #cfa0af;
+  --ok: #2e7447;
+  --ok-fill: #3f8f5a;
+  --ok-soft: #e0efe3;
+  --partial: #935a05;
+  --partial-fill: #e3a12f;
+  --partial-soft: #fbebcd;
+  --wrong: #9e3a3a;
+  --wrong-soft: #f4e0de;
+  --miss: #5a4851;
+  --map-sea: #dce5e2;
+  --map-land: #f4ecdd;
+  --map-land-2: #eae1d0;
+  --map-border: #c9b99f;
+  --map-region: #bca88a;
+  --heat-1: #ebcbd5;
+  --heat-2: #d495a9;
+  --heat-3: #b04e74;
+  --heat-4: #7a1f3d;
+  --paper: #fbf5e9;
+  --shadow-1: 0 1px 2px rgba(42, 24, 32, 0.06), 0 2px 8px rgba(42, 24, 32, 0.05);
+  --shadow-2: 0 2px 4px rgba(42, 24, 32, 0.06), 0 12px 32px rgba(42, 24, 32, 0.1);
+  --shadow-sheet: 0 -8px 32px rgba(42, 24, 32, 0.14);
+  --press: inset 0 -3px 0 rgba(0, 0, 0, 0.18);
 }
 
 /*
- * Dark theme (bordeaux). Components only use the tokens above plus `white` and a
- * few outcome colours, so the theme is a re-mapping of those tokens: the wine
- * scale is inverted (light text on dark surfaces), `white` becomes the card
- * surface, and the green/amber/red chips swap to dark backgrounds with light text.
- * Applied when the system prefers dark (unless the user forced light) or when the
- * user forced dark. Keep both blocks identical.
+ * Dark theme (aubergine). Same token names, different values. Applied when the system
+ * prefers dark (unless the user forced light) or when the user forced dark.
+ * Keep both blocks identical.
  */
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme='light']) {
     color-scheme: dark;
-    --color-white: #2b0e1b;
-    --color-wine-50: #1a0711;
-    --color-wine-100: #3b1526;
-    --color-wine-200: #552038;
-    --color-wine-300: #71304d;
-    --color-wine-400: #a54368;
-    --color-wine-500: #df4568;
-    --color-wine-600: #ec758f;
-    --color-wine-700: #f4a8b7;
-    --color-wine-800: #f9d0d8;
-    --color-wine-900: #fce7ea;
-    --color-wine-950: #fdf2f4;
-    --color-green-50: #052e16;
-    --color-green-100: #14532d;
-    --color-green-300: #166534;
-    --color-green-800: #bbf7d0;
-    --color-green-900: #dcfce7;
-    --color-amber-50: #451a03;
-    --color-amber-100: #78350f;
-    --color-amber-200: #92400e;
-    --color-amber-900: #fef3c7;
-    --color-red-50: #450a0a;
-    --color-red-100: #7f1d1d;
-    --color-red-200: #7f1d1d;
-    --color-red-300: #991b1b;
-    --color-red-700: #fca5a5;
-    --color-red-800: #fecaca;
-    --color-red-900: #fee2e2;
-    --color-gray-100: #374151;
-    --color-gray-700: #e5e7eb;
+    --bg: #1a1016;
+    --surface: #24171f;
+    --surface-2: #2f2029;
+    --line: #3e2d37;
+    --track: #3a2a33;
+    --ink: #f6ede6;
+    --ink-2: #c4b1ba;
+    --ink-3: #a08c96;
+    --primary: #9b2c50;
+    --primary-press: #b53a62;
+    --on-primary: #ffffff;
+    --primary-ink: #f0a3b9;
+    --primary-soft: #3c1c2b;
+    --scale-on: #e2849f;
+    --scale-mid: #7a4a5b;
+    --ok: #7ccb97;
+    --ok-fill: #3f8f5a;
+    --ok-soft: #1c3325;
+    --partial: #edb45a;
+    --partial-fill: #e3a12f;
+    --partial-soft: #3a2b15;
+    --wrong: #ee9790;
+    --wrong-soft: #3d2023;
+    --miss: #4a3a42;
+    --map-sea: #172226;
+    --map-land: #2e242a;
+    --map-land-2: #251d22;
+    --map-border: #4b3c44;
+    --map-region: #6a5560;
+    --heat-1: #4a2636;
+    --heat-2: #7a3552;
+    --heat-3: #a8456a;
+    --heat-4: #e2849f;
+    --shadow-1: 0 1px 2px rgba(0, 0, 0, 0.4), 0 2px 8px rgba(0, 0, 0, 0.3);
+    --shadow-2: 0 2px 4px rgba(0, 0, 0, 0.4), 0 12px 32px rgba(0, 0, 0, 0.45);
+    --shadow-sheet: 0 -8px 32px rgba(0, 0, 0, 0.5);
   }
 }
 :root[data-theme='dark'] {
   color-scheme: dark;
-  --color-white: #2b0e1b;
-  --color-wine-50: #1a0711;
-  --color-wine-100: #3b1526;
-  --color-wine-200: #552038;
-  --color-wine-300: #71304d;
-  --color-wine-400: #a54368;
-  --color-wine-500: #df4568;
-  --color-wine-600: #ec758f;
-  --color-wine-700: #f4a8b7;
-  --color-wine-800: #f9d0d8;
-  --color-wine-900: #fce7ea;
-  --color-wine-950: #fdf2f4;
-  --color-green-50: #052e16;
-  --color-green-100: #14532d;
-  --color-green-300: #166534;
-  --color-green-800: #bbf7d0;
-  --color-green-900: #dcfce7;
-  --color-amber-50: #451a03;
-  --color-amber-100: #78350f;
-  --color-amber-200: #92400e;
-  --color-amber-900: #fef3c7;
-  --color-red-50: #450a0a;
-  --color-red-100: #7f1d1d;
-  --color-red-200: #7f1d1d;
-  --color-red-300: #991b1b;
-  --color-red-700: #fca5a5;
-  --color-red-800: #fecaca;
-  --color-red-900: #fee2e2;
-  --color-gray-100: #374151;
-  --color-gray-700: #e5e7eb;
+  --bg: #1a1016;
+  --surface: #24171f;
+  --surface-2: #2f2029;
+  --line: #3e2d37;
+  --track: #3a2a33;
+  --ink: #f6ede6;
+  --ink-2: #c4b1ba;
+  --ink-3: #a08c96;
+  --primary: #9b2c50;
+  --primary-press: #b53a62;
+  --on-primary: #ffffff;
+  --primary-ink: #f0a3b9;
+  --primary-soft: #3c1c2b;
+  --scale-on: #e2849f;
+  --scale-mid: #7a4a5b;
+  --ok: #7ccb97;
+  --ok-fill: #3f8f5a;
+  --ok-soft: #1c3325;
+  --partial: #edb45a;
+  --partial-fill: #e3a12f;
+  --partial-soft: #3a2b15;
+  --wrong: #ee9790;
+  --wrong-soft: #3d2023;
+  --miss: #4a3a42;
+  --map-sea: #172226;
+  --map-land: #2e242a;
+  --map-land-2: #251d22;
+  --map-border: #4b3c44;
+  --map-region: #6a5560;
+  --heat-1: #4a2636;
+  --heat-2: #7a3552;
+  --heat-3: #a8456a;
+  --heat-4: #e2849f;
+  --shadow-1: 0 1px 2px rgba(0, 0, 0, 0.4), 0 2px 8px rgba(0, 0, 0, 0.3);
+  --shadow-2: 0 2px 4px rgba(0, 0, 0, 0.4), 0 12px 32px rgba(0, 0, 0, 0.45);
+  --shadow-sheet: 0 -8px 32px rgba(0, 0, 0, 0.5);
 }
 
+/* ---------- Tailwind theme: utilities point at the tokens above ---------- */
+@theme inline {
+  --color-*: initial;
+  --color-transparent: transparent;
+  --color-current: currentColor;
+  --color-white: #ffffff;
+  --color-black: #000000;
+  --color-canvas: var(--bg);
+  --color-surface: var(--surface);
+  --color-surface-2: var(--surface-2);
+  --color-line: var(--line);
+  --color-track: var(--track);
+  --color-ink: var(--ink);
+  --color-ink-2: var(--ink-2);
+  --color-ink-3: var(--ink-3);
+  --color-primary: var(--primary);
+  --color-primary-press: var(--primary-press);
+  --color-on-primary: var(--on-primary);
+  --color-primary-ink: var(--primary-ink);
+  --color-primary-soft: var(--primary-soft);
+  --color-scale-on: var(--scale-on);
+  --color-scale-mid: var(--scale-mid);
+  --color-ok: var(--ok);
+  --color-ok-fill: var(--ok-fill);
+  --color-ok-soft: var(--ok-soft);
+  --color-partial: var(--partial);
+  --color-partial-fill: var(--partial-fill);
+  --color-partial-soft: var(--partial-soft);
+  --color-wrong: var(--wrong);
+  --color-wrong-soft: var(--wrong-soft);
+  --color-miss: var(--miss);
+  --color-map-sea: var(--map-sea);
+  --color-map-land: var(--map-land);
+  --color-map-region: var(--map-region);
+  --color-paper: var(--paper);
+  --color-bordeaux: #7a1f3d;
+  --color-bordeaux-ink: #2a1820;
+  --color-bordeaux-ink-2: #65505a;
+  --color-amber: #e3a12f;
+  --color-style-white: #e8cf4e;
+  --color-style-red: #b0213f;
+  --color-style-rose: #f2a594;
+
+  --font-serif: 'Fraunces', Georgia, serif;
+  --font-sans: 'Manrope', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, monospace;
+
+  --shadow-card: var(--shadow-1);
+  --shadow-float: var(--shadow-2);
+  --shadow-sheet: var(--shadow-sheet);
+  --shadow-press: var(--press);
+  --shadow-tactile: var(--shadow-1), inset 0 -3px 0 var(--line);
+}
+
+/* ---------- Base ---------- */
 html {
   -webkit-tap-highlight-color: transparent;
+  background: var(--bg);
 }
 
 body {
-  @apply bg-wine-50 text-wine-950 antialiased;
+  @apply bg-canvas text-ink font-sans antialiased;
+  font-size: 15px;
+  line-height: 1.4;
+}
+
+button,
+input,
+select,
+textarea {
+  font-family: inherit;
+}
+
+button {
+  cursor: pointer;
 }
 
 /* Keyboard users always get a visible focus ring; pointer users only where the browser would show one. */
 :focus-visible {
-  @apply outline-wine-500 outline-2 outline-offset-2;
+  outline: 2px solid var(--primary-ink);
+  outline-offset: 2px;
+}
+
+/* Tactile press: the 3px inner bottom edge disappears and the button dips. */
+.press:active:not(:disabled) {
+  transform: translateY(2px);
+  box-shadow: none;
+}
+
+/* Striped fill for "your guess" in comparison bars. */
+.stripe-partial {
+  background: repeating-linear-gradient(
+    135deg,
+    var(--partial-fill) 0 3px,
+    var(--partial-soft) 3px 6px
+  );
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .press:active:not(:disabled) {
+    transform: none;
+  }
 }

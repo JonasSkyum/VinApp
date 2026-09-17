@@ -1,4 +1,7 @@
 import { useState, type FormEvent } from 'react'
+import { Button } from '@/components/ui/Button'
+import { Card, Heading } from '@/components/ui/Card'
+import { Icon } from '@/components/ui/Icon'
 import { da } from '@/i18n/da'
 import { interpolate } from '@/lib/text'
 import { useSync } from './syncContext'
@@ -25,38 +28,40 @@ export function AccountPanel() {
   }
 
   return (
-    <section aria-labelledby="account-title" className="space-y-3">
-      <h2 id="account-title" className="text-wine-800 text-lg font-semibold">
+    <Card as="section" aria-labelledby="account-title" className="flex flex-col gap-3">
+      <Heading id="account-title" size="md">
         {t.title}
-      </h2>
+      </Heading>
 
       {sync.session ? (
-        <div className="space-y-3 text-sm">
-          <p>{interpolate(t.signedInAs, { email: sync.session.email ?? '' })}</p>
-          <p className="text-wine-900/70">{t.syncHelp}</p>
+        <div className="flex flex-col gap-3 text-sm">
+          <p className="font-bold">
+            {interpolate(t.signedInAs, { email: sync.session.email ?? '' })}
+          </p>
+          <p className="text-ink-2">{t.syncHelp}</p>
           <div className="flex flex-wrap gap-2">
-            <button
-              type="button"
+            <Button
+              variant="soft"
+              size="md"
               onClick={() => void sync.syncNow()}
               disabled={sync.status === 'syncing'}
-              className="border-wine-700 text-wine-800 hover:bg-wine-100 rounded-lg border px-3 py-2 font-semibold disabled:opacity-50"
             >
+              <Icon name="refresh" size={16} strokeWidth={2.2} />
               {t.syncNow}
-            </button>
-            <button
-              type="button"
-              onClick={() => void sync.signOut()}
-              className="border-wine-300 text-wine-800 hover:bg-wine-50 rounded-lg border px-3 py-2"
-            >
+            </Button>
+            <Button variant="secondary" size="md" onClick={() => void sync.signOut()}>
+              <Icon name="logout" size={16} strokeWidth={2.2} />
               {t.signOut}
-            </button>
+            </Button>
           </div>
         </div>
       ) : (
-        <form onSubmit={onSubmit} className="space-y-2 text-sm">
-          <p className="text-wine-900/70">{t.intro}</p>
-          <label className="block">
-            <span className="font-medium">{t.email}</span>
+        <form onSubmit={onSubmit} className="flex flex-col gap-3 text-sm">
+          <p className="text-ink-2">{t.intro}</p>
+          <label className="flex flex-col gap-1.5">
+            <span className="text-ink-2 text-xs font-extrabold tracking-[0.08em] uppercase">
+              {t.email}
+            </span>
             <input
               type="email"
               required
@@ -64,26 +69,24 @@ export function AccountPanel() {
               inputMode="email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              className="border-wine-300 focus:border-wine-600 mt-1 w-full rounded-lg border bg-white px-3 py-3 text-base outline-none"
+              className="border-line bg-surface focus:border-primary-ink min-h-14 w-full rounded-2xl border-[1.5px] px-4 text-base font-semibold outline-none"
             />
           </label>
-          <button
-            type="submit"
-            className="bg-wine-700 hover:bg-wine-800 w-full rounded-lg px-4 py-3 font-semibold text-white"
-          >
+          <Button type="submit" block>
+            <Icon name="mail" size={18} strokeWidth={2.2} />
             {t.sendLink}
-          </button>
+          </Button>
         </form>
       )}
 
       {statusText && (
         <p
           role="status"
-          className={`text-sm ${sync.status === 'error' ? 'text-red-800' : 'text-wine-900/70'}`}
+          className={`text-sm font-bold ${sync.status === 'error' ? 'text-wrong' : 'text-ink-2'}`}
         >
           {statusText}
         </p>
       )}
-    </section>
+    </Card>
   )
 }

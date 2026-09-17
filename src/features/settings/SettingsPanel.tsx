@@ -3,6 +3,7 @@ import { da } from '@/i18n/da'
 import { playSound } from '@/lib/sound'
 import { usePrefs } from './prefsContext'
 import type { Theme } from './prefsStore'
+import { Toggle } from './Toggle'
 
 const THEMES: { id: Theme; label: string }[] = [
   { id: 'system', label: da.settings.themeSystem },
@@ -10,34 +11,27 @@ const THEMES: { id: Theme; label: string }[] = [
   { id: 'dark', label: da.settings.themeDark },
 ]
 
-/** Device preferences: theme and sound. Progress-related settings live on the progress page itself. */
+/** Device preferences: theme and sound. Progress-related settings live on the settings page itself. */
 export function SettingsPanel() {
   const { prefs, update } = usePrefs()
   return (
-    <div className="space-y-4">
+    <div className="flex flex-col gap-4">
       <ChoiceGroup
         name={da.settings.theme}
         items={THEMES}
         value={prefs.theme}
         onChange={(theme) => update({ theme })}
       />
-      <label className="flex items-start gap-3 text-sm">
-        <input
-          type="checkbox"
-          checked={prefs.sound}
-          onChange={(e) => {
-            update({ sound: e.target.checked })
-            // A click is a user gesture, so this also unlocks audio on iOS.
-            if (e.target.checked) playSound('correct')
-          }}
-          className="mt-1"
-        />
-        <span>
-          <span className="font-medium">{da.settings.sound}</span>
-          <br />
-          <span className="text-wine-900/70">{da.settings.soundHelp}</span>
-        </span>
-      </label>
+      <Toggle
+        checked={prefs.sound}
+        onChange={(sound) => {
+          update({ sound })
+          // A click is a user gesture, so this also unlocks audio on iOS.
+          if (sound) playSound('correct')
+        }}
+        label={da.settings.sound}
+        help={da.settings.soundHelp}
+      />
     </div>
   )
 }

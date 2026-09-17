@@ -2,9 +2,11 @@ import { useRef, type KeyboardEvent } from 'react'
 
 interface ChoiceGroupProps<T extends string | number> {
   name: string
-  items: { id: T; label: string; disabled?: boolean }[]
+  items: { id: T; label: string; disabled?: boolean; hint?: string }[]
   value: T
   onChange: (value: T) => void
+  /** Pills in a soft track (default) or full-width cards. */
+  variant?: 'segmented' | 'cards'
 }
 
 /** Segmented single-choice control, thumb-friendly. Arrow keys move between options like native radios. */
@@ -13,6 +15,7 @@ export function ChoiceGroup<T extends string | number>({
   items,
   value,
   onChange,
+  variant = 'segmented',
 }: ChoiceGroupProps<T>) {
   const buttons = useRef<(HTMLButtonElement | null)[]>([])
 
@@ -45,14 +48,18 @@ export function ChoiceGroup<T extends string | number>({
     buttons.current[next]?.focus()
   }
 
+  const segmented = variant === 'segmented'
+
   return (
     <fieldset>
-      <legend className="text-wine-800 mb-2 text-sm font-semibold">{name}</legend>
+      <legend className="text-ink-2 mb-2 text-xs font-extrabold tracking-[0.08em] uppercase">
+        {name}
+      </legend>
       <div
         role="radiogroup"
         aria-label={name}
         onKeyDown={onKeyDown}
-        className="flex flex-wrap gap-2"
+        className={segmented ? 'bg-surface-2 flex rounded-full p-[3px]' : 'grid grid-cols-3 gap-2'}
       >
         {items.map((item, i) => {
           const active = item.id === value
@@ -68,13 +75,24 @@ export function ChoiceGroup<T extends string | number>({
               tabIndex={active ? 0 : -1}
               disabled={item.disabled}
               onClick={() => onChange(item.id)}
-              className={`flex-1 rounded-lg border px-3 py-3 text-base disabled:cursor-not-allowed disabled:opacity-40 ${
-                active
-                  ? 'border-wine-700 bg-wine-700 text-white'
-                  : 'border-wine-300 hover:border-wine-500 bg-white'
-              }`}
+              className={
+                segmented
+                  ? `min-h-11 flex-1 rounded-full px-3 text-sm disabled:cursor-not-allowed disabled:opacity-40 ${
+                      active
+                        ? 'bg-surface text-ink shadow-card font-extrabold'
+                        : 'text-ink-2 hover:text-ink font-bold'
+                    }`
+                  : `flex min-h-14 flex-col items-center justify-center rounded-2xl px-2 text-[15px] disabled:cursor-not-allowed disabled:opacity-40 ${
+                      active
+                        ? 'border-primary-ink bg-primary-soft text-primary-ink border-2 font-extrabold'
+                        : 'border-line bg-surface text-ink border-[1.5px] font-bold'
+                    }`
+              }
             >
               {item.label}
+              {item.hint && !segmented && (
+                <span className="text-ink-3 text-[11px] font-semibold">{item.hint}</span>
+              )}
             </button>
           )
         })}

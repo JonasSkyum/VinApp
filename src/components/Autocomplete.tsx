@@ -78,16 +78,16 @@ export function Autocomplete({ options, value, onChange, maxResults = 8 }: Autoc
           if (selected) onChange(null)
         }}
         onKeyDown={onKeyDown}
-        className="border-wine-300 focus:border-wine-600 w-full rounded-lg border bg-white px-3 py-3 text-base outline-none"
+        className="border-line bg-surface text-ink placeholder:text-ink-3 focus:border-primary-ink min-h-14 w-full rounded-2xl border-[1.5px] px-4 text-base font-semibold outline-none"
       />
       {needle.length > 0 && !selected && (
         <ul
           id={listId}
           role="listbox"
-          className="border-wine-200 divide-wine-100 divide-y rounded-lg border bg-white"
+          className="divide-line border-line bg-surface shadow-card divide-y overflow-hidden rounded-2xl border"
         >
           {matches.length === 0 && (
-            <li className="text-wine-900/70 px-3 py-2 text-sm">{da.autocomplete.noMatches}</li>
+            <li className="text-ink-2 px-4 py-3 text-sm">{da.autocomplete.noMatches}</li>
           )}
           {matches.map((option, i) => (
             <li
@@ -95,14 +95,14 @@ export function Autocomplete({ options, value, onChange, maxResults = 8 }: Autoc
               id={optionId(i)}
               role="option"
               aria-selected={i === activeIndex}
-              className={i === activeIndex ? 'bg-wine-100' : ''}
+              className={i === activeIndex ? 'bg-primary-soft' : ''}
             >
               <button
                 type="button"
                 tabIndex={-1}
                 onClick={() => choose(option)}
                 onMouseEnter={() => setActive(i)}
-                className="hover:bg-wine-50 w-full px-3 py-2 text-left"
+                className="hover:bg-surface-2 min-h-12 w-full px-4 text-left font-bold"
               >
                 {option.label}
               </button>

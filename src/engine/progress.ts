@@ -132,3 +132,42 @@ export function levelProgress(xp: number): LevelProgress {
   const next = xpForLevel(level + 1)
   return { level, xp, current: xp - floor, needed: next - floor }
 }
+
+export interface TierAccuracy {
+  tier: Tier | 'map'
+  correct: number
+  total: number
+  /** 0–100 */
+  percent: number
+}
+
+/** Share of correct answers per tier that has any records, in tier order with 'map' last. */
+export function accuracyByTier(log: readonly AnswerRecord[]): TierAccuracy[] {
+  const byTier = new Map<Tier | 'map', TierAccuracy>()
+  for (const r of log) {
+    const t = byTier.get(r.tier) ?? { tier: r.tier, correct: 0, total: 0, percent: 0 }
+    t.total++
+    if (r.correct) t.correct++
+    t.percent = Math.round((100 * t.correct) / t.total)
+    byTier.set(r.tier, t)
+  }
+  const order = (t: Tier | 'map') => (t === 'map' ? 99 : t)
+  return [...byTier.values()].sort((a, b) => order(a.tier) - order(b.tier))
+}
+
+/** Longest run of consecutive days with at least one answer. */
+export function longestStreak(log: readonly AnswerRecord[]): number {
+  const days = [...new Set(log.map((r) => dayIndex(r.timestamp)))].sort((a, b) => a - b)
+  let best = 0
+  let run = 0
+  for (let i = 0; i < days.length; i++) {
+    run = i > 0 && days[i] === days[i - 1]! + 1 ? run + 1 : 1
+    best = Math.max(best, run)
+  }
+  return best
+}
+
+/** Number of tasting rounds recorded (one style record per round). */
+export function roundsPlayed(log: readonly AnswerRecord[]): number {
+  return log.filter((r) => r.kind === 'style').length
+}

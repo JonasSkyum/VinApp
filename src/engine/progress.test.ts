@@ -1,5 +1,8 @@
 import {
+  accuracyByTier,
   confusionMatrix,
+  longestStreak,
+  roundsPlayed,
   dayIndex,
   levelForXp,
   levelProgress,
@@ -117,5 +120,48 @@ describe('unlockStatus', () => {
     const status = unlockStatus([], false)
     expect(status.advanced.unlocked).toBe(true)
     expect(status.expert.unlocked).toBe(true)
+  })
+})
+
+describe('accuracyByTier', () => {
+  it('groups by tier in order with map last', () => {
+    const log = [
+      rec({ tier: 5, correct: true }),
+      rec({ tier: 3, correct: true }),
+      rec({ tier: 3 }),
+      rec({ tier: 'map', kind: 'map-location', correct: true }),
+    ]
+    expect(accuracyByTier(log)).toEqual([
+      { tier: 3, correct: 1, total: 2, percent: 50 },
+      { tier: 5, correct: 1, total: 1, percent: 100 },
+      { tier: 'map', correct: 1, total: 1, percent: 100 },
+    ])
+  })
+
+  it('is empty for an empty log', () => {
+    expect(accuracyByTier([])).toEqual([])
+  })
+})
+
+describe('longestStreak', () => {
+  it('finds the longest run of consecutive days', () => {
+    const log = [
+      rec({ timestamp: NOW }),
+      rec({ timestamp: NOW - DAY }),
+      rec({ timestamp: NOW - DAY }), // same day twice
+      rec({ timestamp: NOW - 4 * DAY }),
+      rec({ timestamp: NOW - 5 * DAY }),
+      rec({ timestamp: NOW - 6 * DAY }),
+    ]
+    expect(longestStreak(log)).toBe(3)
+    expect(longestStreak([])).toBe(0)
+  })
+})
+
+describe('roundsPlayed', () => {
+  it('counts style records', () => {
+    expect(
+      roundsPlayed([rec({ kind: 'style', tier: 6 }), rec({ kind: 'style', tier: 6 }), rec({})]),
+    ).toBe(2)
   })
 })

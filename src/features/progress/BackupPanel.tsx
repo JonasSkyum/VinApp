@@ -1,4 +1,7 @@
 import { useRef, useState } from 'react'
+import { Button } from '@/components/ui/Button'
+import { Card, Heading } from '@/components/ui/Card'
+import { Icon } from '@/components/ui/Icon'
 import { da } from '@/i18n/da'
 import { useProgress } from './progressContext'
 import { exportProgress, importProgress } from './progressStore'
@@ -42,18 +45,23 @@ export function BackupPanel() {
   }
 
   return (
-    <section className="space-y-3">
-      <h2 className="text-wine-800 text-lg font-semibold">{da.progress.backup}</h2>
+    <Card as="section" aria-labelledby="backup-title" className="flex flex-col gap-3">
+      <Heading id="backup-title" size="md">
+        {da.progress.backup}
+      </Heading>
       <div className="flex flex-wrap gap-2">
-        <button type="button" onClick={download} className={buttonClass}>
+        <Button variant="secondary" size="md" onClick={download}>
+          <Icon name="download" size={16} strokeWidth={2.2} />
           {da.progress.exportButton}
-        </button>
-        <button type="button" onClick={copy} className={buttonClass}>
+        </Button>
+        <Button variant="secondary" size="md" onClick={copy}>
+          <Icon name="copy" size={16} strokeWidth={2.2} />
           {da.progress.copyButton}
-        </button>
-        <button type="button" onClick={() => fileInput.current?.click()} className={buttonClass}>
+        </Button>
+        <Button variant="secondary" size="md" onClick={() => fileInput.current?.click()}>
+          <Icon name="upload" size={16} strokeWidth={2.2} />
           {da.progress.importButton}
-        </button>
+        </Button>
         <input
           ref={fileInput}
           type="file"
@@ -69,47 +77,41 @@ export function BackupPanel() {
       {notice && (
         <p
           role="status"
-          className={`text-sm ${notice.kind === 'ok' ? 'text-green-800' : 'text-red-800'}`}
+          className={`text-sm font-bold ${notice.kind === 'ok' ? 'text-ok' : 'text-wrong'}`}
         >
           {notice.text}
         </p>
       )}
 
       {confirmReset ? (
-        <div className="rounded-lg border border-red-200 bg-red-50 p-3 text-sm text-red-900">
-          <p className="mb-2">{da.progress.resetConfirm}</p>
+        <div className="bg-wrong-soft text-wrong flex flex-col gap-2 rounded-2xl p-3 text-sm">
+          <p className="font-bold">{da.progress.resetConfirm}</p>
           <div className="flex gap-2">
-            <button
-              type="button"
+            <Button
+              variant="danger"
+              size="md"
               onClick={() => {
                 reset()
                 setConfirmReset(false)
               }}
-              className="rounded-lg bg-red-700 px-3 py-2 font-semibold text-white"
             >
               {da.progress.resetYes}
-            </button>
-            <button
-              type="button"
-              onClick={() => setConfirmReset(false)}
-              className="rounded-lg border border-red-300 px-3 py-2"
-            >
+            </Button>
+            <Button variant="secondary" size="md" onClick={() => setConfirmReset(false)}>
               {da.progress.resetNo}
-            </button>
+            </Button>
           </div>
         </div>
       ) : (
         <button
           type="button"
           onClick={() => setConfirmReset(true)}
-          className="text-sm text-red-700 underline"
+          className="text-wrong flex items-center gap-1.5 self-start text-sm font-bold underline underline-offset-2"
         >
+          <Icon name="trash" size={14} strokeWidth={2.2} />
           {da.progress.resetButton}
         </button>
       )}
-    </section>
+    </Card>
   )
 }
-
-const buttonClass =
-  'border-wine-300 text-wine-800 hover:bg-wine-100 rounded-lg border bg-white px-3 py-2 text-sm'

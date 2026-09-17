@@ -21,8 +21,8 @@ export default defineConfig({
         start_url: '/VinApp/',
         scope: '/VinApp/',
         display: 'standalone',
-        background_color: '#fdf2f4',
-        theme_color: '#8a183c',
+        background_color: '#f7f1e8',
+        theme_color: '#7a1f3d',
         icons: [
           { src: 'pwa-192x192.png', sizes: '192x192', type: 'image/png' },
           { src: 'pwa-512x512.png', sizes: '512x512', type: 'image/png' },

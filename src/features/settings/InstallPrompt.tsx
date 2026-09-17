@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react'
+import { Icon } from '@/components/ui/Icon'
 import { da } from '@/i18n/da'
 import { usePrefs } from './prefsContext'
 
@@ -65,18 +66,19 @@ export function InstallPrompt() {
     <div
       role="region"
       aria-label={da.install.title}
-      className="border-wine-200 bg-wine-100 fixed inset-x-4 bottom-20 z-10 mx-auto flex max-w-4xl flex-wrap items-center gap-3 rounded-xl border p-3 text-sm shadow-lg md:bottom-4"
+      className="bg-ink text-canvas shadow-float fixed inset-x-4 bottom-24 z-10 mx-auto flex max-w-[1100px] flex-wrap items-center gap-3 rounded-2xl px-4 py-3 text-sm md:bottom-4"
     >
+      <Icon name="download" size={20} strokeWidth={2.2} className="text-primary-ink shrink-0" />
       <div className="min-w-0 flex-1">
-        <p className="text-wine-800 font-semibold">{da.install.title}</p>
-        <p className="text-wine-900/80">{deferred ? da.install.help : da.install.iosHelp}</p>
+        <p className="font-extrabold">{da.install.title}</p>
+        <p className="text-canvas/80">{deferred ? da.install.help : da.install.iosHelp}</p>
       </div>
       <div className="flex gap-2">
         {deferred && (
           <button
             type="button"
             onClick={install}
-            className="bg-wine-700 hover:bg-wine-800 rounded-lg px-3 py-2 font-semibold text-white"
+            className="bg-paper text-bordeaux min-h-11 rounded-full px-4 font-extrabold"
           >
             {da.install.button}
           </button>
@@ -84,7 +86,7 @@ export function InstallPrompt() {
         <button
           type="button"
           onClick={dismiss}
-          className="border-wine-300 text-wine-800 hover:bg-wine-50 rounded-lg border px-3 py-2"
+          className="text-primary-ink min-h-11 px-3 font-extrabold"
         >
           {da.install.later}
         </button>

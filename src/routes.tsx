@@ -10,6 +10,7 @@ import { LexiconPage } from '@/features/lexicon/LexiconPage'
 import { RegionPage } from '@/features/lexicon/RegionPage'
 import { StylePage } from '@/features/lexicon/StylePage'
 import { ProgressPage } from '@/features/progress/ProgressPage'
+import { SettingsPage } from '@/features/settings/SettingsPage'
 
 export function AppRoutes() {
   return (
@@ -24,6 +25,7 @@ export function AppRoutes() {
         <Route path="lexicon/regions/:id" element={<RegionPage />} />
         <Route path="lexicon/styles/:id" element={<StylePage />} />
         <Route path="progress" element={<ProgressPage />} />
+        <Route path="settings" element={<SettingsPage />} />
         <Route path="*" element={<NotFoundPage />} />
       </Route>
     </Routes>
