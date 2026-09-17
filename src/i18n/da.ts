@@ -339,7 +339,7 @@ export const da = {
     aliases: 'Også kendt som',
     origin: 'Oprindelse',
     typicalProfile: 'Typisk profil',
-    story: 'Om druen',
+    story: { grape: 'Om druen', region: 'Om regionen', style: 'Om stilen' },
     keyAromas: 'Nøglearomaer',
     stylesWithGrape: 'Stilarter med {name}',
     noStyles: 'Ingen stilarter endnu.',

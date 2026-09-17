@@ -28,6 +28,12 @@ export const verifiableSchema = z.object({
   note: z.string().optional(),
 })
 
+/**
+ * Short, user-facing background text in Danish, one entry per paragraph.
+ * Facts only; anything uncertain belongs in `note` instead.
+ */
+export const storySchema = z.array(z.string().min(1)).optional()
+
 export const grapeColorSchema = z.enum(['red', 'white'])
 export type GrapeColor = z.infer<typeof grapeColorSchema>
 

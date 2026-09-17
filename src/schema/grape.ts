@@ -1,5 +1,5 @@
 import { z } from 'zod'
-import { grapeColorSchema, idSchema, verifiableSchema } from './common'
+import { grapeColorSchema, idSchema, storySchema, verifiableSchema } from './common'
 import { structureSchema } from './profile'
 
 export const grapeSchema = verifiableSchema.extend({
@@ -15,11 +15,8 @@ export const grapeSchema = verifiableSchema.extend({
   typicalProfile: structureSchema,
   /** Descriptor ids most often associated with the grape. */
   keyDescriptors: z.array(idSchema),
-  /**
-   * Short, user-facing background on the grape (origin, history, where it shines), in Danish.
-   * One entry per paragraph. Facts only; anything uncertain belongs in `notes` instead.
-   */
-  story: z.array(z.string().min(1)).optional(),
+  /** Origin, history and where the grape shines. */
+  story: storySchema,
   notes: z.string().optional(),
 })
 export type Grape = z.infer<typeof grapeSchema>

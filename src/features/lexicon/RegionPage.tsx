@@ -15,6 +15,7 @@ import {
   GrapeLinks,
   NotFound,
   Section,
+  StoryCard,
   StyleList,
 } from './shared'
 
@@ -82,6 +83,8 @@ export function RegionPage({ catalog = defaultCatalog }: { catalog?: Catalog }) 
           </dl>
         )}
       </Card>
+
+      <StoryCard title={da.lexicon.story.region} story={region.story} />
 
       {children.length > 0 && (
         <Section title={da.lexicon.subregions}>

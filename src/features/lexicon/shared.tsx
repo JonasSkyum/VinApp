@@ -76,6 +76,21 @@ export function EntryHeader({
   )
 }
 
+/** "Om druen/regionen/stilen": the entry's background text, one <p> per paragraph. */
+export function StoryCard({ title, story }: { title: string; story: string[] | undefined }) {
+  if (!story || story.length === 0) return null
+  return (
+    <Card as="section" aria-label={title} className="flex flex-col gap-3">
+      <Heading size="md">{title}</Heading>
+      <div className="text-ink flex flex-col gap-2.5 text-[15px] leading-relaxed">
+        {story.map((paragraph, i) => (
+          <p key={i}>{paragraph}</p>
+        ))}
+      </div>
+    </Card>
+  )
+}
+
 export function Section({ title, children }: { title: string; children: ReactNode }) {
   return (
     <section className="flex flex-col gap-2.5">

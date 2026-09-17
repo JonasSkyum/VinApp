@@ -15,7 +15,7 @@ import { APPEARANCE_HEX, STYLE_COLOR_HEX } from '@/lib/palette'
 import { interpolate, joinList } from '@/lib/text'
 import { structureKeys, type Style, type StructureKey } from '@/schema'
 import { entryPath } from './search'
-import { Breadcrumb, Chip, EntryHeader, NotFound } from './shared'
+import { Breadcrumb, Chip, EntryHeader, NotFound, StoryCard } from './shared'
 
 const NEIGHBOUR_COUNT = 3
 const PROFILE_KEYS: StructureKey[] = ['sweetness', 'acidity', 'tannin', 'alcohol', 'body', 'finish']
@@ -72,6 +72,8 @@ export function StylePage({ catalog = defaultCatalog }: { catalog?: Catalog }) {
         note={style.note}
         sources={style.sources}
       />
+
+      <StoryCard title={da.lexicon.story.style} story={style.story} />
 
       <Card
         as="section"

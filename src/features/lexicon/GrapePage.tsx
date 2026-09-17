@@ -9,7 +9,7 @@ import { STYLE_COLOR_HEX } from '@/lib/palette'
 import { interpolate } from '@/lib/text'
 import { structureKeys } from '@/schema'
 import { entryPath } from './search'
-import { Chip, EntryHeader, Fact, NotFound, Section, StyleList } from './shared'
+import { Chip, EntryHeader, Fact, NotFound, Section, StoryCard, StyleList } from './shared'
 
 export function GrapePage({ catalog = defaultCatalog }: { catalog?: Catalog }) {
   const { id = '' } = useParams()
@@ -53,16 +53,7 @@ export function GrapePage({ catalog = defaultCatalog }: { catalog?: Catalog }) {
         )}
       </Card>
 
-      {grape.story && grape.story.length > 0 && (
-        <Card as="section" aria-label={da.lexicon.story} className="flex flex-col gap-3">
-          <Heading size="md">{da.lexicon.story}</Heading>
-          <div className="text-ink flex flex-col gap-2.5 text-[15px] leading-relaxed">
-            {grape.story.map((paragraph, i) => (
-              <p key={i}>{paragraph}</p>
-            ))}
-          </div>
-        </Card>
-      )}
+      <StoryCard title={da.lexicon.story.grape} story={grape.story} />
 
       <Card
         as="section"

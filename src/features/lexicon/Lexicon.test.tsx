@@ -57,7 +57,7 @@ describe('GrapePage', () => {
       '/lexicon/regions/france',
     )
     expect(screen.getByRole('img', { name: /^Syre: / })).toBeInTheDocument()
-    const story = screen.getByRole('region', { name: da.lexicon.story })
+    const story = screen.getByRole('region', { name: da.lexicon.story.grape })
     expect(within(story).getAllByRole('paragraph')).toHaveLength(3)
     expect(within(story).getByText(/Dureza og Mondeuse Blanche/)).toBeInTheDocument()
     expect(screen.getByRole('link', { name: /Barossa Shiraz/ })).toHaveAttribute(
@@ -90,6 +90,8 @@ describe('RegionPage', () => {
       '/lexicon/regions/chablis',
     )
     expect(screen.getByRole('link', { name: /Bourgogne Rouge/ })).toBeInTheDocument()
+    const story = screen.getByRole('region', { name: da.lexicon.story.region })
+    expect(within(story).getAllByRole('paragraph').length).toBeGreaterThan(0)
   })
 })
 
@@ -103,6 +105,7 @@ describe('StylePage', () => {
       '/lexicon/grapes/nebbiolo',
     )
     expect(screen.getByRole('heading', { name: da.lexicon.confusedWith })).toBeInTheDocument()
+    expect(screen.getByRole('region', { name: da.lexicon.story.style })).toBeInTheDocument()
     const tabs = screen.getAllByRole('tab')
     expect(tabs).toHaveLength(3)
     expect(tabs[0]).toHaveAttribute('aria-selected', 'true')

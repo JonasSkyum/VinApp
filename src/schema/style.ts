@@ -1,5 +1,5 @@
 import { z } from 'zod'
-import { difficultySchema, idSchema, verifiableSchema } from './common'
+import { difficultySchema, idSchema, storySchema, verifiableSchema } from './common'
 import { profileSchema } from './profile'
 
 export const styleColorSchema = z.enum(['red', 'white', 'rosé', 'sparkling', 'sweet', 'fortified'])
@@ -21,5 +21,7 @@ export const styleSchema = verifiableSchema.extend({
   descriptorIds: z.array(idSchema).min(3).max(8),
   oak: oakSchema,
   difficulty: difficultySchema,
+  /** How the style came about and what makes it recognisable. */
+  story: storySchema,
 })
 export type Style = z.infer<typeof styleSchema>

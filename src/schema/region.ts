@@ -1,5 +1,12 @@
 import { z } from 'zod'
-import { climateSchema, difficultySchema, idSchema, verifiableSchema, worldSchema } from './common'
+import {
+  climateSchema,
+  difficultySchema,
+  idSchema,
+  storySchema,
+  verifiableSchema,
+  worldSchema,
+} from './common'
 
 export const regionTypeSchema = z.enum(['country', 'region', 'subregion', 'appellation'])
 export type RegionType = z.infer<typeof regionTypeSchema>
@@ -22,5 +29,7 @@ export const regionSchema = verifiableSchema.extend({
   /** Feature id in src/content/geo/*.json, when a polygon exists. */
   geoId: z.string().optional(),
   difficulty: difficultySchema,
+  /** History, terroir and what the region is known for. */
+  story: storySchema,
 })
 export type Region = z.infer<typeof regionSchema>
