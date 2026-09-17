@@ -200,11 +200,11 @@ Besluttet 2026-09-17 efter en gennemgang af appen. Rækkefølgen er valgt efter,
 ---
 
 ## Fase 11 — Udvidelser (backlog, prioriteres senere)
-- [ ] Flere stilarter: mousserende (Champagne, Cava, Prosecco), søde (Sauternes, Tokaji), hedvin (Port, Sherry), rosé
-- [ ] Årgang/alder som trin 7 (primære → tertiære aromaer, farveudvikling)
-- [ ] Producenter/vinhuse på kortet (Ekspert+)
-- [ ] Progressive ledetråde som alternativ tilstand (bag et feature-flag, så det kan testes)
-- [ ] **"Rigtig flaske"-tilstand:** brugeren udfylder smageskemaet for en vin, han faktisk smager, appen rangerer kandidater, og ejeren af flasken afslører svaret. God til vinaftener
+- [x] Flere stilarter: mousserende (Champagne Brut, Cava, Prosecco Superiore), søde (Sauternes, Tokaji Aszú, Moscato d'Asti), hedvin (Port LBV, Fino Sherry), rosé (Provence, Tavel). Vintype-filteret er nu Rød / Hvid / Andre / Alle. 👤 De 9 nye stilarter, 7 druer og 8 regioner er `verified: false` med kilder i `sources`
+- [ ] Årgang/alder som trin 7 (primære → tertiære aromaer, farveudvikling). Kræver en beslutning om datamodel: aldersintervaller pr. style og tertiære aromaer pr. drue
+- [ ] Producenter/vinhuse på kortet (Ekspert+). Kræver producentdata, som ikke kan verificeres mod åbne kilder på samme måde som stilarter
+- [ ] Progressive ledetråde som alternativ tilstand (bag et feature-flag, så det kan testes). Forslag: udseende → næse → gane afsløres trinvis, og point falder pr. ledetråd
+- [x] **"Rigtig flaske"-tilstand** (`/bottle`, link fra blindsmagningens startskærm): brugeren udfylder smagekortet, appen rangerer de 5 nærmeste stilarter på tværs af hele kataloget, og den, der kender flasken, afslører svaret og får forklaringen
 - [ ] Multiplayer-vinaften: én vært og flere telefoner, der gætter samme case (Supabase Realtime)
 - [ ] Jord og geologi, klassifikationer (Grand Cru, DOCG, Prädikat) som quiztemaer
 - [ ] Indholdseditor i appen for admin (i stedet for at redigere TS-filer)
