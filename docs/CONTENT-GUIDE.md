@@ -9,7 +9,7 @@ efter ændringer — og `npm test`, som kører samme validering.
 | Fil | Indhold |
 |---|---|
 | `descriptors.ts` | Kontrolleret aromaordforråd (id på engelsk, `name` på dansk) |
-| `grapes.ts` | Druer med typisk profil og nøglearomaer |
+| `grapes.ts` | Druer med typisk profil, nøglearomaer og en kort historie (`story`) |
 | `regions.ts` | Lande, regioner, subregioner og appellationer i et hierarki (`parentId`) |
 | `styles.ts` | Klassiske stilarter = drue × region med fuld smagsprofil |
 | `validate.ts` | Valideringslogik (ren funktion), bruges af script og tests |
@@ -76,6 +76,15 @@ s({
    eller om aromaerne bør adskille dem tydeligere.
 4. Nyt indhold er altid `verified: false` (helperen sætter det). Find ikke på værdier — er du i tvivl,
    skriv en `note`.
+
+## Druehistorier (`story`)
+
+Hver drue kan have en kort, brugervendt historie i `story`: et array med ét afsnit pr. element,
+skrevet på **dansk** (den vises i leksikonet under "Om druen"). Hold dig til bredt dokumenterede
+fakta: oprindelse, afstamning fra DNA-studier, klassiske hjemregioner og kendte historiske
+begivenheder. Formulér usikre punkter forsigtigt ("nævnes ofte", "ifølge traditionen"), og læg
+udviklernoter i `notes` (engelsk), ikke i historien. Historien gennemgås sammen med resten af
+druen, når `verified` sættes til `true`.
 
 ## Regler, som validatoren håndhæver
 

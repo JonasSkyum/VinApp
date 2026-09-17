@@ -53,6 +53,17 @@ export function GrapePage({ catalog = defaultCatalog }: { catalog?: Catalog }) {
         )}
       </Card>
 
+      {grape.story && grape.story.length > 0 && (
+        <Card as="section" aria-label={da.lexicon.story} className="flex flex-col gap-3">
+          <Heading size="md">{da.lexicon.story}</Heading>
+          <div className="text-ink flex flex-col gap-2.5 text-[15px] leading-relaxed">
+            {grape.story.map((paragraph, i) => (
+              <p key={i}>{paragraph}</p>
+            ))}
+          </div>
+        </Card>
+      )}
+
       <Card
         as="section"
         aria-label={da.lexicon.typicalProfile}

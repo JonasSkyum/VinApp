@@ -15,6 +15,11 @@ export const grapeSchema = verifiableSchema.extend({
   typicalProfile: structureSchema,
   /** Descriptor ids most often associated with the grape. */
   keyDescriptors: z.array(idSchema),
+  /**
+   * Short, user-facing background on the grape (origin, history, where it shines), in Danish.
+   * One entry per paragraph. Facts only; anything uncertain belongs in `notes` instead.
+   */
+  story: z.array(z.string().min(1)).optional(),
   notes: z.string().optional(),
 })
 export type Grape = z.infer<typeof grapeSchema>

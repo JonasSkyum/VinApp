@@ -57,6 +57,9 @@ describe('GrapePage', () => {
       '/lexicon/regions/france',
     )
     expect(screen.getByRole('img', { name: /^Syre: / })).toBeInTheDocument()
+    const story = screen.getByRole('region', { name: da.lexicon.story })
+    expect(within(story).getAllByRole('paragraph')).toHaveLength(3)
+    expect(within(story).getByText(/Dureza og Mondeuse Blanche/)).toBeInTheDocument()
     expect(screen.getByRole('link', { name: /Barossa Shiraz/ })).toHaveAttribute(
       'href',
       '/lexicon/styles/barossa-shiraz',
