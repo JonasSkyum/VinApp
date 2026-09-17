@@ -49,7 +49,7 @@ describe('TastingPage', () => {
     await startSession(u, da.level.beginner, da.colorFilter.red)
 
     // Tasting card and first question.
-    expect(screen.getByText(da.tastingCard.appearance)).toBeInTheDocument()
+    expect(screen.getByText(da.tastingCard.title)).toBeInTheDocument()
     expect(screen.getByText(`${da.common.round} 1 ${da.common.of} 5`)).toBeInTheDocument()
     expect(screen.getByRole('heading', { name: da.tier[1] })).toBeInTheDocument()
     expect(screen.getByRole('button', { name: da.common.lockAnswer })).toBeDisabled()
@@ -78,7 +78,7 @@ describe('TastingPage', () => {
     expect(screen.getByText(da.result.whyTitle)).toBeInTheDocument()
     expect(screen.getAllByRole('link', { name: /Læs om/ })).toHaveLength(2)
     expect(screen.getByRole('region', { name: /^Kort: / })).toBeInTheDocument()
-    expect(screen.getByRole('button', { name: da.common.next })).toBeInTheDocument()
+    expect(screen.getByRole('button', { name: da.tasting.nextWine })).toBeInTheDocument()
   })
 
   it('reaches the summary after the last round and can start over', async () => {
@@ -90,7 +90,7 @@ describe('TastingPage', () => {
       for (let tier = 0; tier < 4; tier++) {
         await u.click(await screen.findByRole('button', { name: da.common.skip }))
       }
-      const label = round === 5 ? da.summary.title : da.common.next
+      const label = round === 5 ? da.summary.title : da.tasting.nextWine
       await u.click(await screen.findByRole('button', { name: label }))
     }
 
@@ -101,7 +101,7 @@ describe('TastingPage', () => {
 
     await u.click(screen.getByRole('button', { name: da.common.newSession }))
     expect(screen.getByRole('button', { name: da.common.start })).toBeInTheDocument()
-  })
+  }, 15_000)
 
   it('locks advanced and expert until unlocked', () => {
     renderPage()

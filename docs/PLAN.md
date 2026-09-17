@@ -181,6 +181,7 @@ Mål: Al logik til blindsmagning uden UI.
 - [x] Lighthouse: Performance og PWA ≥ 90 (Performance 97, Accessibility 100, Best practices 100; Lighthouse 13 har ikke længere en PWA-kategori, så installérbarhed tjekkes manuelt)
 - [x] Onboarding: 3 skærme, der forklarer skalaerne og deduktionsmetoden
 - [ ] ✅ Tjek: appen kan installeres og spilles offline
+- [x] Designsystem v0.1 (pergament/bordeaux, Fraunces + Manrope, semantiske tokens i `src/index.css`) og nyt frontend-lag: hjem, blindsmagning (mobil + desktop), resultat, daglig, kortquiz, leksikon, fremskridt, indstillinger
 
 ---
 

@@ -23,6 +23,8 @@ export interface WineMapProps {
   /** Fit the view to these bounds whenever they change. */
   bounds?: Bounds | null
   interactive?: boolean
+  /** Show zoom in/out and recentre buttons on the map. */
+  controls?: boolean
   onClick?: (lngLat: LngLat, insideGeoId: string | null) => void
   className?: string
   /** Accessible name for the map region. */

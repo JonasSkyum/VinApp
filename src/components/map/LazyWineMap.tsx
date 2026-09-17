@@ -12,7 +12,7 @@ export function LazyWineMap(props: WineMapProps) {
           role="region"
           aria-label={props.label}
           aria-busy="true"
-          className={`bg-wine-100 animate-pulse rounded-xl ${props.className ?? ''}`}
+          className={`bg-map-sea animate-pulse rounded-xl ${props.className ?? ''}`}
         />
       }
     >

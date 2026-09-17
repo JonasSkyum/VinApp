@@ -43,11 +43,12 @@ describe('MapQuizPage', () => {
     await u.click(screen.getByRole('radio', { name: '5' }))
     await u.click(screen.getByRole('button', { name: da.common.start }))
 
-    expect(screen.getByText(`${da.mapQuiz.question} 1/5 · ${da.mapQuiz.time} 0:00`)).toBeTruthy()
+    expect(screen.getByText('1/5')).toBeInTheDocument()
+    expect(screen.getByLabelText('Tid: 0:00')).toBeInTheDocument()
     const map = screen.getByRole('region', { name: da.mapQuiz.mapLabel })
 
     for (let i = 0; i < 5; i++) {
-      const prompt = screen.getByText(/^Klik på /).textContent!
+      const prompt = screen.getByText(/^Klik på/).textContent!
       const targetId = regionIdByName(prompt.replace('Klik på ', ''))
       if (i === 0) {
         await u.click(within(map).getByTestId(`point-${targetId}`))
@@ -58,7 +59,7 @@ describe('MapQuizPage', () => {
         await u.click(within(map).getByTestId('point-nowhere'))
         expect(await screen.findByRole('status')).toHaveTextContent(/Forkert/)
       }
-      const label = i === 4 ? da.mapQuiz.summary.title : da.common.next
+      const label = i === 4 ? da.mapQuiz.summary.title : da.mapQuiz.nextRegion
       await u.click(screen.getByRole('button', { name: label }))
     }
 
@@ -87,7 +88,7 @@ describe('MapQuizPage', () => {
     expect(await screen.findByRole('status')).toHaveTextContent(/Rigtigt! Det var/)
     expect(map.getAttribute('data-highlight')).toBe('')
 
-    await u.click(screen.getByRole('button', { name: da.common.next }))
+    await u.click(screen.getByRole('button', { name: da.mapQuiz.nextRegion }))
     await u.click(screen.getByRole('button', { name: da.common.skip }))
     expect(await screen.findByRole('status')).toHaveTextContent(/Sprunget over/)
   })
@@ -105,7 +106,7 @@ describe('MapQuizPage', () => {
     const map = screen.getByRole('region', { name: da.mapQuiz.mapLabel })
     await u.click(within(map).getByTestId('point-nowhere'))
     expect(await screen.findByRole('status')).toHaveTextContent(/Forkert/)
-    expect(screen.getByText(new RegExp(`${da.mapQuiz.time} ${formatSeconds(65)}`))).toBeTruthy()
+    expect(screen.getByLabelText(`Tid: ${formatSeconds(65)}`)).toBeInTheDocument()
   })
 })
 

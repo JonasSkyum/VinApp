@@ -53,8 +53,12 @@ describe('progress', () => {
     renderAt('/progress', storage)
     expect(screen.getByRole('heading', { name: /Niveau 1/ })).toBeInTheDocument()
     expect(screen.getByText(/1 dage/)).toBeInTheDocument() // streak
-    expect(screen.getByRole('heading', { name: da.progress.grapes })).toBeInTheDocument()
-    expect(screen.getByRole('heading', { name: da.progress.regions })).toBeInTheDocument()
+    expect(screen.getByRole('tab', { name: da.progress.grapes })).toHaveAttribute(
+      'aria-selected',
+      'true',
+    )
+    expect(screen.getAllByText(/Boks 1/).length).toBeGreaterThan(0)
+    await u.click(screen.getByRole('tab', { name: da.progress.regions }))
     expect(screen.getAllByText(/Boks 1/).length).toBeGreaterThan(0)
   })
 
@@ -101,8 +105,7 @@ describe('progress', () => {
   it('imports an exported file and can reset with confirmation', async () => {
     const u = user()
     const storage = memoryStorage()
-    renderAt('/progress', storage)
-    expect(screen.getByText(da.progress.noData)).toBeInTheDocument()
+    const settings = renderAt('/settings', storage)
 
     const data: ProgressData = {
       log: [
@@ -123,9 +126,15 @@ describe('progress', () => {
     const file = new File([exportProgress(data)], 'backup.json', { type: 'application/json' })
     await u.upload(screen.getByLabelText(da.progress.importButton), file)
     expect(await screen.findByRole('status')).toHaveTextContent(da.progress.importSuccess)
-    expect(screen.getByRole('heading', { name: /Niveau 2/ })).toBeInTheDocument()
     expect(screen.getByRole('checkbox', { name: /Lås niveauer/ })).not.toBeChecked()
     expect(JSON.parse(storage.getItem(PROGRESS_KEY)!).data.settings.unlockingEnabled).toBe(false)
+
+    // The imported round shows up on the progress page.
+    settings.unmount()
+    const progress = renderAt('/progress', storage)
+    expect(screen.getByRole('heading', { name: /Niveau 2/ })).toBeInTheDocument()
+    progress.unmount()
+    renderAt('/settings', storage)
 
     const bad = new File(['{"nope":true}'], 'bad.json', { type: 'application/json' })
     await u.upload(screen.getByLabelText(da.progress.importButton), bad)
@@ -133,18 +142,19 @@ describe('progress', () => {
 
     await u.click(screen.getByRole('button', { name: da.progress.resetButton }))
     await u.click(screen.getByRole('button', { name: da.progress.resetNo }))
-    expect(screen.getByRole('heading', { name: /Niveau 2/ })).toBeInTheDocument()
+    expect(JSON.parse(storage.getItem(PROGRESS_KEY)!).data.log).toHaveLength(1)
     await u.click(screen.getByRole('button', { name: da.progress.resetButton }))
     await u.click(screen.getByRole('button', { name: da.progress.resetYes }))
-    expect(screen.getByRole('heading', { name: /Niveau 1/ })).toBeInTheDocument()
-    expect(screen.getByText(da.progress.noData)).toBeInTheDocument()
     expect(JSON.parse(storage.getItem(PROGRESS_KEY)!).data.log).toEqual([])
+    await u.click(screen.getAllByRole('link', { name: da.nav.progress })[0]!)
+    expect(await screen.findByRole('heading', { name: /Niveau 1/ })).toBeInTheDocument()
+    expect(screen.getByText(da.progress.noData)).toBeInTheDocument()
   })
 
   it('toggles unlocking', async () => {
     const u = user()
     const storage = memoryStorage()
-    renderAt('/progress', storage)
+    renderAt('/settings', storage)
     await u.click(screen.getByRole('checkbox', { name: /Lås niveauer/ }))
     expect(JSON.parse(storage.getItem(PROGRESS_KEY)!).data.settings.unlockingEnabled).toBe(false)
   })

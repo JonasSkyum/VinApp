@@ -1,5 +1,8 @@
 import { useState } from 'react'
 import { ChoiceGroup } from '@/components/ChoiceGroup'
+import { Button } from '@/components/ui/Button'
+import { Card } from '@/components/ui/Card'
+import { Icon } from '@/components/ui/Icon'
 import type { ColorFilter, Difficulty, SessionOptions, UnlockStatus } from '@/engine'
 import { da } from '@/i18n/da'
 import { interpolate } from '@/lib/text'
@@ -39,62 +42,61 @@ export function SetupScreen({
 
   return (
     <form
-      className="space-y-6"
+      className="flex flex-col gap-4"
       onSubmit={(e) => {
         e.preventDefault()
         onStart(options)
       }}
     >
-      <div>
-        <ChoiceGroup
-          name={da.level.labelName}
-          items={LEVELS.map((d) => ({
-            id: d,
-            label: unlocks[d].unlocked ? da.level[d] : `${da.level[d]} 🔒`,
-            disabled: !unlocks[d].unlocked,
-          }))}
-          value={options.difficulty}
-          onChange={(difficulty) => setOptions({ ...options, difficulty })}
-        />
-        <ul className="text-wine-900/70 mt-1 text-xs">
-          {LEVELS.map((d) => {
-            const hint = lockedHint(d)
-            return hint ? (
-              <li key={d}>
-                {da.level[d]}: {hint}
-              </li>
-            ) : null
-          })}
-        </ul>
-      </div>
-      <ChoiceGroup
-        name={da.colorFilter.labelName}
-        items={COLORS.map((c) => ({ id: c, label: da.colorFilter[c] }))}
-        value={options.colors}
-        onChange={(colors) => setOptions({ ...options, colors })}
-      />
-      <ChoiceGroup
-        name={da.rounds.labelName}
-        items={ROUNDS.map((r) => ({ id: r, label: String(r) }))}
-        value={options.rounds}
-        onChange={(rounds) => setOptions({ ...options, rounds })}
-      />
-      <button
-        type="submit"
-        className="bg-wine-700 hover:bg-wine-800 w-full rounded-lg px-4 py-3 text-lg font-semibold text-white"
-      >
-        {da.common.start}
-      </button>
-      {canTrainWeak && (
+      <Card className="flex flex-col gap-5 rounded-[24px]">
         <div>
-          <button
-            type="button"
-            onClick={() => onStartWeak(options)}
-            className="border-wine-700 text-wine-800 hover:bg-wine-100 w-full rounded-lg border px-4 py-3 font-semibold"
-          >
+          <ChoiceGroup
+            name={da.level.labelName}
+            items={LEVELS.map((d) => ({
+              id: d,
+              label: unlocks[d].unlocked ? da.level[d] : `${da.level[d]} 🔒`,
+              disabled: !unlocks[d].unlocked,
+            }))}
+            value={options.difficulty}
+            onChange={(difficulty) => setOptions({ ...options, difficulty })}
+          />
+          <ul className="text-ink-2 mt-2 flex flex-col gap-1 text-xs">
+            {LEVELS.map((d) => {
+              const hint = lockedHint(d)
+              return hint ? (
+                <li key={d} className="flex items-center gap-1.5">
+                  <Icon name="lock" size={12} strokeWidth={2.4} />
+                  {da.level[d]}: {hint}
+                </li>
+              ) : null
+            })}
+          </ul>
+        </div>
+        <ChoiceGroup
+          name={da.colorFilter.labelName}
+          items={COLORS.map((c) => ({ id: c, label: da.colorFilter[c] }))}
+          value={options.colors}
+          onChange={(colors) => setOptions({ ...options, colors })}
+        />
+        <ChoiceGroup
+          name={da.rounds.labelName}
+          items={ROUNDS.map((r) => ({ id: r, label: String(r) }))}
+          value={options.rounds}
+          onChange={(rounds) => setOptions({ ...options, rounds })}
+        />
+      </Card>
+
+      <Button type="submit" block>
+        {da.common.start}
+        <Icon name="arrowRight" size={18} strokeWidth={2.6} />
+      </Button>
+
+      {canTrainWeak && (
+        <div className="flex flex-col gap-1">
+          <Button variant="soft" size="md" block onClick={() => onStartWeak(options)}>
             {da.training.weakButton}
-          </button>
-          <p className="text-wine-900/70 mt-1 text-xs">{da.training.weakHelp}</p>
+          </Button>
+          <p className="text-ink-2 text-center text-xs">{da.training.weakHelp}</p>
         </div>
       )}
     </form>

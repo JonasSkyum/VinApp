@@ -1,11 +1,22 @@
 import { Link, useParams } from 'react-router-dom'
 import { LazyWineMap } from '@/components/map/LazyWineMap'
+import { Card } from '@/components/ui/Card'
+import { Icon } from '@/components/ui/Icon'
 import { boundsOf, type Catalog } from '@/engine'
 import { da } from '@/i18n/da'
 import { catalog as defaultCatalog } from '@/lib/catalog'
 import { interpolate } from '@/lib/text'
 import { entryPath } from './search'
-import { Breadcrumb, EntryHeader, Fact, GrapeLinks, NotFound, Section, StyleList } from './shared'
+import {
+  Breadcrumb,
+  Chip,
+  EntryHeader,
+  Fact,
+  GrapeLinks,
+  NotFound,
+  Section,
+  StyleList,
+} from './shared'
 
 /** Degrees shown around a region with no sub-regions. */
 const MAP_PADDING_DEG = { country: 3, region: 2, subregion: 1.5, appellation: 1 } as const
@@ -28,51 +39,70 @@ export function RegionPage({ catalog = defaultCatalog }: { catalog?: Catalog }) 
   )
 
   return (
-    <article className="space-y-6">
+    <article className="mx-auto flex w-full max-w-xl flex-col gap-4">
       <EntryHeader
         title={region.name}
-        subtitle={<Breadcrumb region={region} catalog={catalog} />}
+        crumbs={<Breadcrumb region={region} catalog={catalog} />}
+        subtitle={da.lexicon.regionType[region.type]}
+        chips={
+          <>
+            <Chip>{da.world[region.world]}</Chip>
+            {region.climate && (
+              <Chip>
+                <Icon
+                  name={region.climate === 'warm' ? 'sun' : 'snow'}
+                  size={12}
+                  strokeWidth={2.2}
+                />
+                {da.climate[region.climate]}
+              </Chip>
+            )}
+            <Chip>{da.lexicon.difficultyLabel[region.difficulty]}</Chip>
+          </>
+        }
         verified={region.verified}
         note={region.note}
         sources={region.sources}
       />
 
-      <dl className="space-y-1">
-        <Fact label={da.lexicon.regionType.region}>{da.lexicon.regionType[region.type]}</Fact>
-        <Fact label={da.lexicon.world}>{da.world[region.world]}</Fact>
-        {region.climate && <Fact label={da.lexicon.climate}>{da.climate[region.climate]}</Fact>}
-        <Fact label={da.lexicon.difficulty}>{da.lexicon.difficultyLabel[region.difficulty]}</Fact>
+      <Card flush className="rounded-[24px]">
+        <LazyWineMap
+          label={interpolate(da.result.miniMap, { name: region.name })}
+          points={points}
+          highlightId={region.type === 'country' ? null : region.id}
+          bounds={bounds}
+          interactive={false}
+          className="h-48 rounded-none"
+        />
         {grapeIds.length > 0 && (
-          <Fact label={da.lexicon.grapesInRegion}>
-            <GrapeLinks grapeIds={grapeIds} catalog={catalog} />
-          </Fact>
+          <dl className="px-3.5">
+            <Fact label={da.lexicon.grapesInRegion}>
+              <GrapeLinks grapeIds={grapeIds} catalog={catalog} />
+            </Fact>
+          </dl>
         )}
-      </dl>
-
-      <LazyWineMap
-        label={interpolate(da.result.miniMap, { name: region.name })}
-        points={points}
-        highlightId={region.type === 'country' ? null : region.id}
-        bounds={bounds}
-        interactive={false}
-        className="border-wine-200 h-48 border"
-      />
+      </Card>
 
       {children.length > 0 && (
         <Section title={da.lexicon.subregions}>
-          <ul className="divide-wine-100 border-wine-200 divide-y rounded-xl border bg-white">
-            {children.map((c) => (
-              <li key={c.id}>
-                <Link
-                  to={entryPath({ kind: 'region', id: c.id })}
-                  className="hover:bg-wine-50 flex justify-between px-4 py-3"
-                >
-                  <span className="font-medium">{c.name}</span>
-                  <span className="text-wine-900/70 text-sm">{da.lexicon.regionType[c.type]}</span>
-                </Link>
-              </li>
-            ))}
-          </ul>
+          <Card as="nav" flush>
+            <ul className="divide-line divide-y">
+              {children.map((c) => (
+                <li key={c.id}>
+                  <Link
+                    to={entryPath({ kind: 'region', id: c.id })}
+                    className="text-ink hover:bg-surface-2 flex min-h-14 items-center justify-between gap-2 px-3.5"
+                  >
+                    <span className="flex flex-col">
+                      <span className="font-serif text-base font-semibold">{c.name}</span>
+                      <span className="text-ink-2 text-xs">{da.lexicon.regionType[c.type]}</span>
+                    </span>
+                    <Icon name="chevronRight" size={18} strokeWidth={2.2} className="text-ink-2" />
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </Card>
         </Section>
       )}
 

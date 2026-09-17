@@ -100,12 +100,14 @@ describe('StylePage', () => {
       '/lexicon/grapes/nebbiolo',
     )
     expect(screen.getByRole('heading', { name: da.lexicon.confusedWith })).toBeInTheDocument()
-    const summaries = screen.getAllByText(da.lexicon.compare)
-    expect(summaries).toHaveLength(3)
-    await u.click(summaries[0]!)
-    const table = screen.getAllByRole('table')[0]!
-    expect(within(table).getAllByRole('row').length).toBeGreaterThan(5)
-    expect(within(table).getByText('Tannin')).toBeInTheDocument()
+    const tabs = screen.getAllByRole('tab')
+    expect(tabs).toHaveLength(3)
+    expect(tabs[0]).toHaveAttribute('aria-selected', 'true')
+    await u.click(tabs[1]!)
+    expect(tabs[1]).toHaveAttribute('aria-selected', 'true')
+    // The comparison card prints both wines' tannin side by side.
+    expect(screen.getAllByRole('img', { name: /^Tannin: / }).length).toBeGreaterThanOrEqual(2)
+    expect(screen.getByText(da.lexicon.howToTell)).toBeInTheDocument()
   })
 })
 
@@ -121,7 +123,7 @@ describe('navigation from a game result', () => {
     const grapeName = links[0]!.textContent!.replace('Læs om ', '')
     await u.click(links[0]!)
     expect(await screen.findByRole('heading', { name: grapeName })).toBeInTheDocument()
-    await u.click(screen.getByRole('button', { name: `← ${da.lexicon.back}` }))
+    await u.click(screen.getByRole('button', { name: da.lexicon.back }))
     expect(await screen.findByText(da.result.reveal)).toBeInTheDocument()
   })
 })

@@ -56,7 +56,7 @@ const storedLog = (storage: StorageLike): AnswerRecord[] =>
 
 describe('sync', () => {
   it('hides the account panel when sync is not configured', () => {
-    renderAt('/progress', memoryStorage(), null)
+    renderAt('/settings', memoryStorage(), null)
     expect(screen.queryByRole('heading', { name: da.account.title })).not.toBeInTheDocument()
   })
 
@@ -68,7 +68,7 @@ describe('sync', () => {
       log: [rec({ itemId: 'gamay', timestamp: NOW - 1000 })],
       leitner: { 'grape:gamay': { box: 4, reviewedAt: NOW - 1000, dueAt: NOW + 1 } },
     })
-    renderAt('/progress', storage, backend)
+    renderAt('/settings', storage, backend)
 
     await u.type(screen.getByLabelText(da.account.email), 'jonas@example.com')
     await u.click(screen.getByRole('button', { name: da.account.sendLink }))
@@ -85,7 +85,8 @@ describe('sync', () => {
     expect(backend.pushes).toHaveLength(1)
     expect(backend.pushes[0]!.log.map((r) => r.itemId)).toEqual(['syrah'])
     // The server-side Leitner box shows up locally.
-    expect(screen.getAllByText(/Boks 4/).length).toBeGreaterThan(0)
+    await u.click(screen.getAllByRole('link', { name: da.nav.progress })[0]!)
+    expect((await screen.findAllByText(/Boks 4/)).length).toBeGreaterThan(0)
   })
 
   it('pushes new local answers after a debounce, and keeps local data on sign-out', async () => {

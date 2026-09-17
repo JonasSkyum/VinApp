@@ -55,12 +55,13 @@ describe('daily challenge', () => {
     const u = user()
     const storage = memoryStorage()
     const first = renderAt(storage)
-    expect(screen.getByRole('heading', { name: 'Dagens udfordring #1' })).toBeInTheDocument()
+    expect(screen.getByRole('heading', { name: da.pages.daily.title })).toBeInTheDocument()
+    expect(screen.getByText(/^#1 · /)).toBeInTheDocument()
 
     await playDaily(u)
     await u.click(screen.getByRole('button', { name: da.summary.title }))
     expect(await screen.findByRole('heading', { name: da.daily.done })).toBeInTheDocument()
-    expect(screen.getByText(/1 dage/)).toBeInTheDocument() // streak
+    expect(screen.getAllByText(/1 dage/).length).toBeGreaterThan(0) // streak
 
     const stored = JSON.parse(storage.getItem(PROGRESS_KEY)!)
     const result = stored.data.daily['2026-09-16']
@@ -118,8 +119,8 @@ describe('daily challenge', () => {
 
     vi.setSystemTime(NOW + DAY)
     renderAt(storage)
-    expect(screen.getByRole('heading', { name: 'Dagens udfordring #2' })).toBeInTheDocument()
+    expect(screen.getByText(/^#2 · /)).toBeInTheDocument()
     expect(screen.getByRole('button', { name: da.daily.start })).toBeInTheDocument()
-    expect(screen.getByText(/1 dage/)).toBeInTheDocument()
+    expect(screen.getAllByText(/1 dage/).length).toBeGreaterThan(0)
   })
 })

@@ -1,10 +1,14 @@
 import { useMemo } from 'react'
 import { Link, useSearchParams } from 'react-router-dom'
 import { PageTitle } from '@/components/PageTitle'
+import { Card, Heading } from '@/components/ui/Card'
+import { Icon } from '@/components/ui/Icon'
+import { ColorDot } from '@/components/ui/WineGlass'
 import { VerifiedBadge } from '@/components/VerifiedBadge'
 import type { Catalog } from '@/engine'
 import { da } from '@/i18n/da'
 import { catalog as defaultCatalog } from '@/lib/catalog'
+import { APPEARANCE_HEX, STYLE_COLOR_HEX } from '@/lib/palette'
 import { interpolate } from '@/lib/text'
 import { entryPath, lexiconIndex, searchLexicon, type LexiconEntry } from './search'
 
@@ -20,27 +24,37 @@ export function LexiconPage({ catalog = defaultCatalog }: LexiconPageProps) {
   const results = useMemo(() => searchLexicon(index, query), [index, query])
 
   return (
-    <>
-      <PageTitle>{da.pages.lexicon.title}</PageTitle>
-      <input
-        type="search"
-        aria-label={da.lexicon.searchLabel}
-        placeholder={da.lexicon.searchPlaceholder}
-        value={query}
-        onChange={(e) => setParams(e.target.value ? { q: e.target.value } : {}, { replace: true })}
-        className="border-wine-300 focus:border-wine-600 mb-6 w-full rounded-lg border bg-white px-3 py-3 text-base outline-none"
-      />
+    <div className="flex flex-col gap-5">
+      <PageTitle className="mb-0">{da.pages.lexicon.title}</PageTitle>
+      <label className="relative block">
+        <Icon
+          name="search"
+          size={18}
+          strokeWidth={2.2}
+          className="text-ink-2 pointer-events-none absolute top-1/2 left-4 -translate-y-1/2"
+        />
+        <input
+          type="search"
+          aria-label={da.lexicon.searchLabel}
+          placeholder={da.lexicon.searchPlaceholder}
+          value={query}
+          onChange={(e) =>
+            setParams(e.target.value ? { q: e.target.value } : {}, { replace: true })
+          }
+          className="border-line bg-surface placeholder:text-ink-3 focus:border-primary-ink min-h-14 w-full rounded-full border-[1.5px] pr-4 pl-11 text-base font-semibold outline-none"
+        />
+      </label>
 
       {query.trim().length > 0 ? (
         results.length === 0 ? (
-          <p className="text-wine-900/70">{interpolate(da.lexicon.noResults, { query })}</p>
+          <p className="text-ink-2">{interpolate(da.lexicon.noResults, { query })}</p>
         ) : (
-          <EntryList entries={results} />
+          <EntryList entries={results} catalog={catalog} />
         )
       ) : (
         <Browse catalog={catalog} index={index} />
       )}
-    </>
+    </div>
   )
 }
 
@@ -53,18 +67,18 @@ function Browse({ catalog, index }: { catalog: Catalog; index: LexiconEntry[] })
   const styles = byKind('style')
 
   return (
-    <div className="space-y-8">
+    <div className="grid gap-6 md:grid-cols-2">
       <Section title={da.lexicon.redGrapes}>
-        <EntryList entries={red} />
+        <EntryList entries={red} catalog={catalog} />
       </Section>
       <Section title={da.lexicon.whiteGrapes}>
-        <EntryList entries={white} />
+        <EntryList entries={white} catalog={catalog} />
       </Section>
       <Section title={da.lexicon.countries}>
-        <EntryList entries={countries} />
+        <EntryList entries={countries} catalog={catalog} />
       </Section>
       <Section title={da.lexicon.styles}>
-        <EntryList entries={styles} />
+        <EntryList entries={styles} catalog={catalog} />
       </Section>
     </div>
   )
@@ -72,32 +86,47 @@ function Browse({ catalog, index }: { catalog: Catalog; index: LexiconEntry[] })
 
 function Section({ title, children }: { title: string; children: React.ReactNode }) {
   return (
-    <section>
-      <h2 className="text-wine-800 mb-2 text-lg font-semibold">{title}</h2>
+    <section className="flex flex-col gap-2.5">
+      <Heading size="lg">{title}</Heading>
       {children}
     </section>
   )
 }
 
-export function EntryList({ entries }: { entries: LexiconEntry[] }) {
+function entryDot(entry: LexiconEntry, catalog: Catalog): string | null {
+  if (entry.kind === 'grape') return STYLE_COLOR_HEX[catalog.grape(entry.id).color]
+  if (entry.kind === 'style') return APPEARANCE_HEX[catalog.style(entry.id).profile.appearance]
+  return null
+}
+
+export function EntryList({ entries, catalog }: { entries: LexiconEntry[]; catalog: Catalog }) {
   return (
-    <ul className="divide-wine-100 border-wine-200 divide-y rounded-xl border bg-white">
-      {entries.map((entry) => (
-        <li key={`${entry.kind}-${entry.id}`}>
-          <Link
-            to={entryPath(entry)}
-            className="hover:bg-wine-50 flex items-center justify-between gap-2 px-4 py-3"
-          >
-            <span>
-              <span className="font-medium">{entry.name}</span>
-              {entry.subtitle && (
-                <span className="text-wine-900/70 ml-2 text-sm">{entry.subtitle}</span>
-              )}
-            </span>
-            <VerifiedBadge verified={entry.verified} compact />
-          </Link>
-        </li>
-      ))}
-    </ul>
+    <Card as="nav" flush>
+      <ul className="divide-line divide-y">
+        {entries.map((entry) => {
+          const dot = entryDot(entry, catalog)
+          return (
+            <li key={`${entry.kind}-${entry.id}`}>
+              <Link
+                to={entryPath(entry)}
+                className="text-ink hover:bg-surface-2 flex min-h-14 items-center gap-2.5 px-3.5 py-2"
+              >
+                {dot ? (
+                  <ColorDot hex={dot} size={14} />
+                ) : (
+                  <Icon name="map" size={16} className="text-ink-2 shrink-0" />
+                )}
+                <span className="flex min-w-0 flex-1 flex-col">
+                  <span className="font-serif text-base font-semibold">{entry.name}</span>
+                  {entry.subtitle && <span className="text-ink-2 text-xs">{entry.subtitle}</span>}
+                </span>
+                <VerifiedBadge verified={entry.verified} compact />
+                <Icon name="chevronRight" size={18} strokeWidth={2.2} className="text-ink-2" />
+              </Link>
+            </li>
+          )
+        })}
+      </ul>
+    </Card>
   )
 }

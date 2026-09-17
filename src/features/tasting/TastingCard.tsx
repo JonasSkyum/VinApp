@@ -1,58 +1,121 @@
+import { useState } from 'react'
+import { AromaChips } from '@/components/ui/AromaChip'
+import { Card, Divider, Heading, Label } from '@/components/ui/Card'
+import { Icon } from '@/components/ui/Icon'
+import { OakToggle, ScaleHeader, ScaleRow } from '@/components/ui/SegmentScale'
+import { ColorDot, WineGlass } from '@/components/ui/WineGlass'
 import type { Catalog, TastingCase } from '@/engine'
 import { da } from '@/i18n/da'
+import { appearanceLabel, levelLabel } from '@/lib/labels'
+import { APPEARANCE_HEX } from '@/lib/palette'
+import { interpolate } from '@/lib/text'
 import type { StructureKey } from '@/schema'
-import { appearanceLabel } from '@/lib/labels'
-import { ScaleBar } from './ScaleBar'
 
 interface TastingCardProps {
   tastingCase: TastingCase
   catalog: Catalog
+  /** Wide layout: always expanded, no toggle. */
+  fixed?: boolean
 }
 
 const PALATE: StructureKey[] = ['sweetness', 'acidity', 'tannin', 'alcohol', 'body', 'finish']
 
-/** The case in WSET order: appearance, nose, palate. */
-export function TastingCard({ tastingCase, catalog }: TastingCardProps) {
-  const { profile, descriptorIds } = tastingCase
-  return (
-    <section
-      aria-label={da.pages.tasting.title}
-      className="border-wine-200 space-y-4 rounded-xl border bg-white p-4 shadow-sm"
-    >
-      <Block title={da.tastingCard.appearance}>
-        <p className="text-sm">
-          <span className="text-wine-900/80">{da.tastingCard.colour}: </span>
-          <span className="font-medium">{appearanceLabel(profile.appearance)}</span>
-        </p>
-      </Block>
-
-      <Block title={da.tastingCard.nose}>
-        <ScaleBar attribute="intensity" value={profile.intensity} />
-        <p className="text-sm">
-          <span className="text-wine-900/80">{da.tastingCard.aromas}: </span>
-          <span className="font-medium">
-            {descriptorIds.map((id) => catalog.descriptor(id).name.toLowerCase()).join(', ')}
-          </span>
-        </p>
-      </Block>
-
-      <Block title={da.tastingCard.palate}>
-        {PALATE.map((attribute) => {
-          const value = profile[attribute]
-          return value === null ? null : (
-            <ScaleBar key={attribute} attribute={attribute} value={value} />
-          )
-        })}
-      </Block>
-    </section>
-  )
+function capitalize(s: string): string {
+  return s.charAt(0).toUpperCase() + s.slice(1)
 }
 
-function Block({ title, children }: { title: string; children: React.ReactNode }) {
+/** The case in WSET order: appearance, nose, palate, oak. Collapsible on phones. */
+export function TastingCard({ tastingCase, catalog, fixed = false }: TastingCardProps) {
+  const { profile, descriptorIds } = tastingCase
+  const [collapsed, setCollapsed] = useState(false)
+  const style = catalog.style(tastingCase.styleId)
+  const expanded = fixed || !collapsed
+  const colour = capitalize(appearanceLabel(profile.appearance))
+  const summary = [
+    colour,
+    descriptorIds
+      .slice(0, 2)
+      .map((id) => catalog.descriptor(id).name.toLowerCase())
+      .join(', '),
+    `${da.attribute.acidity.toLowerCase()} ${levelLabel('acidity', profile.acidity)}`,
+    da.oak[style.oak],
+  ].join(' · ')
+
   return (
-    <div className="space-y-2">
-      <h3 className="text-wine-700 text-xs font-semibold tracking-wide uppercase">{title}</h3>
-      {children}
-    </div>
+    <Card
+      as="section"
+      aria-label={da.tastingCard.title}
+      className="flex flex-col gap-3.5 rounded-[24px]"
+    >
+      <div className="flex items-center justify-between">
+        <Heading size="md">{da.tastingCard.title}</Heading>
+        {fixed ? (
+          <span className="text-ink-2 text-xs font-bold">{da.tastingCard.alwaysVisible}</span>
+        ) : (
+          <button
+            type="button"
+            aria-expanded={expanded}
+            onClick={() => setCollapsed((c) => !c)}
+            className="border-line bg-surface-2 text-ink flex min-h-11 items-center gap-1 rounded-full border py-0 pr-2.5 pl-3.5 text-[13px] font-extrabold"
+          >
+            {expanded ? da.tastingCard.hide : da.tastingCard.show}
+            <Icon name={expanded ? 'chevronUp' : 'chevronDown'} size={16} strokeWidth={2.4} />
+          </button>
+        )}
+      </div>
+
+      {!expanded && (
+        <div className="flex items-center gap-2.5 text-sm font-bold">
+          <ColorDot hex={APPEARANCE_HEX[profile.appearance]} size={18} />
+          <span>{summary}</span>
+        </div>
+      )}
+
+      {expanded && (
+        <div className="flex flex-col gap-3.5">
+          <div className="flex items-center gap-3.5">
+            <WineGlass appearance={profile.appearance} intensity={profile.intensity} />
+            <div className="flex flex-col gap-0.5">
+              <Label>1 · {da.tastingCard.appearance}</Label>
+              <span className="text-[17px] font-extrabold">{colour}</span>
+              <span className="text-ink-2 text-[13px]">
+                {interpolate(da.intensity.label, {
+                  value: levelLabel('intensity', profile.intensity),
+                })}
+              </span>
+            </div>
+          </div>
+
+          <Divider />
+
+          <div className="flex flex-col gap-2">
+            <Label>2 · {da.tastingCard.nose}</Label>
+            <AromaChips ids={descriptorIds} catalog={catalog} />
+          </div>
+
+          <Divider />
+
+          <div className="flex flex-col gap-[7px]">
+            <ScaleHeader label={`3 · ${da.tastingCard.palate}`} />
+            {PALATE.map((attribute) => {
+              const value = profile[attribute]
+              return value === null ? null : (
+                <ScaleRow key={attribute} attribute={attribute} value={value} />
+              )
+            })}
+            {profile.tannin === null && (
+              <span className="text-ink-3 text-[11px]">{da.tastingCard.tanninNote}</span>
+            )}
+          </div>
+
+          <Divider />
+
+          <div className="grid grid-cols-[72px_minmax(0,1fr)] items-center gap-2">
+            <Label>4 · {da.tastingCard.oak}</Label>
+            <OakToggle oak={style.oak} />
+          </div>
+        </div>
+      )}
+    </Card>
   )
 }
