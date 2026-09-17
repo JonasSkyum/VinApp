@@ -92,6 +92,6 @@ npm run validate:content # validerer alt indhold mod zod-skemaer og krydsreferen
 
 ## Ikke-mål (lige nu)
 - Ingen monetisering, ingen reklamer.
-- Ingen producenter/vinhuse før fase 10.
+- Ingen producenter/vinhuse før fase 11.
 - Ingen native apps. PWA rækker.
 - Ingen backend før fase 8.
