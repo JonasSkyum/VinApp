@@ -62,6 +62,7 @@ export const descriptors: Descriptor[] = [
   { id: 'tomato-leaf', name: 'Tomatblad', cluster: 'herbal', stage: 'primary' },
   { id: 'dried-herbs', name: 'Tørrede krydderurter', cluster: 'herbal', stage: 'primary' },
   { id: 'thyme', name: 'Timian', cluster: 'herbal', stage: 'primary' },
+  { id: 'dill', name: 'Dild', cluster: 'herbal', stage: 'secondary' },
   { id: 'fennel', name: 'Fennikel', cluster: 'herbal', stage: 'primary' },
 
   // Spice
@@ -100,6 +101,8 @@ export const descriptors: Descriptor[] = [
   { id: 'brioche', name: 'Brioche', cluster: 'other', stage: 'secondary' },
   { id: 'honey', name: 'Honning', cluster: 'other', stage: 'tertiary' },
   { id: 'nuts', name: 'Nødder', cluster: 'other', stage: 'tertiary' },
+  { id: 'almond', name: 'Mandel', cluster: 'other', stage: 'primary' },
+  { id: 'bacon', name: 'Bacon', cluster: 'other', stage: 'primary' },
   { id: 'dried-fruit', name: 'Tørret frugt', cluster: 'other', stage: 'tertiary' },
   { id: 'wax', name: 'Voks', cluster: 'other', stage: 'tertiary' },
 ]

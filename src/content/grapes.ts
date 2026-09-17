@@ -27,8 +27,10 @@ export const grapes: Grape[] = [
       'Den tykke skind og sene modning gør den robust i marken og giver vine med masser af tannin og farve. I Médoc er den rygraden i de klassiske blandinger med Merlot og Cabernet Franc.',
       'Fra Bordeaux har druen bredt sig til stort set alle vinlande: Napa Valley, Coonawarra, Chile og Toscana (i de såkaldte supertoscanere). Den er i dag en af verdens mest plantede druer.',
     ],
-    verified: false,
-    sources: [],
+    verified: true,
+    sources: [
+      'Wine Folly, cabernet-sauvignon grape profile, https://winefolly.com/grapes/cabernet-sauvignon/ (hentet 2026-09-17)',
+    ],
   },
   {
     id: 'merlot',
@@ -75,8 +77,10 @@ export const grapes: Grape[] = [
       'Druen muterer let. Pinot Gris, Pinot Blanc og Pinot Meunier er alle farvevarianter af samme drue. Den tynde skind gør den følsom over for råd og vejr, og den er kendt som en drue, der kræver præcision af både vinbonde og vinmager.',
       'Bourgogne er stadig referencen, men Pinot Noir er også grunddrue i Champagne og har fundet nye hjem i Oregon, Central Otago, Tyskland (som Spätburgunder) og på Sydafrikas og Californiens kølige kyster.',
     ],
-    verified: false,
-    sources: [],
+    verified: true,
+    sources: [
+      'Wine Folly, pinot-noir grape profile, https://winefolly.com/grapes/pinot-noir/ (hentet 2026-09-17)',
+    ],
   },
   {
     id: 'syrah',
@@ -99,8 +103,10 @@ export const grapes: Grape[] = [
       "Til Australien kom druen i 1830'erne, hvor den fik navnet Shiraz og med tiden blev landets vigtigste drue. Barossa Valley har nogle af verdens ældste Syrah-vinstokke, plantet i 1800-tallet.",
       'Stilen spænder fra det nordlige Rhônes peberede, stramme vine til de fyldige, mørke Shiraz fra varme australske egne.',
     ],
-    verified: false,
-    sources: [],
+    verified: true,
+    sources: [
+      'Wine Folly, syrah grape profile, https://winefolly.com/grapes/syrah/ (hentet 2026-09-17)',
+    ],
   },
   {
     id: 'grenache',
@@ -124,8 +130,10 @@ export const grapes: Grape[] = [
       'I Spanien er den central i Priorat og indgår i Rioja-blandinger, og i Provence og Tavel er den grundlaget for rosé. Australien har bevaret gamle Grenache-stokke i Barossa og McLaren Vale.',
     ],
     note: 'Origin is generally given as Aragón in Spain, though Sardinia also claims it.',
-    verified: false,
-    sources: [],
+    verified: true,
+    sources: [
+      'Wine Folly, grenache grape profile, https://winefolly.com/grapes/grenache/ (hentet 2026-09-17)',
+    ],
   },
   {
     id: 'tempranillo',
@@ -148,8 +156,11 @@ export const grapes: Grape[] = [
       'Druen har mange lokale navne: Tinto Fino og Tinta del País i Ribera del Duero, Tinta de Toro i Toro, og Tinta Roriz eller Aragonez i Portugal, hvor den indgår i portvin.',
       'I Rioja er Tempranillo grundlaget for den klassiske fadlagringstradition, hvor betegnelserne crianza, reserva og gran reserva angiver, hvor længe vinen har ligget på fad og flaske, før den sælges.',
     ],
-    verified: false,
-    sources: [],
+    verified: true,
+    sources: [
+      'Wine Folly, tempranillo grape profile, https://winefolly.com/grapes/tempranillo/ (hentet 2026-09-17)',
+      'Wikipedia, Rioja (wine), https://en.wikipedia.org/wiki/Rioja_(wine) (hentet 2026-09-17)',
+    ],
   },
   {
     id: 'sangiovese',
@@ -172,8 +183,10 @@ export const grapes: Grape[] = [
       'DNA-studier har vist, at druen er en krydsning mellem Ciliegiolo og den obskure syditalienske drue Calabrese di Montenuovo.',
       "Den kendes under lokale navne rundt om i Toscana: Brunello i Montalcino og Prugnolo Gentile i Montepulciano. Chianti, Brunello di Montalcino og Vino Nobile di Montepulciano bygger alle på Sangiovese, og siden 1970'erne har druen også indgået i de såkaldte supertoscanere.",
     ],
-    verified: false,
-    sources: [],
+    verified: true,
+    sources: [
+      'Wine Folly, sangiovese grape profile, https://winefolly.com/grapes/sangiovese/ (hentet 2026-09-17)',
+    ],
   },
   {
     id: 'nebbiolo',
@@ -184,10 +197,10 @@ export const grapes: Grape[] = [
     typicalProfile: {
       intensity: [3, 4],
       sweetness: [1, 1],
-      acidity: [5, 5],
+      acidity: [4, 5],
       tannin: [5, 5],
       alcohol: [4, 4],
-      body: [3, 4],
+      body: [4, 5],
       finish: [4, 5],
     },
     keyDescriptors: ['rose', 'tar', 'red-cherry', 'liquorice', 'dried-herbs'],
@@ -196,8 +209,11 @@ export const grapes: Grape[] = [
       'Druen er krævende: den blomstrer tidligt, modner sent og er meget følsom over for jord og placering. Til gengæld giver den vine med lys farve, men høj syre og kraftig tannin, og en aroma af tjære og roser.',
       'Barolo og Barbaresco er de berømte udtryk, men Nebbiolo dyrkes også i Valtellina i Lombardiet (som Chiavennasca) og i Gattinara og Ghemme i det nordlige Piemonte (som Spanna).',
     ],
-    verified: false,
-    sources: [],
+    verified: true,
+    sources: [
+      'Wine Folly, nebbiolo grape profile, https://winefolly.com/grapes/nebbiolo/ (hentet 2026-09-17)',
+      'Wikipedia, Barolo, https://en.wikipedia.org/wiki/Barolo (hentet 2026-09-17)',
+    ],
   },
   {
     id: 'malbec',
@@ -208,7 +224,7 @@ export const grapes: Grape[] = [
     typicalProfile: {
       intensity: [4, 5],
       sweetness: [1, 1],
-      acidity: [3, 3],
+      acidity: [2, 3],
       tannin: [3, 4],
       alcohol: [4, 5],
       body: [4, 5],
@@ -217,11 +233,13 @@ export const grapes: Grape[] = [
     keyDescriptors: ['blackberry', 'black-plum', 'violet', 'chocolate', 'vanilla'],
     story: [
       "Malbec stammer fra det sydvestlige Frankrig, hvor den i Cahors kaldes Côt og har givet den mørke 'sorte vin', der var berømt allerede i middelalderen. I Bordeaux er den i dag en lille bidrue.",
-      'I 1853 blev druen bragt til Argentina af den franske agronom Michel Aimé Pouget, hentet til landet af Domingo Sarmiento. I Mendozas højtliggende, solrige vinmarker fandt Malbec et nyt hjem og blev landets nationaldrue.',
+      'Ifølge den gængse fortælling kom druen til Argentina i 1853 med den franske agronom Michel Aimé Pouget, som Domingo Sarmiento hentede til Mendoza for at grundlægge en landbrugsskole. I Mendozas højtliggende, solrige vinmarker fandt Malbec et nyt hjem og blev landets nationaldrue.',
       'Den hårde frost i 1956 udryddede mange Malbec-stokke i Bordeaux, og druen blev sjældent genplantet dér. Argentina har i dag langt flere Malbec-vinmarker end Frankrig.',
     ],
-    verified: false,
-    sources: [],
+    verified: true,
+    sources: [
+      'Wine Folly, malbec grape profile, https://winefolly.com/grapes/malbec/ (hentet 2026-09-17)',
+    ],
   },
   {
     id: 'zinfandel',
@@ -269,8 +287,11 @@ export const grapes: Grape[] = [
       'Druen fandt i stedet hjem længere sydpå i Beaujolais, hvor granitjorden passer den. Her laves de fleste vine med kulsyremaceration, som fremhæver frisk, rød frugt og giver bløde tanniner.',
       'Beaujolais Nouveau gjorde druen berømt for lette, hurtigt drukne vine, men de ti Beaujolais-cruer som Morgon, Fleurie og Moulin-à-Vent viser, at Gamay også kan give seriøse vine med lagringspotentiale.',
     ],
-    verified: false,
-    sources: [],
+    verified: true,
+    sources: [
+      'Wine Folly, gamay grape profile, https://winefolly.com/grapes/gamay/ (hentet 2026-09-17)',
+      'Wikipedia, Beaujolais, https://en.wikipedia.org/wiki/Beaujolais (hentet 2026-09-17)',
+    ],
   },
   {
     id: 'cabernet-franc',
@@ -344,8 +365,10 @@ export const grapes: Grape[] = [
       "Chardonnay er hoveddruen i Champagne (blanc de blancs laves udelukkende på Chardonnay) og er blevet plantet i stort set alle vinlande. Reaktionen på de mest egetunge udgaver i 1990'erne, kendt som 'ABC' (Anything But Chardonnay), førte til mere afdæmpede stilarter.",
     ],
     note: 'Very site- and winemaking-dependent; ranges are deliberately wide.',
-    verified: false,
-    sources: [],
+    verified: true,
+    sources: [
+      'Wine Folly, chardonnay grape profile, https://winefolly.com/grapes/chardonnay/ (hentet 2026-09-17)',
+    ],
   },
   {
     id: 'sauvignon-blanc',
@@ -358,7 +381,7 @@ export const grapes: Grape[] = [
       sweetness: [1, 1],
       acidity: [4, 5],
       tannin: null,
-      alcohol: [2, 3],
+      alcohol: [3, 3],
       body: [2, 3],
       finish: [3, 4],
     },
@@ -368,8 +391,10 @@ export const grapes: Grape[] = [
       'I Loire giver Sancerre og Pouilly-Fumé den klassiske stramme, mineralske stil. I Bordeaux blandes den med Sémillon til både tørre hvidvine og de søde vine fra Sauternes.',
       "Marlborough i New Zealand gjorde druen til en verdensstjerne. De første stokke blev plantet i 1970'erne, og de eksplosivt aromatiske vine med stikkelsbær og passionsfrugt blev fra midten af 1980'erne et af vinverdenens mest genkendelige udtryk.",
     ],
-    verified: false,
-    sources: [],
+    verified: true,
+    sources: [
+      'Wine Folly, sauvignon-blanc grape profile, https://winefolly.com/grapes/sauvignon-blanc/ (hentet 2026-09-17)',
+    ],
   },
   {
     id: 'riesling',
@@ -392,8 +417,11 @@ export const grapes: Grape[] = [
       'Druen modner sent og tåler kulde, hvilket passer til de stejle skiferskråninger langs Mosel og Rhinen. Den bevarer høj syre selv ved fuld modenhed og kan derfor laves i alle sødmegrader, fra knastør til Trockenbeerenauslese.',
       'Riesling er en af de hvide druer, der lagrer bedst. Med alderen udvikler den en karakteristisk note af petroleum. Uden for Tyskland er Alsace, Wachau i Østrig, Clare og Eden Valley i Australien og Finger Lakes i USA vigtige Riesling-områder.',
     ],
-    verified: false,
-    sources: [],
+    verified: true,
+    sources: [
+      'Wine Folly, riesling grape profile, https://winefolly.com/grapes/riesling/ (hentet 2026-09-17)',
+      'Wikipedia, German wine classification, https://en.wikipedia.org/wiki/German_wine_classification (hentet 2026-09-17)',
+    ],
   },
   {
     id: 'chenin-blanc',
@@ -441,8 +469,10 @@ export const grapes: Grape[] = [
       'Oregon i USA har taget den franske stavemåde til sig og laver Pinot Gris i en stil, der ligger mellem den franske og den italienske.',
     ],
     note: 'A colour mutation of Pinot Noir from Burgundy. Light Italian and rich Alsatian styles differ a lot.',
-    verified: false,
-    sources: [],
+    verified: true,
+    sources: [
+      'Wine Folly, pinot-grigio grape profile, https://winefolly.com/grapes/pinot-grigio/ (hentet 2026-09-17)',
+    ],
   },
   {
     id: 'gewurztraminer',
@@ -453,7 +483,7 @@ export const grapes: Grape[] = [
     typicalProfile: {
       intensity: [5, 5],
       sweetness: [1, 3],
-      acidity: [2, 2],
+      acidity: [1, 2],
       tannin: null,
       alcohol: [4, 5],
       body: [4, 5],
@@ -466,8 +496,10 @@ export const grapes: Grape[] = [
       'Fordi druen mister syre hurtigt under modningen, dyrkes den bedst i kølige egne. Alto Adige, Pfalz, New Zealand og Alsace er blandt de vigtigste områder.',
     ],
     note: 'Named after Tramin in Alto Adige; classic home today is Alsace.',
-    verified: false,
-    sources: [],
+    verified: true,
+    sources: [
+      'Wine Folly, gewurztraminer grape profile, https://winefolly.com/grapes/gewurztraminer/ (hentet 2026-09-17)',
+    ],
   },
   {
     id: 'viognier',
@@ -504,7 +536,7 @@ export const grapes: Grape[] = [
       sweetness: [1, 1],
       acidity: [5, 5],
       tannin: null,
-      alcohol: [2, 3],
+      alcohol: [3, 3],
       body: [2, 3],
       finish: [3, 3],
     },
@@ -514,8 +546,11 @@ export const grapes: Grape[] = [
       'En gammel legende fortæller, at druen blev bragt til Galicien af cisterciensermunke fra Rhinen. DNA-analyser peger dog på, at den er en ægte iberisk drue.',
       'I det fugtige atlanterhavsklima dyrkes den ofte på høje pergolaer, så luften kan cirkulere om klaserne. Den tykke skind og høje syre giver friske, aromatiske vine, der passer til egnens skaldyr.',
     ],
-    verified: false,
-    sources: [],
+    verified: true,
+    sources: [
+      'Wine Folly, albarino grape profile, https://winefolly.com/grapes/albarino/ (hentet 2026-09-17)',
+      'Wikipedia, Rías Baixas (DO), https://en.wikipedia.org/wiki/Rías_Baixas_(DO) (hentet 2026-09-17)',
+    ],
   },
   {
     id: 'gruner-veltliner',

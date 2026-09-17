@@ -35,7 +35,7 @@ describe('explain', () => {
     expect(explain(tastingCase, barolo, barolo)).toEqual([])
   })
 
-  it('Barolo mistaken for Bourgogne Rouge: tannin, acidity, colour and aromas', () => {
+  it('Barolo mistaken for Bourgogne Rouge: tannin, structure, colour and aromas', () => {
     const tastingCase: TastingCase = {
       styleId: 'barolo',
       profile: {
@@ -65,7 +65,8 @@ describe('explain', () => {
       correctRange: [5, 5],
       guessedRange: [2, 3],
     })
-    expect(attributes[1]).toMatchObject({ attribute: 'acidity', caseValue: 5 })
+    // Acidity now overlaps ([4,5] vs [4,4]) so the other structural gaps rank above it.
+    expect(attributes.map((a) => a.attribute)).toEqual(['tannin', 'alcohol', 'finish'])
     expect(result).toContainEqual({
       kind: 'appearance',
       caseValue: 'garnet',

@@ -286,6 +286,11 @@ export const regions: Region[] = [
     climate: 'cool',
     center: [3.8, 47.81],
     difficulty: 2,
+    verified: true,
+    sources: [
+      'Wikipedia, Chablis wine, https://en.wikipedia.org/wiki/Chablis_wine (hentet 2026-09-17)',
+      'Koordinater tjekket mod Wikipedia (MediaWiki API, prop=coordinates) for nærmeste by, 2026-09-17',
+    ],
     story: [
       'Chablis ligger isoleret nord for resten af Bourgogne, tættere på Champagne. Jorden er kimmeridge-kalk fra juratiden, fuld af fossile østersskaller, og det kølige klima og frostrisikoen om foråret giver stramme, mineralske Chardonnay-vine.',
       'Områdets syv grand cru-marker ligger samlet på én sydvestvendt skråning over byen. Klassisk Chablis laves uden eller med meget lidt ny eg, hvilket adskiller den fra resten af Bourgognes hvidvine.',
@@ -299,6 +304,11 @@ export const regions: Region[] = [
     climate: 'cool',
     center: [4.95, 47.18],
     difficulty: 2,
+    verified: true,
+    sources: [
+      'Wikipedia, Côte de Nuits, https://en.wikipedia.org/wiki/Côte_de_Nuits (hentet 2026-09-17)',
+      'Koordinater tjekket mod Wikipedia (MediaWiki API, prop=coordinates) for nærmeste by, 2026-09-17',
+    ],
     story: [
       "Côte de Nuits er den nordlige halvdel af Côte d'Or og er næsten udelukkende rødvinsland. Her ligger landsbyerne Gevrey-Chambertin, Chambolle-Musigny, Vougeot, Vosne-Romanée og Nuits-Saint-Georges.",
       'Området har næsten alle Bourgognes røde grand crus, herunder Romanée-Conti, La Tâche, Chambertin og Musigny. Vinene regnes for Pinot Noirs mest komplekse og langtidsholdbare udtryk.',
@@ -325,6 +335,11 @@ export const regions: Region[] = [
     climate: 'moderate',
     center: [4.65, 46.15],
     difficulty: 2,
+    verified: true,
+    sources: [
+      'Wikipedia, Beaujolais, https://en.wikipedia.org/wiki/Beaujolais (hentet 2026-09-17)',
+      'Koordinater tjekket mod Wikipedia (MediaWiki API, prop=coordinates) for nærmeste by, 2026-09-17',
+    ],
     story: [
       'Beaujolais ligger syd for Bourgogne og dyrker næsten udelukkende Gamay. Nordens granitbakker giver de ti cruer (blandt andet Morgon, Fleurie og Moulin-à-Vent), mens den sydlige del med lerjord giver lettere vine.',
       "Kulsyremaceration, hvor hele klaser gærer i en tank fyldt med kuldioxid, giver den karakteristiske friske, frugtige stil. Beaujolais Nouveau, som frigives den tredje torsdag i november, gjorde regionen verdensberømt i 1970'erne og 1980'erne.",
@@ -338,6 +353,12 @@ export const regions: Region[] = [
     climate: 'moderate',
     center: [4.83, 45.05],
     difficulty: 2,
+    verified: true,
+    sources: [
+      'Wikipedia, Côte-Rôtie AOC, https://en.wikipedia.org/wiki/Côte-Rôtie_AOC (hentet 2026-09-17)',
+      'Wikipedia, Rhône wine, https://en.wikipedia.org/wiki/Rhône_wine (hentet 2026-09-17)',
+      'Koordinater tjekket mod Wikipedia (MediaWiki API, prop=coordinates) for nærmeste by, 2026-09-17',
+    ],
     story: [
       'Det nordlige Rhône er en smal, stejl strimmel af vinmarker langs floden fra Vienne til Valence. Terrasserne på granitskråningerne er blandt de mest arbejdskrævende i Frankrig. Syrah er den eneste tilladte røde drue.',
       'Hermitage-bakken har været berømt siden 1600-tallet, og Côte-Rôtie, Cornas og Saint-Joseph er de andre store røde appellationer. Hvidvinene laves på Viognier (Condrieu) og på Marsanne og Roussanne.',
@@ -364,6 +385,11 @@ export const regions: Region[] = [
     climate: 'warm',
     center: [4.83, 44.06],
     difficulty: 2,
+    verified: true,
+    sources: [
+      'Wikipedia, Châteauneuf-du-Pape AOC, https://en.wikipedia.org/wiki/Châteauneuf-du-Pape_AOC (hentet 2026-09-17)',
+      'Koordinater tjekket mod Wikipedia (MediaWiki API, prop=coordinates) for nærmeste by, 2026-09-17',
+    ],
     story: [
       "Navnet betyder 'pavens nye slot' og stammer fra 1300-tallet, da paverne residerede i Avignon og byggede et sommerslot her. I 1923 skrev baron Le Roy, som ejede Château Fortia, regler for områdets vin, som blev en forløber for hele det franske appellationssystem.",
       'Appellationen tillader 13 druer (18, hvis farvevarianter tælles med), men Grenache dominerer. De store, runde sten (galets roulés) oplagrer dagens varme og afgiver den om natten, hvilket bidrager til de kraftige, alkoholstærke vine.',
@@ -390,6 +416,11 @@ export const regions: Region[] = [
     climate: 'cool',
     center: [2.83, 47.33],
     difficulty: 2,
+    verified: true,
+    sources: [
+      'Wikipedia, Sancerre (wine), https://en.wikipedia.org/wiki/Sancerre_(wine) (hentet 2026-09-17)',
+      'Koordinater tjekket mod Wikipedia (MediaWiki API, prop=coordinates) for nærmeste by, 2026-09-17',
+    ],
     story: [
       'Sancerre er en bakkeby i den østlige del af Loire. Indtil phylloxera hærgede i slutningen af 1800-tallet var området mest kendt for rødvin af Pinot Noir, men efter genplantningen tog Sauvignon Blanc over.',
       'Jorden veksler mellem kalk (terres blanches), stenet kalk (caillottes) og flint (silex), som giver forskellige udtryk. Pouilly-Fumé ligger på den modsatte flodbred, og den lokale gedeost Crottin de Chavignol er det klassiske følgeskab.',
@@ -416,6 +447,11 @@ export const regions: Region[] = [
     climate: 'cool',
     center: [7.35, 48.3],
     difficulty: 2,
+    verified: true,
+    sources: [
+      'Wikipedia, Alsace wine, https://en.wikipedia.org/wiki/Alsace_wine (hentet 2026-09-17)',
+      'Koordinater tjekket mod Wikipedia (MediaWiki API, prop=coordinates) for nærmeste by, 2026-09-17',
+    ],
     story: [
       'Alsace ligger mellem Vogeserne og Rhinen og har skiftet mellem fransk og tysk styre flere gange, senest under de to verdenskrige. Det ses i landsbynavnene, den slanke flaske og i, at druen står på etiketten, hvilket er usædvanligt i Frankrig.',
       'Bjergene skærmer for regn, så Alsace er et af Frankrigs tørreste og solrigeste områder. Riesling, Gewürztraminer, Pinot Gris og Muscat regnes for de fire ædle druer, og de bedste marker er klassificeret som grand cru.',
@@ -458,6 +494,12 @@ export const regions: Region[] = [
     climate: 'moderate',
     center: [7.94, 44.61],
     difficulty: 2,
+    verified: true,
+    sources: [
+      'Wikipedia, Barolo, https://en.wikipedia.org/wiki/Barolo (hentet 2026-09-17)',
+      'Quattrocalici, Barolo DOCG disciplinare, https://www.quattrocalici.it/denominazioni/barolo-docg/',
+      'Koordinater tjekket mod Wikipedia (MediaWiki API, prop=coordinates) for nærmeste by, 2026-09-17',
+    ],
     story: [
       "Barolo laves på Nebbiolo i 11 kommuner sydvest for Alba. I 1800-tallet blev vinen forvandlet fra sød til tør, angiveligt med hjælp fra den franske ønolog Louis Oudart, og den blev hurtigt populær ved hoffet i Torino, deraf tilnavnet 'kongernes vin, vinenes konge'.",
       "Området deles af to jordtyper: de yngre, blødere mergeljorder omkring La Morra og Barolo giver mere elegante vine, mens de ældre sandstensjorder i Serralunga og Monforte giver kraftigere og mere tanninrige. I 1980'erne og 1990'erne stod de såkaldte Barolo-krige mellem traditionalister med store gamle fade og modernister med små franske barriques.",
@@ -484,6 +526,12 @@ export const regions: Region[] = [
     climate: 'moderate',
     center: [11.3, 43.55],
     difficulty: 2,
+    verified: true,
+    sources: [
+      'Wikipedia, Chianti, https://en.wikipedia.org/wiki/Chianti (hentet 2026-09-17)',
+      'Consorzio Vino Chianti Classico, disciplinare, https://www.chianticlassico.com/wp-content/uploads/2020/11/disciplinare-Chianti-Classico.pdf',
+      'Koordinater tjekket mod Wikipedia (MediaWiki API, prop=coordinates) for nærmeste by, 2026-09-17',
+    ],
     story: [
       'Chianti Classico er det historiske kerneområde mellem Firenze og Siena. Den sorte hane (Gallo Nero) på flaskehalsen stammer fra en middelalderlegende om grænsestriden mellem de to byer. Baron Bettino Ricasoli fastlagde i 1872 den klassiske opskrift med Sangiovese som grunddrue.',
       'Området fik sin egen DOCG adskilt fra det øvrige Chianti i 1996. Vinen skal indeholde mindst 80 % Sangiovese, og siden 2014 er Gran Selezione det øverste niveau over Riserva.',
@@ -511,6 +559,11 @@ export const regions: Region[] = [
     climate: 'moderate',
     center: [11.5, 45.5],
     difficulty: 1,
+    verified: true,
+    sources: [
+      'Wikipedia, Veneto wine, https://en.wikipedia.org/wiki/Veneto_wine (hentet 2026-09-17)',
+      'Koordinater tjekket mod Wikipedia (MediaWiki API, prop=coordinates) for nærmeste by, 2026-09-17',
+    ],
     story: [
       'Veneto i det nordøstlige Italien er landets største vinregion målt i mængde. Fra Verona kommer Soave, Valpolicella og den tørrede Amarone, mens Prosecco laves på Glera i bakkerne mod nord. Pinot Grigio fra sletten er en af verdens mest solgte hvidvine.',
       'Verona huser Vinitaly, Italiens største vinmesse, og Gardasøen giver et mildt klima til Bardolino og Lugana.',
@@ -552,6 +605,11 @@ export const regions: Region[] = [
     climate: 'moderate',
     center: [-2.45, 42.45],
     difficulty: 1,
+    verified: true,
+    sources: [
+      'Wikipedia, Rioja (wine), https://en.wikipedia.org/wiki/Rioja_(wine) (hentet 2026-09-17)',
+      'Koordinater tjekket mod Wikipedia (MediaWiki API, prop=coordinates) for nærmeste by, 2026-09-17',
+    ],
     story: [
       'Rioja ligger langs Ebro-floden i det nordlige Spanien og består af tre zoner: den køligere Rioja Alta og Rioja Alavesa i vest og den varmere Rioja Oriental i øst. Da phylloxera ramte Bordeaux i 1800-tallet, flyttede franske vinhandlere sydpå og indførte fadlagring på egetræ.',
       'Tempranillo er hoveddruen, suppleret af Garnacha, Graciano og Mazuelo. Lagring på amerikansk eg gav den klassiske vanille- og kokosprægede stil. Rioja blev i 1991 Spaniens første DOCa, den højeste kvalitetsbetegnelse.',
@@ -579,6 +637,11 @@ export const regions: Region[] = [
     climate: 'cool',
     center: [-8.7, 42.5],
     difficulty: 2,
+    verified: true,
+    sources: [
+      'Wikipedia, Rías Baixas (DO), https://en.wikipedia.org/wiki/Rías_Baixas_(DO) (hentet 2026-09-17)',
+      'Koordinater tjekket mod Wikipedia (MediaWiki API, prop=coordinates) for nærmeste by, 2026-09-17',
+    ],
     story: [
       'Rías Baixas er de fjordlignende havbugter i Galicien i det grønne, regnfulde nordvestlige Spanien. Området laver næsten udelukkende hvidvin på Albariño og fik sin DO i 1988.',
       'For at undgå råd i det fugtige klima dyrkes druerne traditionelt på høje granitpergolaer. Vinene er friske og aromatiske og er det klassiske følgeskab til egnens skaldyr.',
@@ -621,6 +684,12 @@ export const regions: Region[] = [
     climate: 'cool',
     center: [7.0, 49.9],
     difficulty: 1,
+    verified: true,
+    sources: [
+      'Wikipedia, Mosel (wine region), https://en.wikipedia.org/wiki/Mosel_(wine_region) (hentet 2026-09-17)',
+      'Wikipedia, German wine classification, https://en.wikipedia.org/wiki/German_wine_classification (hentet 2026-09-17)',
+      'Koordinater tjekket mod Wikipedia (MediaWiki API, prop=coordinates) for nærmeste by, 2026-09-17',
+    ],
     story: [
       'Mosel snor sig gennem det vestlige Tyskland, og vinmarkerne klamrer sig til nogle af verdens stejleste skråninger, som Bremmer Calmont. Skiferjorden oplagrer varme og spejler solen op på druerne.',
       'Riesling fra Mosel er let i alkohol, høj i syre og har ofte restsødme. Bernkastel, Piesport og Wehlen er de berømte landsbyer, og bifloderne Saar og Ruwer giver endnu strammere vine.',
@@ -663,6 +732,11 @@ export const regions: Region[] = [
     climate: 'warm',
     center: [-122.3, 38.45],
     difficulty: 1,
+    verified: true,
+    sources: [
+      'Wikipedia, Napa Valley AVA, https://en.wikipedia.org/wiki/Napa_Valley_AVA (hentet 2026-09-17)',
+      'Koordinater tjekket mod Wikipedia (MediaWiki API, prop=coordinates) for nærmeste by, 2026-09-17',
+    ],
     story: [
       "Napa Valley nord for San Francisco har lavet vin siden 1860'erne, men phylloxera og forbudstiden satte industrien tilbage. Robert Mondavi grundlagde sit vineri i 1966 og satte gang i den moderne æra.",
       "Ved 'Judgment of Paris' i 1976 slog en Cabernet Sauvignon fra Stag's Leap Wine Cellars de franske topvine i en blindsmagning, og Napa blev verdensberømt. Cabernet Sauvignon fra underområder som Oakville, Rutherford og Stags Leap District er i dag blandt verdens dyreste vine.",
@@ -705,6 +779,11 @@ export const regions: Region[] = [
     climate: 'warm',
     center: [138.95, -34.55],
     difficulty: 1,
+    verified: true,
+    sources: [
+      'Wikipedia, Barossa Valley, https://en.wikipedia.org/wiki/Barossa_Valley (hentet 2026-09-17)',
+      'Koordinater tjekket mod Wikipedia (MediaWiki API, prop=coordinates) for nærmeste by, 2026-09-17',
+    ],
     story: [
       "Barossa Valley nordøst for Adelaide blev koloniseret i 1840'erne af tyske lutheranere fra Schlesien, og den tyske arv ses stadig i landsbynavne og madkultur. Området har aldrig haft phylloxera, så nogle Shiraz-stokke fra 1840'erne producerer stadig.",
       'Barossa er Australiens Shiraz-hovedstad og hjemsted for Penfolds, hvis Grange fra 1951 er landets mest berømte vin. De højere Eden Valley-bakker ved siden af giver Riesling.',
@@ -758,6 +837,11 @@ export const regions: Region[] = [
     climate: 'cool',
     center: [173.75, -41.5],
     difficulty: 1,
+    verified: true,
+    sources: [
+      'Wikipedia, Marlborough wine region, https://en.wikipedia.org/wiki/Marlborough_wine_region (hentet 2026-09-17)',
+      'Koordinater tjekket mod Wikipedia (MediaWiki API, prop=coordinates) for nærmeste by, 2026-09-17',
+    ],
     story: [
       'Marlborough i den nordøstlige del af New Zealands Sydø var fåreland, indtil vinhuset Montana plantede Sauvignon Blanc her i 1973. Cloudy Bay, grundlagt i 1985, gjorde stilen verdensberømt.',
       'Området er solrigt og tørt med kølige nætter, hvilket giver eksplosivt aromatiske vine med høj syre. Marlborough er i dag New Zealands klart største vinregion, og Wairau og Awatere er de to hoveddale.',
@@ -786,9 +870,14 @@ export const regions: Region[] = [
     climate: 'warm',
     center: [-68.85, -33.0],
     difficulty: 1,
+    verified: true,
+    sources: [
+      'Wikipedia, Mendoza wine, https://en.wikipedia.org/wiki/Mendoza_wine (hentet 2026-09-17)',
+      'Koordinater tjekket mod Wikipedia (MediaWiki API, prop=coordinates) for nærmeste by, 2026-09-17',
+    ],
     story: [
-      'Mendoza ved foden af Andesbjergene står for omkring 70 % af Argentinas vin. Området er ørken, og vinmarkerne vandes med smeltevand fra bjergene gennem kanaler, som går tilbage til tiden før spanierne.',
-      "Vinmarkerne ligger i 600–1.500 meters højde, og jo højere, jo køligere. Luján de Cuyo er det klassiske Malbec-område, mens Uco-dalen længere sydpå og højere oppe er blevet det mest eftertragtede område siden 1990'erne.",
+      'Mendoza ved foden af Andesbjergene står for næsten to tredjedele af Argentinas vin. Området er ørken, og vinmarkerne vandes med smeltevand fra bjergene gennem kanaler, som går tilbage til tiden før spanierne.',
+      "Vinmarkerne ligger typisk i 600–1.100 meters højde, i Uco-dalen endnu højere, og jo højere, jo køligere. Luján de Cuyo er det klassiske Malbec-område, mens Uco-dalen længere sydpå og højere oppe er blevet det mest eftertragtede område siden 1990'erne.",
     ],
     note: 'High altitude moderates the heat; often described as warm continental.',
   }),

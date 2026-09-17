@@ -119,7 +119,7 @@ describe('profileGap', () => {
     const a = findStyle('barolo')
     const b = findStyle('barolo')
     expect(profileGap(a, b)).toBe(0)
-    b.profile.acidity = [4, 5]
+    b.profile.acidity = [5, 5]
     expect(profileGap(a, b)).toBe(1)
     b.profile.appearance = 'ruby'
     expect(profileGap(a, b)).toBe(3)
